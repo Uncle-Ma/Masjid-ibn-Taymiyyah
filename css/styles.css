@@ -1,0 +1,42 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: black;
+}
+p, li, h1, h2, h3, h4, h5, h6 {
+    color: goldenrod;
+}
+a {
+    color: goldenrod;
+    text-decoration: none;
+}
+.navbar {
+    background-color: black;
+    margin: 0px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#navbar-title {
+    color: goldenrod;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+#nav-links {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+    font-size: 20px;
+}
+#donate-link {
+    background-color: goldenrod;
+    color: rgba(73, 33, 5, 0.591);
+    padding: 8px 15px;
+    border-radius: 10px;
+    font-weight: bold;
+}
