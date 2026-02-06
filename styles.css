@@ -4,15 +4,11 @@ body {
     padding: 0;
     background-color: black;
 }
- a, h1, h2, h3, h4, h5, h6 {
+ a, h1, h2, h3, h4, h5, h6, p, li {
     color: #c5a059;
     text-decoration: none;
 }
 
-p, li {
-    color: #ffffff;
-    text-decoration: none;
-}
 
 .gold-text {
     color: #c5a059;
