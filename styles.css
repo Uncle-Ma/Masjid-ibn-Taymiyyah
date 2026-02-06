@@ -4,13 +4,20 @@ body {
     padding: 0;
     background-color: black;
 }
-p, li, h1, h2, h3, h4, h5, h6 {
-    color: #c5a059;
-}
-a {
+ a, h1, h2, h3, h4, h5, h6 {
     color: #c5a059;
     text-decoration: none;
 }
+
+p, li {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.gold-text {
+    color: #c5a059;
+}
+
 .navbar {
     background-color: black;
     margin: 0px 15px;
@@ -111,3 +118,4 @@ font-family: 'Playfair Display', serif;
     font-weight: bold;
     margin-bottom: 10px;
 }
+
