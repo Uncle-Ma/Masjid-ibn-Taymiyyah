@@ -40,3 +40,38 @@ a {
     border-radius: 10px;
     font-weight: bold;
 }
+.hero-title {
+font-family: 'Playfair Display', serif;
+  font-size: 100px;
+  font-weight: 700;
+  line-height: 1.1;
+}
+.white-text-in-hero-title {
+    color: white;
+}
+
+.btn {
+    background-color: goldenrod;
+    color: black;
+    padding: 10px 20px;
+    border-radius: 15px;
+    font-weight: bold;
+    text-decoration: none;
+}
+.bismillah {
+    font-size: 24px;
+    display: inline-block;
+    padding: 6px 16px;         
+     border: 1px solid #c5a059;  
+     border-radius: 50px;      
+    color: #c5a059;            
+    font-size: 12px;           
+    text-transform: uppercase; 
+    letter-spacing: 2px;    
+    margin-bottom: 20px;
+}
+
+.hero-container {
+    text-align: center;
+    padding: 50px 20px;
+}
