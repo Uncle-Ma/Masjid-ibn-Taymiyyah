@@ -3,34 +3,186 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - Masjid Ibn Taymiyyah</title>
+    <title>Masjid Ibn Taymiyyah</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="/images/masjid_ibnu_taymiyah_symbol_favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
+
     <nav class="navbar">
-        <div id="navbar-title">
-            <a href="index.html">
-                <p class="gold-text">Masjid Ibn Taymiyyah</p>
-            </a>
+    <div id="navbar-title">
+        <a href="index.html">
+            <p class="gold-text">Masjid Ibn Taymiyyah</p>
+        </a>
+    </div>
+    
+    <input type="checkbox" id="menu-bar">
+    <label for="menu-bar"><i class="fas fa-bars"></i></label>
+
+    <ul id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="PrayerTimesPage.html">Prayer Times</a></li>
+        <li><a href="aboutUsPage.html">About Us</a></li>
+        <li><a href="ProgramsPage.html">Programs</a></li>
+        <li><a href="ServicesPage.html">Services</a></li>
+        <li><a href="EventsPage.html">Events</a></li>
+        <li><a href="ContactPage.html">Contact</a></li>
+        <li><a href="DonationPage.html" id="donate-link">🤎 Donate</a></li>
+    </ul>
+</nav>
+    <header class="about-header">
+        <div class="header-overlay">
+            <h1 class="gold-text">About Our Masjid</h1>
+            <div class="gold-divider"></div>
+            <p>A welcoming community dedicated to worship, learning, and service.</p>
         </div>
-        <ul id="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="PrayerTimesPage.html">Prayer Times</a></li>
-            <li><a href="aboutUsPage.html">About Us</a></li>
-            <li><a href="ProgramsPage.html">Programs</a></li>
-            <li><a href="ServicesPage.html">Services</a></li>
-            <li><a href="EventsPage.html">Events</a></li>
-            <li><a href="ContactPage.html">Contact</a></li>
-            <li><a href="DonationPage.html" id="donate-link">🤎 Donate</a></li>
-        </ul>
-    </nav>
+    </header>
 
-    <section class="about-section-1">
-        <h1>About Us</h1>
-        <p>Masjid Ibn Taymiyyah & Islamic Center is a beacon of faith, learning, and community service dedicated to help strengthen it's community spiritual bond with Allah and serving those in need.
-            
-        </p>
+    <div class="page-container">
+        
+        <section class="mission-vision">
+            <div class="info-card">
+                <h2 class="gold-text"><i class="fas fa-bullseye"></i> Our Mission</h2>
+                <p>To provide a welcoming space for worship, spiritual growth, and education rooted in the teachings of the Quran and Sunnah. We strive to empower our community through service and brotherhood.</p>
+            </div>
+            <div class="info-card">
+                <h2 class="gold-text"><i class="fas fa-eye"></i> Our Vision</h2>
+                <p>To be a model Islamic center that nurtures faith, builds character, and produces engaged citizens who contribute positively to society while maintaining their Islamic identity.</p>
+            </div>
+        </section>
 
+        <section class="accomplishments-section">
+            <h2 class="gold-text section-title">What We Have Accomplished</h2>
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <span class="number gold-text">20+</span>
+                    <p>Years of Community Service</p>
+                </div>
+                <div class="stat-box">
+                    <span class="number gold-text">50+</span>
+                    <p>Hafiz Graduated</p>
+                </div>
+                <div class="stat-box">
+                    <span class="number gold-text">500+</span>
+                    <p>Weekly Students</p>
+                </div>
+                <div class="stat-box">
+                    <span class="number gold-text">1,000+</span>
+                    <p>Lives Impacted Yearly</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="history-section">
+            <h2 class="gold-text">Our Story</h2>
+            <p>Established to serve the growing Muslim community in the Columbus area, Masjid Ibn Taymiyyah was founded on the principles of authentic knowledge and community dedication. Named after the renowned scholar Imam Ibn Taymiyyah, our center reflects a mission to be a beacon of guidance and hope.</p>
+            <p>From our humble beginnings to our current facilities at 2334 Mock Rd, we remain committed to fostering positive relationships with our neighbors and contributing to the broader community.</p>
+        </section>
+
+        <section class="leadership-block">
+            <h2 class="gold-text section-title">Our Imams</h2>
+            <div class="team-grid">
+                <div class="team-card highlight">
+                    <div class="icon-circle"><i class="fas fa-user-tie"></i></div>
+                    <h3>Head Imam</h3>
+                    <p>Spiritual guidance and Lead congregational prayers.</p>
+                </div>
+                <div class="team-card"><div class="icon-circle"><i class="fas fa-user"></i></div><h3>Associate Imam</h3><p>Community education & classes.</p></div>
+                <div class="team-card"><div class="icon-circle"><i class="fas fa-user"></i></div><h3>Associate Imam</h3><p>Youth programs & counseling.</p></div>
+                <div class="team-card"><div class="icon-circle"><i class="fas fa-user"></i></div><h3>Associate Imam</h3><p>Outreach and interfaith.</p></div>
+                <div class="team-card"><div class="icon-circle"><i class="fas fa-user"></i></div><h3>Associate Imam</h3><p>Arabic & Quran studies.</p></div>
+            </div>
+        </section>
+
+        <section class="leadership-block">
+            <h2 class="gold-text section-title">Board of Directors</h2>
+            <div class="team-grid">
+                <div class="team-card highlight">
+                    <div class="icon-circle"><i class="fas fa-crown"></i></div>
+                    <h3>Board Director</h3>
+                    <p>Strategic oversight and masjid management.</p>
+                </div>
+                <div class="team-card"><div class="icon-circle"><i class="fas fa-users"></i></div><h3>Board Member</h3><p>Finance & Accounting.</p></div>
+                <div class="team-card"><div class="icon-circle"><i class="fas fa-users"></i></div><h3>Board Member</h3><p>Operations & Logistics.</p></div>
+                <div class="team-card"><div class="icon-circle"><i class="fas fa-users"></i></div><h3>Board Member</h3><p>Maintenance & Projects.</p></div>
+                <div class="team-card"><div class="icon-circle"><i class="fas fa-users"></i></div><h3>Board Member</h3><p>Public Relations.</p></div>
+            </div>
+        </section>
+
+        <section class="leadership-block">
+            <h2 class="gold-text section-title">Department Heads</h2>
+            <div class="team-grid triple-only">
+                <div class="team-card">
+                    <div class="icon-circle"><i class="fas fa-graduation-cap"></i></div>
+                    <h3>Head of Education</h3>
+                    <p>Leading the Madrasah and adult learning programs.</p>
+                </div>
+                <div class="team-card">
+                    <div class="icon-circle"><i class="fas fa-heartbeat"></i></div>
+                    <h3>Head of Youth</h3>
+                    <p>Organizing youth nights and sporting activities.</p>
+                </div>
+                <div class="team-card">
+                    <div class="icon-circle"><i class="fas fa-hand-holding-heart"></i></div>
+                    <h3>Head of Charity</h3>
+                    <p>Coordinating Zakat and community outreach.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="connect-links">
+            <h2 class="gold-text">Connect With Us</h2>
+            <p>Follow our social media channels to stay updated on events, programs, and community news.</p>
+            <div class="social-pills">
+                <a href="https://www.facebook.com/p/Masjid-Ibnu-Taymiyah-And-Islamic-Center-61555410996243/" target="_blank" class="pill fb"><i class="fab fa-facebook-f"></i> Facebook</a>
+                <a href="https://www.instagram.com/masjidibnutaymiyah/" target="_blank" class="pill ig"><i class="fab fa-instagram"></i> Instagram</a>
+                <a href="https://www.tiktok.com/@masjidibnutaymiyah" target="_blank" class="pill tt"><i class="fab fa-tiktok"></i> TikTok</a>
+            </div>
+        </section>
+
+    </div> <hr class="section-divider">
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-column bio">
+                <h2 class="gold-text">Masjid Ibn Taymiyyah</h2>
+                <p>A community dedicated to worship, learning, and service. Join us in strengthening our faith and building lasting bonds.</p>
+            </div>
+
+            <div class="footer-column links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="aboutUsPage.html">About Us</a></li>
+                    <li><a href="programsPage.html">Programs</a></li>
+                    <li><a href="servicesPage.html">Services</a></li>
+                    <li><a href="eventsPage.html">Events</a></li>
+                    <li><a href="donatePage.html">Donate</a></li>
+                    <li><a href="contactPage.html">Contact</a></li>
+                    <li><a href="PrayerTimesPage.html">Prayer Times</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column contact">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-map-marker-alt"></i> <a href="https://maps.google.com/?q=2334+Mock+Rd+Columbus+OH+43219" target="_blank" class="map-link">2334 Mock Rd, Columbus, OH 43219</a></p>
+                <p><i class="fas fa-phone"></i> 614-418-9137</p>
+                <p><i class="fas fa-envelope"></i> info@masjiditaymiyyah.org</p>
+                
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/p/Masjid-Ibnu-Taymiyah-And-Islamic-Center-61555410996243/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/masjidibnutaymiyah/" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@masjidibnutaymiyah" target="_blank"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>© 2026 Masjid Ibn Taymiyyah & Islamic Center. All rights reserved.</p>
+            <p>Built with faith and dedication</p>
+        </div>
+    </footer>
 
 </body>
 </html>
