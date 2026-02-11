@@ -80,7 +80,7 @@ body {
 
 #nav-links li a {
 
-    color: #ffffff; /* White text as requested */
+    color: #ffffff; 
 
     text-decoration: none;
 
@@ -88,7 +88,7 @@ body {
 
     font-weight: 500;
 
-    position: relative; /* Needed for the gold line positioning */
+    position: relative; 
 
     padding: 5px 0;
 
@@ -1164,3 +1164,6 @@ body {
     .contact-grid { flex-direction: column; }
     .name-row { flex-direction: column; gap: 0; }
 }
+
+/* END OF CONTACT PAGE CSS SECTION */
+/* Donation page CSS */
