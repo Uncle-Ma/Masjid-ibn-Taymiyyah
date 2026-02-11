@@ -446,10 +446,9 @@ font-family: 'Playfair Display', serif;
 
 
 .prayer-time-iframe {
+    width: 99%;
 
-    width: 100%;
-
-    height: 950px;
+    height: 820px;
 
     border-radius: 20px;
 
@@ -664,7 +663,7 @@ font-family: 'Playfair Display', serif;
 
     justify-content: space-between;
 
-    flex-wrap: wrap; /* Allows columns to stack on mobile */
+    flex-wrap: wrap; 
 
     gap: 40px;
 
@@ -682,7 +681,7 @@ font-family: 'Playfair Display', serif;
 
 .gold-text, .footer-column h3 {
 
-    color: #c5a059; /* Your signature gold */
+    color: #c5a059; 
 
     margin-bottom: 20px;
 
@@ -1026,11 +1025,11 @@ body {
     font-size: 48px;
     font-weight: 700;
     margin-bottom: 15px;
-    color: #c5a059; /* Your signature gold */
+    color: #c5a059; 
 }
 
 .white-subtext {
-    color: #ffffff; /* Explicitly white as requested */
+    color: #ffffff;
     font-size: 18px;
     max-width: 700px;
     margin: 0 auto;
