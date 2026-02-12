@@ -1197,11 +1197,16 @@ body {
     justify-content: center;
     text-align: center;
     background-color: #050709;
-    font-size: 20px;
 }
 .PrayerTimesPage-container-iframe {
     width: 70%;
     height: 600px;
     border: 10px solid #FAF9D0;
     border-radius: 20px;
+}
+
+.PrayerTimesPage-container-title {
+    font-size: 80px;
+    margin-bottom: 30px;
+    color: #c5a059;
 }
