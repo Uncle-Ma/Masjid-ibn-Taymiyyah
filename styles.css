@@ -261,6 +261,14 @@ body {
 
     }
 
+    .button-container {
+
+        flex-direction: column;
+
+        gap: 10px;
+
+    }
+
     .mission-vision-container {
 
         margin-left: 0;
@@ -321,6 +329,24 @@ font-family: 'Playfair Display', serif;
     font-weight: bold;
 
     text-decoration: none;
+
+}
+
+.btn:hover {
+
+    box-shadow: 0 0 15px rgba(218, 165, 32, 0.8); /* Golden glow */
+
+}
+
+.button-container {
+
+    display: flex;
+
+    gap: 20px;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
 
 }
 
