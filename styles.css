@@ -394,12 +394,11 @@ font-family: 'Playfair Display', serif;
 
 }
 
+.mission-vision-section {
+    justify-content: center;
+}
 
-.mission-vision-container {
-
-    display: flex; 
-
-    align-items: left;
+.mission-vision-content {
 
     max-width: 600px;
 
@@ -417,7 +416,7 @@ font-family: 'Playfair Display', serif;
 
 
 .mission-vision-title {
-
+    text-align: center;
     font-size: 28px;
 
     font-weight: bold;
@@ -427,26 +426,15 @@ font-family: 'Playfair Display', serif;
 }
 
 
-.prayer-time-title {
-
-    display: flex;
-
-    font-size: 35px;
-
-    font-weight: bold;
-
-    margin-bottom: 50px;
-
-    justify-content: center;
-
+.prayer-widget-side {
     align-items: center;
-
+    justify-content: center;
+    text-align: center;
 }
 
 
-
 .prayer-time-iframe {
-    width: 99%;
+    width: 89%;
 
     height: 820px;
 
@@ -1166,3 +1154,27 @@ body {
 
 /* END OF CONTACT PAGE CSS SECTION */
 /* Donation page CSS */
+/* --- Prayer Times CSS --- */
+
+.PrayerTimesPage-title {
+    font-size: 48px;
+    margin-bottom: 20px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+}
+
+.PrayerTimesPage-container {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: #050709;
+    font-size: 20px;
+}
+.PrayerTimesPage-container-iframe {
+    width: 70%;
+    height: 600px;
+    border: 10px solid #FAF9D0;
+    border-radius: 20px;
+}
