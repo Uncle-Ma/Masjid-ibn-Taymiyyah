@@ -383,6 +383,20 @@ font-family: 'Playfair Display', serif;
 
 }
 
+.gray-text-title-home-page {
+
+    color: rgb(160 160 160 / var(--tw-text-opacity, 1));
+
+    font-size: 1.25rem;
+
+    line-height: 1.6;
+
+    margin-top: 10px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+
+}
 
 .section-label {
 
@@ -421,37 +435,68 @@ font-family: 'Playfair Display', serif;
 }
 
 .mission-vision-section {
-    justify-content: center;
-    text-align: center;
-}
-
-.mission-vision-content {
-
-    max-width: 600px;
+    max-width: 850px;
 
     font-size: 25px;
 
     line-height: 1.6;
 
-    font-family: 'Inter', sans-serif;
-
     border-radius: 15px;
 
     margin-left: 25px;
+    text-align: center;
+    align-items: center;
+    justify-self: center;
+
 
 }
 
 
 .mission-vision-title {
     text-align: center;
-    font-size: 28px;
-
+    font-size: 38px;
     font-weight: bold;
-
+    font-family:  serif;
     margin-bottom: 10px;
 
 }
 
+.gray-text {
+    --tw-text-opacity: 1;
+    color: rgb(160 160 160 / var(--tw-text-opacity, 1));
+    font-size: 1.25rem;
+    line-height: 1.6;
+    margin-top: 20px;
+    
+
+}
+
+
+/* The "Learn About Us" Button */
+.btn-about {
+    display: inline-flex;      /* Keeps the button width tied to the text */
+    justify-content: center;   /* Centers text inside button */
+    align-items: center;       /* Vertically centers text */
+    padding: 12px 34px;        /* More side padding makes it look professional */
+    background-color: transparent;
+    color: #ffffff;
+    text-decoration: none;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    border: 1px solid #c5a059;
+    border-radius: 50px;       /* Fixed: Added the 'p' to 'px' */
+    transition: all 0.3s ease;
+    
+    /* Centering the button itself */
+    margin: 40px auto;         
+    display: table;            /* Best trick to center an inline element with margins */
+}
+
+.btn-about:hover {
+    background-color: #c5a059;
+    color: #000000;
+}
 
 .prayer-widget-side {
     align-items: center;
