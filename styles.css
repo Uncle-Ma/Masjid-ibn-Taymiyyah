@@ -1,464 +1,389 @@
+/* ==========================================================================
+   GLOBAL THEME (SITE-WIDE)
+   ========================================================================== */
+
 body {
-
     font-family: Arial, sans-serif;
-
     margin: 0;
-
     padding: 0;
-
     background-color: black;
-
 }
 
- a, h1, h2, h3, h4, h5, h6, p, li {
-
+a, h1, h2, h3, h4, h5, h6, p, li {
     color: #c5a059;
-
     text-decoration: none;
-
 }
-
-
 
 .gold-text {
-
     color: #c5a059;
-
 }
 
+
+/* ==========================================================================
+   INDEX PAGE: NAVIGATION
+   ========================================================================== */
 
 /* --- Navigation Bar Container --- */
-
 .navbar, .main-nav {
-
     background-color: #000;
-
     padding: 15px 5%;
-
     display: flex;
-
     align-items: center;
-
     justify-content: space-between;
-
     position: sticky;
-
     top: 0;
-
     z-index: 1000;
-
     border-bottom: 1px solid #222;
-
 }
-
 
 #navbar-title a {
-
     text-decoration: none;
-
 }
-
 
 /* --- Navigation Links --- */
-
 #nav-links {
-
     list-style-type: none;
-
     display: flex;
-
     align-items: center;
-
     gap: 25px;
-
     margin: 0;
-
     padding: 0;
-
 }
-
 
 #nav-links li a {
-
     color: #ffffff; 
-
     text-decoration: none;
-
     font-size: 16px;
-
     font-weight: 500;
-
     position: relative; 
-
     padding: 5px 0;
-
     transition: color 0.3s ease;
-
 }
-
 
 /* --- The Gold Underline Hover Effect --- */
-
 #nav-links li a::after {
-
     content: '';
-
     position: absolute;
-
     width: 0;
-
     height: 2px;
-
     bottom: 0;
-
     left: 0;
-
     background-color: #c5a059; /* Your signature gold */
-
     transition: width 0.3s ease;
-
 }
-
 
 #nav-links li a:hover {
-
     color: #c5a059; /* Text turns gold on hover too */
-
 }
-
 
 #nav-links li a:hover::after {
-
     width: 100%; 
-
 }
 
-
 /* Keep the active page link underlined and gold */
-
 #nav-links li a.active {
-
     color: #c5a059;
-
 }
 
 #nav-links li a.active::after {
-
     width: 100%;
-
 }
-
 
 /* --- Donate Button (Special Styling) --- */
-
 #donate-link {
-
     background-color: #c5a059;
-
     color: #000 !important; /* Black text for contrast */
-
     padding: 10px 20px !important;
-
     border-radius: 8px;
-
     font-weight: bold;
-
 }
-
 
 #donate-link::after {
-
     display: none; /* No underline for the button */
-
 }
-
 
 #donate-link:hover {
-
     background-color: #e2ba73;
-
     transform: translateY(-2px);
-
 }
 
-
-/* --- Mobile Menu Styles (From previous step) --- */
-
+/* --- Mobile Menu Styles --- */
 #menu-bar { display: none; }
 
-
 .navbar label, .main-nav label {
-
     font-size: 25px;
-
     color: #c5a059;
-
     cursor: pointer;
-
     display: none;
-
 }
-
 
 @media (max-width: 1024px) {
-
     .navbar label, .main-nav label { display: block; }
-
     
-
     #nav-links {
-
         position: absolute;
-
         top: 100%;
-
         left: 0;
-
         width: 100%;
-
         background: #000;
-
         flex-direction: column;
-
         padding: 30px;
-
         gap: 25px;
-
         display: none;
-
         border-bottom: 1px solid #c5a059;
-
     }
 
-
     #menu-bar:checked ~ #nav-links { display: flex; }
-
     
-
     #nav-links li a::after { display: none; } /* Disable underline anim on mobile for better look */
-
 }
 
 
+/* ==========================================================================
+   INDEX PAGE: HERO SECTION + BUTTONS
+   ========================================================================== */
 
 /* --- Hero & Buttons Responsive Fixes --- */
-
 @media (max-width: 600px) {
-
     .hero-title {
-
         font-size: 45px;
-
     }
 
     .btn {
-
         display: block;
-
         margin: 10px auto;
-
         width: 80%;
-
     }
 
     .button-container {
-
         flex-direction: column;
-
         gap: 10px;
-
     }
 
     .mission-vision-container {
-
         margin-left: 0;
-
         padding: 20px;
-
         text-align: center;
-
     }
-
 }
 
-
-
+/* NOTE: This second #donate-link block overrides the earlier one because it appears later. */
 #donate-link {
-
     background-color: goldenrod;
-
     color: rgba(56, 27, 6, 0.594);
-
     padding: 8px 15px;
-
     border-radius: 10px;
-
     font-weight: bold;
-
 }
 
 .hero-title {
-
-font-family: 'Playfair Display', serif;
-
-  font-size: 100px;
-
-  font-weight: 700;
-
-  line-height: 1.1;
-
+    font-family: 'Playfair Display', serif;
+    font-size: 100px;
+    font-weight: 700;
+    line-height: 1.1;
 }
 
 .white-text-in-hero-title {
-
     color: white;
-
 }
 
-
 .btn {
-
     background-color: goldenrod;
-
     color: black;
-
     padding: 10px 20px;
-
     border-radius: 15px;
-
     font-weight: bold;
-
     text-decoration: none;
-
 }
 
 .btn:hover {
-
     box-shadow: 0 0 15px rgba(218, 165, 32, 0.8); /* Golden glow */
-
 }
 
 .button-container {
-
     display: flex;
-
     gap: 20px;
-
-    justify-content: center;
-
+    align-items: center;
+    justify-content: left;
     flex-wrap: wrap;
-
 }
 
 .bismillah {
-
     font-size: 24px;
-
     display: inline-block;
-
     padding: 6px 16px;         
-
-     border: 1px solid #c5a059;  
-
-     border-radius: 50px;      
-
+    border: 1px solid #c5a059;  
+    border-radius: 50px;      
     color: #c5a059;            
-
     font-size: 12px;           
-
     text-transform: uppercase; 
-
     letter-spacing: 2px;    
-
     margin-bottom: 20px;
-
 }
 
-
 .hero-container {
-
-    text-align: center;
-
+    text-align: left;
     padding: 50px 20px;
-
 }
 
 .gray-text-title-home-page {
-
     color: rgb(160 160 160 / var(--tw-text-opacity, 1));
-
     font-size: 1.25rem;
-
     line-height: 1.6;
-
     margin-top: 10px;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-
+    max-width: 2000px;
 }
+
+.slider-outer {
+    width: 100%;
+    max-width: 500px;
+    position: relative;
+  
+}
+
+.home-content {
+    padding-left: 5%;
+    text-align: left;
+}
+
+/* ==========================================================================
+   UTILITY: ROW THAT STACKS ON SMALL SCREENS
+   ========================================================================== */
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 80px;
+  justify-content: space-between;
+}
+
+@media (max-width: 600px) {
+  .row {
+    flex-direction: column;
+    gap: 85px;
+  }
+
+   .slider-outer {
+    order: -1;
+  }
+  .home-content {
+    text-align: center;
+  }
+
+   .button-container {
+        text-align: center;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        flex-wrap: wrap;
+  }
+}
+/* ==========================================================================
+   HERO: SLIDER + CONTENT WRAPPERS
+   ========================================================================== */
+
+.slider-outer {
+  width: 100%;
+  max-width: 500px;
+  position: relative;
+}
+
+.home-content {
+  justify-content: left;
+  text-align: left;
+  width: 100%;
+  max-width: 900px;
+}
+
+/* ==========================================================================
+   IMAGE SLIDER
+   ========================================================================== */
+
+.slider {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.slider img {
+  width: 100%;
+  display: none;
+  border-radius: 25px;
+}
+
+img.displaySlide {
+  display: block;
+}
+
+.slider button {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.5);
+  top: 50%;
+  transform: translateY(-50%);
+  width: 45px;
+  height: 45px;
+  color: #c5a059;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99;
+}
+
+.slider button:hover {
+  background-color: #c5a059;
+  color: #000;
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+/* ==========================================================================
+   INDEX PAGE: MISSION / VISION SECTION
+   ========================================================================== */
 
 .section-label {
-
-  display: flex;
-
-  align-items: center;
-
-  gap: 15px;           
-
-  margin-bottom: 20px;
-
+    display: flex;
+    align-items: center;
+    gap: 15px;           
+    margin-bottom: 20px;
 }
-
 
 .line {
-
-  width: 40px;        
-
-  height: 1px;        
-
-  background-color: #c5a059; 
-
+    width: 40px;        
+    height: 1px;        
+    background-color: #c5a059; 
 }
 
-
 .label-text {
-
-  color: #c5a059;
-
-  font-size: 14px;
-
-  letter-spacing: 2px;
-
-  text-transform: uppercase;
-
+    color: #c5a059;
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
 }
 
 .mission-vision-section {
     max-width: 850px;
-
     font-size: 25px;
-
     line-height: 1.6;
-
     border-radius: 15px;
-
     margin-left: 25px;
     text-align: center;
     align-items: center;
     justify-self: center;
-
-
 }
-
 
 .mission-vision-title {
     text-align: center;
     font-size: 38px;
     font-weight: bold;
-    font-family:  serif;
+    font-family: serif;
     margin-bottom: 10px;
-
 }
 
 .gray-text {
@@ -467,10 +392,7 @@ font-family: 'Playfair Display', serif;
     font-size: 1.25rem;
     line-height: 1.6;
     margin-top: 20px;
-    
-
 }
-
 
 /* The "Learn About Us" Button */
 .btn-about {
@@ -485,12 +407,10 @@ font-family: 'Playfair Display', serif;
     font-size: 15px;
     font-weight: 500;
     border: 1px solid #c5a059;
-    border-radius: 50px;       /* Fixed: Added the 'p' to 'px' */
+    border-radius: 50px;
     transition: all 0.3s ease;
-    
-    /* Centering the button itself */
     margin: 40px auto;         
-    display: table;            /* Best trick to center an inline element with margins */
+    display: table;            
 }
 
 .btn-about:hover {
@@ -498,574 +418,360 @@ font-family: 'Playfair Display', serif;
     color: #000000;
 }
 
+
+/* ==========================================================================
+   INDEX PAGE: PRAYER WIDGET
+   ========================================================================== */
+
 .prayer-widget-side {
     align-items: center;
     justify-content: center;
     text-align: center;
 }
 
-
 .prayer-time-iframe {
     width: 89%;
-
     height: 820px;
-
     border-radius: 20px;
-
     border: 1px solid #ffffff;
-
 }
 
+
+/* ==========================================================================
+   INDEX PAGE: SECTION DIVIDER
+   ========================================================================== */
 
 .section-divider {
-
     border: 0;
-
     height: 1px;
-
     background: #c5a059; 
-
     width: 100%;         
-
     margin-bottom: 20px; 
-
 }
 
 
+/* ==========================================================================
+   INDEX PAGE: WHAT WE OFFER
+   ========================================================================== */
 
 .offers-section {
-
     background-color: #000;
-
     padding: 80px 5%;
-
     text-align: center;
-
     color: #fff;
-
 }
 
-
+/* NOTE: This .gold-text block adds font sizing and margin; it affects all .gold-text elements. */
 .gold-text {
-
     color: #c5a059;
-
     font-size: 36px;
-
     margin-bottom: 15px;
-
 }
-
 
 .offers-container {
-
     display: flex;
-
     flex-wrap: wrap; 
-
     justify-content: center;
-
     gap: 20px;
-
     margin-top: 50px;
-
 }
-
 
 .offer-card {
-
     background-color: #1a1a1a; 
-
     border: 1px solid #333;
-
     padding: 30px 20px;
-
     border-radius: 15px;
-
     flex: 1;
-
     min-width: 200px; 
-
     max-width: 250px;
-
     transition: transform 0.3s ease, border-color 0.3s ease;
-
     display: flex;
-
     flex-direction: column;
-
     align-items: center;
-
 }
-
 
 .offer-card:hover {
-
     transform: translateY(-10px);
-
     border-color: #c5a059;
-
 }
-
 
 .icon-circle {
-
     width: 60px;
-
     height: 60px;
-
     border: 2px solid #c5a059;
-
     border-radius: 50%;
-
     display: flex;
-
     align-items: center;
-
     justify-content: center;
-
     margin-bottom: 20px;
-
     color: #c5a059;
-
     font-size: 24px;
-
 }
-
 
 .offer-card h3 {
-
     color: #c5a059;
-
     margin-bottom: 15px;
-
     font-size: 20px;
-
 }
-
 
 .offer-card p {
-
     font-size: 14px;
-
     line-height: 1.6;
-
     color: #ccc;
-
     margin-bottom: 20px;
-
 }
-
 
 .card-link {
-
     text-decoration: none; 
-
     display: block;        
-
     color: inherit;        
-
     flex: 1;               
-
     max-width: 250px;
-
     min-width: 200px;
-
 }
-
 
 .learn-more-btn {
-
     margin-top: auto; 
-
     color: #000;
-
     background-color: #c5a059;
-
     padding: 8px 20px;
-
     border-radius: 5px;
-
     text-decoration: none;
-
     font-weight: bold;
-
     font-size: 14px;
-
     transition: background 0.3s ease;
-
 }
-
 
 .learn-more-btn:hover {
-
     background-color: #e2ba73;
-
 }
 
+
+/* ==========================================================================
+   INDEX PAGE: FOOTER
+   ========================================================================== */
 
 .footer {
-
     background-color: #000;
-
     color: #fff;
-
     padding: 60px 10% 20px;
-
     font-family: 'Inter', sans-serif;
-
 }
-
 
 .footer-container {
-
     display: flex;
-
     justify-content: space-between;
-
     flex-wrap: wrap; 
-
     gap: 40px;
-
 }
-
 
 .footer-column {
-
     flex: 1;
-
     min-width: 250px;
-
 }
 
-
+/* NOTE: This also targets .gold-text and can affect headings site-wide. */
 .gold-text, .footer-column h3 {
-
     color: #c5a059; 
-
     margin-bottom: 20px;
-
     font-size: 22px;
-
 }
-
 
 .footer-column p, .footer-column li {
-
     color: #ccc;
-
     font-size: 15px;
-
     line-height: 1.8;
-
     margin-bottom: 10px;
-
 }
-
 
 .footer-column ul {
-
     list-style: none;
-
     padding: 0;
-
 }
-
 
 .footer-column a {
-
     color: #ccc;
-
     text-decoration: none;
-
     transition: color 0.3s;
-
 }
-
 
 .footer-column a:hover {
-
     color: #c5a059;
-
 }
-
 
 /* Social Icons */
-
 .social-icons {
-
     margin-top: 20px;
-
     display: flex;
-
     gap: 15px;
-
 }
-
 
 .social-icons a {
-
     color: #c5a059;
-
     font-size: 20px;
-
     transition: transform 0.3s;
-
 }
-
 
 .social-icons a:hover {
-
     transform: scale(1.2);
-
 }
-
 
 .footer-bottom {
-
     margin-top: 50px;
-
     border-top: 1px solid #222;
-
     padding-top: 20px;
-
     display: flex;
-
     justify-content: space-between;
-
     font-size: 13px;
-
     color: #666;
-
 }
 
 
 
------------- /* --- ABOUT US PAGE CSS SECTION --- */
-
+/* ==========================================================================
+   ABOUT US PAGE CSS SECTION
+   (NOTE: Everything below is your about page styling, in your original order.)
+   ========================================================================== */
 
 /* --- Global Resets & Theme --- */
-
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
-
 body {
-
     background-color: #000;
-
     color: #fff;
-
     font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-
     line-height: 1.6;
-
 }
-
 
 .gold-text { color: #c5a059; }
 
-
 .active { border-bottom: 2px solid #c5a059; padding-bottom: 5px; }
 
-
 /* --- Page Header --- */
-
 .about-header {
-
     background-color: #0a0a0a;
-
     padding: 120px 20px;
-
     text-align: center;
-
     border-bottom: 2px solid #c5a059;
-
 }
-
 
 .gold-divider { width: 80px; height: 3px; background: #c5a059; margin: 20px auto; }
 
-
 .about-header h1 { font-size: 3rem; margin-bottom: 10px; }
 
-
 /* --- Containers --- */
-
 .page-container { max-width: 1200px; margin: 0 auto; padding: 80px 20px; }
 
-
 /* --- Mission & Vision Grid --- */
-
 .mission-vision { display: flex; gap: 40px; margin-bottom: 100px; flex-wrap: wrap; }
 
-
 .info-card {
-
     flex: 1;
-
     min-width: 300px;
-
     padding: 40px;
-
     background: #111;
-
     border-radius: 15px;
-
     border: 1px solid #333;
-
 }
-
 
 .info-card h2 { margin-bottom: 20px; font-size: 1.8rem; }
 
-
 /* --- Accomplishments / Stats --- */
-
 .accomplishments-section { text-align: center; margin-bottom: 100px; }
-
 
 .stats-grid { display: flex; justify-content: space-around; flex-wrap: wrap; gap: 30px; margin-top: 50px; }
 
-
 .stat-box { flex: 1; min-width: 200px; padding: 30px; background: #0a0a0a; border: 1px solid #222; border-radius: 12px; }
-
 
 .stat-box .number { font-size: 3rem; font-weight: bold; display: block; margin-bottom: 5px; }
 
-
 /* --- History Section --- */
-
 .history-section { max-width: 850px; margin: 0 auto 100px; text-align: center; }
-
 
 .history-section h2 { margin-bottom: 25px; font-size: 2.2rem; }
 
-
 .history-section p { margin-bottom: 20px; color: #ccc; font-size: 1.1rem; }
 
-
 /* --- Leadership Sections --- */
-
 .leadership-block { margin-bottom: 100px; }
-
 
 .section-title { text-align: center; margin-bottom: 40px; font-size: 2rem; }
 
-
 .team-grid { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
 
-
 .team-card {
-
     background: #111;
-
     border: 1px solid #222;
-
     padding: 30px 20px;
-
     border-radius: 15px;
-
     flex: 1;
-
     min-width: 200px;
-
     max-width: 220px;
-
     text-align: center;
-
     transition: 0.3s;
-
 }
-
 
 .team-card:hover { border-color: #c5a059; transform: translateY(-5px); }
 
-
 .team-card.highlight { border: 2px solid #c5a059; background: #1a150e; }
-
 
 .icon-circle { width: 70px; height: 70px; border: 2px solid #c5a059; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; color: #c5a059; font-size: 28px; }
 
-
 .triple-only .team-card { max-width: 350px; }
 
-
 /* --- Connect / Social Section --- */
-
 .connect-links { text-align: center; padding: 80px 20px; background: #0a0a0a; border-radius: 15px; }
-
 
 .social-pills { display: flex; justify-content: center; gap: 20px; margin-top: 30px; flex-wrap: wrap; }
 
-
 .pill { text-decoration: none; color: #fff; padding: 12px 25px; border-radius: 50px; background: #222; transition: 0.3s; font-weight: bold; display: flex; align-items: center; gap: 10px; }
-
 
 .pill i { font-size: 1.3rem; }
 
-
 .pill.fb:hover { background: #1877f2; }
-
 .pill.ig:hover { background: #e4405f; }
-
 .pill.tt:hover { background: #000; border: 1px solid #fff; }
 
-
 /* --- Footer --- */
-
 .section-divider { border: 0; height: 1px; background: #222; margin: 0; }
-
 
 .footer { padding: 80px 5% 40px; background: #000; }
 
-
 .footer-container { display: flex; justify-content: space-between; gap: 50px; flex-wrap: wrap; }
-
 
 .footer-column { flex: 1; min-width: 280px; }
 
-
 .footer-column h3 { margin-bottom: 25px; font-weight: bold; }
-
 
 .footer-column ul { list-style: none; padding: 0; }
 
-
 .footer-column li { margin-bottom: 12px; }
-
 
 .footer-column a { text-decoration: none; color: #aaa; transition: 0.3s; }
 
-
 .footer-column a:hover { color: #c5a059; }
-
 
 .map-link { color: #c5a059 !important; font-weight: bold; }
 
-
 .social-icons { display: flex; gap: 15px; margin-top: 20px; }
-
 
 .social-icons a { color: #c5a059; font-size: 1.5rem; transition: 0.3s; }
 
-
 .social-icons a:hover { transform: scale(1.1); color: #fff; }
-
 
 .footer-bottom { border-top: 1px solid #111; margin-top: 60px; padding-top: 20px; display: flex; justify-content: space-between; font-size: 0.9rem; color: #555; }
 
-
 /* --- Responsive fixes --- */
-
 @media (max-width: 768px) {
-
     .nav-links { display: none; } /* Consider a mobile menu later */
-
     .mission-vision { flex-direction: column; }
-
     .stat-box { flex: 1 1 45%; }
-
 }
+
+
+/* ==========================================================================
+   CONTACT PAGE CSS SECTION
+   ========================================================================== */
 
 /* --- FINAL CONTACT PAGE REPLICA --- */
 .contact-page-final {
@@ -1156,6 +862,12 @@ body {
     display: flex; align-items: center; justify-content: center;
     border-radius: 50%; transition: 0.3s;
 }
+.social-circles a:hover { 
+    background-color: #c5a059; /* Fills the circle with gold */
+    color: #000; /* Changes the icon to black (or white) so it's visible */
+    transform: scale(1); /* Optional: slightly grows the icon */
+}
+
 
 /* Form Column */
 .form-column { flex: 1.6; }
@@ -1164,6 +876,7 @@ body {
     padding: 40px;
     border-radius: 15px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    max-height: 900px;
 }
 
 .form-title { font-size: 24px; color: #000; margin-bottom: 30px; font-weight: 700; }
@@ -1225,7 +938,16 @@ body {
 }
 
 /* END OF CONTACT PAGE CSS SECTION */
+
+
+/* ==========================================================================
+   PRAYER TIMES PAGE CSS SECTION
+   ========================================================================== */
+
 /* Donation page CSS */
+
+
+
 /* --- Prayer Times CSS --- */
 
 .PrayerTimesPage-title {
@@ -1234,7 +956,6 @@ body {
     align-items: center;
     justify-content: center;
     text-align: center;
-
 }
 
 .PrayerTimesPage-container {
@@ -1243,6 +964,7 @@ body {
     text-align: center;
     background-color: #050709;
 }
+
 .PrayerTimesPage-container-iframe {
     width: 70%;
     height: 600px;

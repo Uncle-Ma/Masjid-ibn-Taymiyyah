@@ -14,21 +14,54 @@
 
     <!--Nav Bar section has been completed -->
 
-    <section class="hero-container">
-        <div class="home-content">
-            <span class="bismillah">In the Name of Allah, the Most Gracious, the Most Merciful.</span>
-            <h1 class="hero-title"> <span class="white-text-in-hero-title">Masjid</span> <br>Ibn Taymiyyah</h1>
-            <p class="gray-text-title-home-page"> Welcome to Masjid Ibn Taymiyyah, a place to worship, learn, and grow in faith through shared devotion and service. 
-                <br>
-                Join us in our journey of faith and community.</p>
-                <br><br>
-            <div class="button-container">
-                <a href="PrayerTimesPage.html" class="btn">Prayer Times</a>
-                <a href="DonationPage.html" class="btn">Donate</a>
-                <a href="aboutUsPage.html" class="btn">Learn More</a>
-            </div>
-        </div>
+
+<section class="hero-container row">
+  <div class="home-content">
+    <span class="bismillah">In the Name of Allah, the Most Gracious, the Most Merciful.</span>
+
+    <h1 class="hero-title">
+      <span class="white-text-in-hero-title">Masjid</span><br>
+      Ibn Taymiyyah
+    </h1>
+
+    <p class="gray-text-title-home-page">
+     Welcome to Masjid Ibn Taymiyyah, a place to worship, learn, and grow in faith through shared devotion and service. 
+    </p>
+
+<br><br><br>
+    <div class="button-container">
+      <a href="PrayerTimesPage.html" class="btn">Prayer Times</a>
+      <a href="DonationPage.html" class="btn">Donate</a>
+      <a href="aboutUsPage.html" class="btn">Learn More</a>
+    </div>
+  </div>
+
+  <div class="slider-outer">
+    <div class="slider">
+      <div class="slides">
+        <img class="flyer-2" src="/images/RMSCH.jpg" alt="Masjid Ibn Taymiyyah Ramadan Schedule">
+        <img class="flyer-1" src="/images/RMIF.jpg" alt="Masjid Ibn Taymiyyah Iftar Program">
+      </div>
+
+      <button class="prev" onclick="prevSlide()">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+
+      <button class="next" onclick="nextSlide()">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+    </div>
+  </div>
 </section>
+
+
+    
+    
+    
+    
+    
+    
+    
     <!---Hero section is complete as of now. However it will need a background image of the mosque.-->
     <br><br><br><br><br><br><br><br><br>
 <section class="offers-section">
@@ -129,6 +162,57 @@ fetch('components/footer.html')
 .then(data => document.getElementById('footer-placeholder').innerHTML = data);
 
   alert("This website is under construction and is not complete");
+
+
+// Image Slider 
+
+const slides = document.querySelectorAll(".slides img");
+let slideIndex = 0;
+let intervalId = null;
+
+document.addEventListener("DOMContentLoaded", initializeSlider);
+
+function initializeSlider(){
+
+    if(slides.length > 0){
+    slides[slideIndex].classList.add("displaySlide");
+    intervalId = setInterval(nextSlide, 5000);
+
+    }
+
+}
+
+function showSlide(index) {
+
+
+    if(index >= slides.length){
+        slideIndex = 0;
+    }
+    else if (index < 0){
+        slideIndex = slides.length - 1;
+    }
+
+
+
+
+    slides.forEach(slide => {
+        slide.classList.remove("displaySlide");
+    });
+    slides[slideIndex].classList.add("displaySlide");
+
+}
+
+function prevSlide(){
+    clearInterval(intervalId);
+    slideIndex--;
+    showSlide(slideIndex);
+
+}
+
+function nextSlide(){
+    slideIndex++;
+    showSlide(slideIndex);
+}
 
 </script>
 
