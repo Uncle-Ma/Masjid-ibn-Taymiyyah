@@ -977,3 +977,134 @@ body {
     margin-bottom: 30px;
     color: #c5a059;
 }
+
+
+/* ==========================================================================
+    Start of Progams Page CSS
+   ========================================================================== */
+
+
+   /* ==========================================================================
+    Program card for Program page css
+   ========================================================================== */
+
+
+.progamPageHeadIcon {
+    display: flex;
+    font-size: 70px; 
+    color: #c5a059;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0 auto 20px;
+}
+
+.progamPageHead  {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: x-large; 
+    margin-top: 30px;
+    margin-bottom: 100px;
+}
+
+
+.programs-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    flex-direction: row;
+}
+
+.programs-container ul li {
+    list-style: none;
+    color: white;
+    padding-left: 20px;
+}
+
+.programs-container p {
+    color: white;
+}
+
+.programCard-1 {
+    flex: 1 1 350px;       
+    max-width: 450px;     
+    background: #181818;   
+    border-radius: 12px;   
+    padding: 30px;         
+    display: flex;         
+    flex-direction: column;
+}
+
+.programCard-2 {
+    flex: 1 1 350px;       
+    max-width: 450px;     
+    background: #181818;   
+    border-radius: 12px;   
+    padding: 30px;         
+    display: flex;         
+    flex-direction: column;
+}
+
+.programCard-3 {
+    flex: 1 1 350px;       
+    max-width: 450px;     
+    background: #181818;   
+    border-radius: 12px;   
+    padding: 30px;         
+    display: flex;         
+    flex-direction: column;
+}
+
+.programCard-4 {
+    flex: 1 1 350px;       
+    max-width: 450px;     
+    background: #181818;   
+    border-radius: 12px;   
+    padding: 30px;         
+    display: flex;         
+    flex-direction: column;
+}
+
+.programCard-5 {
+    flex: 1 1 350px;       
+    max-width: 450px;     
+    background: #181818;   
+    border-radius: 12px;   
+    padding: 30px;         
+    display: flex; 
+    flex-direction: column;        
+}
+
+#programTimeAndAge {
+    font-size: 20px;
+    color: #c5a059;
+}
+
+.programs-container li::before {
+    content: "•";           /* The bullet character */
+    color: #c5a059;         /* This is your BULLET color (Gold) */
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;             /* Space for the bullet */
+    margin-left: -1em;      /* Pulls the bullet to the left of the text */
+    position: absolute;
+}
+.learn-more-btn-program-page {
+    display: inline-block;    
+    background-color: #c5a059; 
+    color: #ffffff;          
+    padding: 12px 24px;       
+    border-radius: 8px;      
+    text-decoration: none;    
+    font-weight: 600;        
+    margin-top: auto;        
+    text-align: center;
+    transition: all 0.3s ease; 
+    margin-top: 20px;
+}
+
+.learn-more-btn-program-page:hover {
+     box-shadow: 0 0 10px #c5a059, 0 0 30px #c5a059, 0 0 50px #c5a059;       
+
+}
