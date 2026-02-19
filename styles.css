@@ -1171,3 +1171,151 @@ body {
     margin: 0 auto;
     margin-top: 10px;
 }
+
+/* ==========================================================================
+    Start of Services Page CSS
+   ========================================================================== */
+
+.services-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    flex-direction: row;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-bottom: 100px;
+}
+
+.servicesPageHead {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: x-large; 
+    margin-top: 30px;
+    margin-bottom: 100px;
+}
+
+
+.services-container ul li {
+    list-style: none;
+    color: white;
+    padding-left: 20px;
+}
+
+.services-container p {
+    color: white;
+}
+
+.programs-section-divider {
+    color: #c5a059;
+    margin-bottom: 100px;
+
+}
+
+.services-container li::before {
+    content: "•";           /* The bullet character */
+    color: #c5a059;         /* This is your BULLET color (Gold) */
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;             /* Space for the bullet */
+    margin-left: -1em;      /* Pulls the bullet to the left of the text */
+    position: absolute;
+}
+
+
+/* ==========================================================================
+    Start of Services Page Card CSS
+   ========================================================================== */
+
+
+.servicesPageHeadIcon {
+    display: flex;
+    font-size: 70px; 
+    color: #c5a059;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0 auto 20px;
+}
+
+.serviceCard-1 {
+    flex: 1 1 350px;       
+    max-width: 450px;     
+    background: #181818;   
+    border-radius: 12px;   
+    padding: 30px;         
+    display: flex;         
+    flex-direction: column;
+}
+
+.serviceCard-2 {
+    flex: 1 1 350px;       
+    max-width: 450px;     
+    background: #181818;   
+    border-radius: 12px;   
+    padding: 30px;         
+    display: flex;         
+    flex-direction: column;
+}
+
+.serviceCard-3 {
+    flex: 1 1 350px;       
+    max-width: 450px;     
+    background: #181818;   
+    border-radius: 12px;   
+    padding: 30px;         
+    display: flex;         
+    flex-direction: column;
+}
+
+.serviceCard-4 {
+    flex: 1 1 350px;       
+    max-width: 450px;     
+    background: #181818;   
+    border-radius: 12px;   
+    padding: 30px;         
+    display: flex;         
+    flex-direction: column;
+}
+
+.serviceCard-5 {
+    flex: 1 1 350px;       
+    max-width: 450px;     
+    background: #181818;   
+    border-radius: 12px;   
+    padding: 30px;         
+    display: flex;         
+    flex-direction: column;
+}
+
+#servicefeature {
+    font-size: 20px;
+    color: #c5a059;
+}
+
+.serviceCard-1:hover {
+     box-shadow: 0 0 10px #c5a059, 0 0 30px #c5a059, 0 0 50px #c5a059;       
+
+}
+
+.serviceCard-2:hover {
+     box-shadow: 0 0 10px #c5a059, 0 0 30px #c5a059, 0 0 50px #c5a059;       
+
+}
+
+.serviceCard-3:hover {
+     box-shadow: 0 0 10px #c5a059, 0 0 30px #c5a059, 0 0 50px #c5a059;       
+
+}
+
+
+.serviceCard-4:hover {
+     box-shadow: 0 0 10px #c5a059, 0 0 30px #c5a059, 0 0 50px #c5a059;       
+
+}
+
+
+.serviceCard-5:hover {
+     box-shadow: 0 0 10px #c5a059, 0 0 30px #c5a059, 0 0 50px #c5a059;       
+
+}
