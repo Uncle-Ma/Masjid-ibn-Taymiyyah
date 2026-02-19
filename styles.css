@@ -983,12 +983,6 @@ body {
     Start of Progams Page CSS
    ========================================================================== */
 
-
-   /* ==========================================================================
-    Program card for Program page css
-   ========================================================================== */
-
-
 .progamPageHeadIcon {
     display: flex;
     font-size: 70px; 
@@ -1014,6 +1008,8 @@ body {
     flex-wrap: wrap;
     gap: 32px;
     flex-direction: row;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .programs-container ul li {
@@ -1025,6 +1021,21 @@ body {
 .programs-container p {
     color: white;
 }
+
+.programs-section-divider {
+    color: #c5a059;
+    margin-bottom: 100px;
+
+}
+
+
+
+   /* ==========================================================================
+    Program card for Program page css
+   ========================================================================== */
+
+
+
 
 .programCard-1 {
     flex: 1 1 350px;       
@@ -1067,13 +1078,13 @@ body {
 }
 
 .programCard-5 {
-    flex: 1 1 350px;       
+    flex: 0 1 350px;       
     max-width: 450px;     
     background: #181818;   
     border-radius: 12px;   
     padding: 30px;         
     display: flex; 
-    flex-direction: column;        
+    flex-direction: column;     
 }
 
 #programTimeAndAge {
@@ -1090,6 +1101,35 @@ body {
     margin-left: -1em;      /* Pulls the bullet to the left of the text */
     position: absolute;
 }
+
+.programCard-1:hover {
+     box-shadow: 0 0 10px #c5a059, 0 0 30px #c5a059, 0 0 50px #c5a059;       
+
+}
+
+.programCard-2:hover {
+     box-shadow: 0 0 10px #c5a059, 0 0 30px #c5a059, 0 0 50px #c5a059;       
+
+}
+
+.programCard-3:hover {
+     box-shadow: 0 0 10px #c5a059, 0 0 30px #c5a059, 0 0 50px #c5a059;       
+
+}
+
+
+.programCard-4:hover {
+     box-shadow: 0 0 10px #c5a059, 0 0 30px #c5a059, 0 0 50px #c5a059;       
+
+}
+
+
+.programCard-5:hover {
+     box-shadow: 0 0 10px #c5a059, 0 0 30px #c5a059, 0 0 50px #c5a059;       
+
+}
+
+
 .learn-more-btn-program-page {
     display: inline-block;    
     background-color: #c5a059; 
@@ -1107,4 +1147,27 @@ body {
 .learn-more-btn-program-page:hover {
      box-shadow: 0 0 10px #c5a059, 0 0 30px #c5a059, 0 0 50px #c5a059;       
 
+}
+
+ /* ==========================================================================
+    Program card for Program page css is now compleete and the following is the start of it's footer
+   ========================================================================== */
+.progamPageFooterHead {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: x-large; 
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+.progamPageFooterHead p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: x-large; 
+    max-width: 650px;
+    margin: 0 auto;
+    margin-top: 10px;
 }
