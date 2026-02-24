@@ -991,6 +991,8 @@ body {
     align-items: center;
     text-align: center;
     margin: 0 auto 20px;
+    background-color: beige;
+
 }
 
 .progamPageHead  {
@@ -998,14 +1000,15 @@ body {
     align-items: center;
     text-align: center;
     font-size: x-large; 
-    margin-top: 30px;
-    margin-bottom: 100px;
+    margin-bottom: 30px;
+    background-color: beige;
+    padding: 100px 20px;
 }
 
 
 .programs-container {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 32px;
     flex-direction: row;
     padding-left: 10px;
@@ -1036,56 +1039,23 @@ body {
 
 
 
-
-.programCard-1 {
-    flex: 1 1 350px;       
-    max-width: 450px;     
-    background: #181818;   
-    border-radius: 12px;   
-    padding: 30px;         
-    display: flex;         
-    flex-direction: column;
+.programCard-1, .programCard-2, .programCard-3, .programCard-4, .programCard-5 {
+    display: flex;
+    flex-direction: column; /* This keeps text stacked vertically */
+    flex: 1;              
+    min-width: 280px;       
+    height: auto;          
+    min-height: 450px;      
+    background: #181818;
+    border-radius: 12px;
+    padding: 30px;
+    transition: box-shadow 0.3s ease; 
+}
+[class^="programCard-"]:hover {
+    box-shadow: 0 0 10px #c5a059, 0 0 30px #c5a059, 0 0 50px #c5a059;
+    transition: box-shadow 0.3s ease; 
 }
 
-.programCard-2 {
-    flex: 1 1 350px;       
-    max-width: 450px;     
-    background: #181818;   
-    border-radius: 12px;   
-    padding: 30px;         
-    display: flex;         
-    flex-direction: column;
-}
-
-.programCard-3 {
-    flex: 1 1 350px;       
-    max-width: 450px;     
-    background: #181818;   
-    border-radius: 12px;   
-    padding: 30px;         
-    display: flex;         
-    flex-direction: column;
-}
-
-.programCard-4 {
-    flex: 1 1 350px;       
-    max-width: 450px;     
-    background: #181818;   
-    border-radius: 12px;   
-    padding: 30px;         
-    display: flex;         
-    flex-direction: column;
-}
-
-.programCard-5 {
-    flex: 0 1 350px;       
-    max-width: 450px;     
-    background: #181818;   
-    border-radius: 12px;   
-    padding: 30px;         
-    display: flex; 
-    flex-direction: column;     
-}
 
 #programTimeAndAge {
     font-size: 20px;
@@ -1102,32 +1072,6 @@ body {
     position: absolute;
 }
 
-.programCard-1:hover {
-     box-shadow: 0 0 10px #c5a059, 0 0 30px #c5a059, 0 0 50px #c5a059;       
-
-}
-
-.programCard-2:hover {
-     box-shadow: 0 0 10px #c5a059, 0 0 30px #c5a059, 0 0 50px #c5a059;       
-
-}
-
-.programCard-3:hover {
-     box-shadow: 0 0 10px #c5a059, 0 0 30px #c5a059, 0 0 50px #c5a059;       
-
-}
-
-
-.programCard-4:hover {
-     box-shadow: 0 0 10px #c5a059, 0 0 30px #c5a059, 0 0 50px #c5a059;       
-
-}
-
-
-.programCard-5:hover {
-     box-shadow: 0 0 10px #c5a059, 0 0 30px #c5a059, 0 0 50px #c5a059;       
-
-}
 
 
 .learn-more-btn-program-page {
@@ -1144,6 +1088,9 @@ body {
     margin-top: 20px;
 }
 
+
+
+
 .learn-more-btn-program-page:hover {
      box-shadow: 0 0 10px #c5a059, 0 0 30px #c5a059, 0 0 50px #c5a059;       
 
@@ -1153,12 +1100,15 @@ body {
     Program card for Program page css is now compleete and the following is the start of it's footer
    ========================================================================== */
 .progamPageFooterHead {
+    width: 100%;
+    height: 100%;
     justify-content: center;
     align-items: center;
     text-align: center;
-    font-size: x-large; 
-    margin-top: 100px;
-    margin-bottom: 100px;
+    font-size: large; 
+    background-color: beige;
+    padding: 100px 20px;
+    margin-top: 30px;
 }
 
 .progamPageFooterHead p {
@@ -1169,7 +1119,6 @@ body {
     font-size: x-large; 
     max-width: 650px;
     margin: 0 auto;
-    margin-top: 10px;
 }
 
 /* ==========================================================================
@@ -1179,6 +1128,7 @@ body {
 .services-container {
     display: flex;
     flex-wrap: wrap;
+    flex-direction: row;
     gap: 32px;
     flex-direction: row;
     padding-left: 10px;
@@ -1191,8 +1141,11 @@ body {
     align-items: center;
     text-align: center;
     font-size: x-large; 
-    margin-top: 30px;
     margin-bottom: 100px;
+    background-color: beige;
+    width: 100%;
+    height: 100%;
+     padding: 100px 20px;
 }
 
 
@@ -1229,7 +1182,7 @@ body {
 
 
 .servicesPageHeadIcon {
-    display: flex;
+    display: grid;
     font-size: 70px; 
     color: #c5a059;
     justify-content: center;
@@ -1238,54 +1191,14 @@ body {
     margin: 0 auto 20px;
 }
 
-.serviceCard-1 {
-    flex: 1 1 350px;       
-    max-width: 450px;     
-    background: #181818;   
-    border-radius: 12px;   
-    padding: 30px;         
-    display: flex;         
-    flex-direction: column;
-}
-
-.serviceCard-2 {
-    flex: 1 1 350px;       
-    max-width: 450px;     
-    background: #181818;   
-    border-radius: 12px;   
-    padding: 30px;         
-    display: flex;         
-    flex-direction: column;
-}
-
-.serviceCard-3 {
-    flex: 1 1 350px;       
-    max-width: 450px;     
-    background: #181818;   
-    border-radius: 12px;   
-    padding: 30px;         
-    display: flex;         
-    flex-direction: column;
-}
-
-.serviceCard-4 {
-    flex: 1 1 350px;       
-    max-width: 450px;     
-    background: #181818;   
-    border-radius: 12px;   
-    padding: 30px;         
-    display: flex;         
-    flex-direction: column;
-}
-
-.serviceCard-5 {
-    flex: 1 1 350px;       
-    max-width: 450px;     
-    background: #181818;   
-    border-radius: 12px;   
-    padding: 30px;         
-    display: flex;         
-    flex-direction: column;
+.serviceCard-1, .serviceCard-2, .serviceCard-3, .serviceCard-4, .serviceCard-5 {
+    flex: 1;              
+    min-width: 200px;      
+    height: 450px;         
+    background: #181818;
+    border-radius: 12px;
+    padding: 30px;
+    transition: box-shadow 0.3s ease; 
 }
 
 #servicefeature {
@@ -1293,31 +1206,9 @@ body {
     color: #c5a059;
 }
 
-.serviceCard-1:hover {
-     box-shadow: 0 0 10px #c5a059, 0 0 30px #c5a059, 0 0 50px #c5a059;       
-
-}
-
-.serviceCard-2:hover {
-     box-shadow: 0 0 10px #c5a059, 0 0 30px #c5a059, 0 0 50px #c5a059;       
-
-}
-
-.serviceCard-3:hover {
-     box-shadow: 0 0 10px #c5a059, 0 0 30px #c5a059, 0 0 50px #c5a059;       
-
-}
-
-
-.serviceCard-4:hover {
-     box-shadow: 0 0 10px #c5a059, 0 0 30px #c5a059, 0 0 50px #c5a059;       
-
-}
-
-
-.serviceCard-5:hover {
-     box-shadow: 0 0 10px #c5a059, 0 0 30px #c5a059, 0 0 50px #c5a059;       
-
+[class^="serviceCard-"]:hover {
+    box-shadow: 0 0 10px #c5a059, 0 0 30px #c5a059, 0 0 50px #c5a059;
+    transition: box-shadow 0.3s ease; 
 }
 
 
