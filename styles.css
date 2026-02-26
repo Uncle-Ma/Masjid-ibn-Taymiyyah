@@ -1335,16 +1335,18 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-size:x-large;
-    margin-bottom: 30px;
+    font-size: x-large;
+    margin-bottom: 40px;
+    padding: 0 20px;
 }
 .card-container {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr ; 
-    grid-template-rows: auto auto auto;
-    gap: 10px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
     max-width: 1200px;
     margin: 0 auto;
+    padding: 0 20px;
+    margin-bottom: 80px;
 }
 
 .giveCard {
@@ -1352,19 +1354,18 @@ body {
     flex-direction: column; 
     align-items: flex-start; 
     text-align: left;
-    justify-content: center;
-    border: 2px solid #f3d277;
-    border-radius: 5px;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    color:#c5a059;
-    transition: box-shadow 0.3s ease; 
+    justify-content: flex-start;
+    border: 1px solid #333;
+    border-radius: 12px;
+    padding: 28px 24px;
+    color: #c5a059;
+    background: #111;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
-.giveCard:hover {
-   box-shadow: 0 0 10px #c5a059, 0 0 30px #c5a059;
+.give-card:hover {
+   box-shadow: 0 0 10px #c5a059, 0 0 30px #c5a059, 0 0 50px #c5a059;
+   transition: box-shadow 0.3s ease; 
 }
 
 #WTGICON {
@@ -1383,16 +1384,47 @@ body {
 }
 
 .donationPage-card-btn {
-    display: block;    
-    width: 100%;       
-    padding: 12px 0;   
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 14px 0;
     text-align: center;
     box-sizing: border-box;
-    margin-top: 10px;
-    width:  100%;
-    height: 60px;
+    margin-top: auto;
     border-radius: 10px;
-    background-color: #f0e5c5;
+    background-color: #c5a059;
+    color: #000;
+    font-weight: bold;
+    font-size: 15px;
+    transition: background 0.3s ease;
+}
+
+.donationPage-card-btn:hover {
+    background-color: #e2ba73;
+}
+
+/* Donation page grid responsive */
+@media (max-width: 1024px) {
+    .card-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .card-container {
+        grid-template-columns: 1fr;
+    }
+
+    .DonationPageHeadButtons {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .impact-container {
+        flex-direction: column;
+        align-items: center;
+    }
 }
 
 /* ==========================================================================
