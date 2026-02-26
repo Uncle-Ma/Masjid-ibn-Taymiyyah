@@ -991,8 +991,6 @@ body {
     align-items: center;
     text-align: center;
     margin: 0 auto 20px;
-    background-color: beige;
-
 }
 
 .progamPageHead  {
@@ -1001,7 +999,6 @@ body {
     text-align: center;
     font-size: x-large; 
     margin-bottom: 30px;
-    background-color: beige;
     padding: 100px 20px;
 }
 
@@ -1106,7 +1103,6 @@ body {
     align-items: center;
     text-align: center;
     font-size: large; 
-    background-color: beige;
     padding: 100px 20px;
     margin-top: 30px;
 }
@@ -1142,7 +1138,6 @@ body {
     text-align: center;
     font-size: x-large; 
     margin-bottom: 100px;
-    background-color: beige;
     width: 100%;
     height: 100%;
      padding: 100px 20px;
@@ -1212,3 +1207,191 @@ body {
 }
 
 
+/* ==========================================================================
+    Start of Donation Page CSS
+   ========================================================================== */
+
+   /* ==========================================================================
+    Start of Donation Page Head CSS
+   ========================================================================== */
+
+.donationPageHeadContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.donationPageHeadIcon {
+    font-size: 70px; 
+    color: #c5a059;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0 auto 20px;
+    margin-top: 30px;
+}
+    
+.donationPageHead {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+    max-width: 650px;
+}
+
+.DonationPageHeadButtons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    gap: 30px;
+}
+
+.DonationPageHeadButtons a {
+    border: 5px solid #c5a059;
+    color: black;
+    background-color: #c5a059;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: 0.3s;
+    transition: box-shadow 0.3s ease; 
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.DonationPageHeadButtons a:hover {
+    box-shadow: 0 0 10px #c5a059, 0 0 30px #c5a059, 0 0 50px #c5a059;
+    transition: box-shadow 0.3s ease; 
+}
+
+.donationPageHeadSmallBarText {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 50px;
+    background-color: #c5a059;
+    width: 100%;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+ .donationPageHeadSmallBarText p {
+    color: black; 
+ }
+ /* ==========================================================================
+    Start of Donation Page Impact section CSS
+   ========================================================================== */
+
+.impact-section {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.impact-section-head {
+    font-size: x-large;
+    margin-bottom: 30px;
+}
+
+.impact-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;              
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 30px;
+}
+
+.impact-item {
+    flex: 1;                      
+    min-width: 200px;              
+}
+
+.impact-number {
+    display: block;
+    font-size: 3rem;
+    font-weight: bold;
+    color: #c5a059;              
+    margin-bottom: 10px;
+}
+
+.impact-label {
+    font-size: 1.1rem;
+    color: #c5a059;
+    line-height: 1.4;
+}
+
+ /* ==========================================================================
+    Start of Donation Page Ways to Give CSS
+   ========================================================================== */
+.WaysToGive-Head {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size:x-large;
+    margin-bottom: 30px;
+}
+.card-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr ; 
+    grid-template-rows: auto auto auto;
+    gap: 10px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.giveCard {
+    display: flex;
+    flex-direction: column; 
+    align-items: flex-start; 
+    text-align: left;
+    justify-content: center;
+    border: 2px solid #f3d277;
+    border-radius: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color:#c5a059;
+    transition: box-shadow 0.3s ease; 
+}
+
+.give-card:hover {
+   box-shadow: 0 0 10px #c5a059, 0 0 30px #c5a059, 0 0 50px #c5a059;
+   transition: box-shadow 0.3s ease; 
+}
+
+#WTGICON {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #f0e5c5;
+    margin-bottom: 20px;
+    font-size: 20px;
+    border-radius: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.donationPage-card-btn {
+    display: block;    
+    width: 100%;       
+    padding: 12px 0;   
+    text-align: center;
+    box-sizing: border-box;
+    margin-top: 10px;
+    width:  100%;
+    height: 60px;
+    border-radius: 10px;
+    background-color: #f0e5c5;
+}
