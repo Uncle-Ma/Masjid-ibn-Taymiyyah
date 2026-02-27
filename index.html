@@ -12,23 +12,16 @@
 
 <div id="nav-placeholder"></div>
 
-    <!--Nav Bar section has been completed -->
-
-
-<section class="hero-container row">
+<section class="hero-container">
   <div class="home-content">
     <span class="bismillah">In the Name of Allah, the Most Gracious, the Most Merciful.</span>
-
     <h1 class="hero-title">
       <span class="white-text-in-hero-title">Masjid</span><br>
       Ibn Taymiyyah
     </h1>
-
     <p class="gray-text-title-home-page">
      Welcome to Masjid Ibn Taymiyyah, a place to worship, learn, and grow in faith through shared devotion and service. 
     </p>
-
-<br><br><br>
     <div class="button-container">
       <a href="PrayerTimesPage.html" class="btn">Prayer Times</a>
       <a href="DonationPage.html" class="btn">Donate</a>
@@ -39,130 +32,70 @@
   <div class="slider-outer">
     <div class="slider">
       <div class="slides">
-        <img class="flyer-2" src="/images/RMSCH.jpg" alt="Masjid Ibn Taymiyyah Ramadan Schedule">
-        <img class="flyer-1" src="/images/RMIF.jpg" alt="Masjid Ibn Taymiyyah Iftar Program">
+        <img class="displaySlide" src="/images/RMSCH.jpg" alt="Ramadan Schedule">
+        <img src="/images/RMIF.jpg" alt="Iftar Program">
       </div>
-
-      <button class="prev" onclick="prevSlide()">
-        <i class="fas fa-chevron-left"></i>
-      </button>
-
-      <button class="next" onclick="nextSlide()">
-        <i class="fas fa-chevron-right"></i>
-      </button>
+      <button class="prev" onclick="prevSlide()"><i class="fas fa-chevron-left"></i></button>
+      <button class="next" onclick="nextSlide()"><i class="fas fa-chevron-right"></i></button>
     </div>
   </div>
 </section>
 
-
-    
-    
-    
-    
-    
-    
-    
-    <!---Hero section is complete as of now. However it will need a background image of the mosque.-->
-    <br><br><br><br><br><br><br><br><br>
 <section class="offers-section">
-    <div class="offers-header">
-        <h2 class="gold-text">What We Offer</h2>
-        <p>Our center provides a welcoming space for worship, learning, and community building.</p>
-    </div>
-
-   <div class="offers-container">
-    <a href="PrayerTimesPage.html" class="card-link">
+    <h2 class="gold-text">What We Offer</h2>
+    <div class="offers-container">
         <div class="offer-card">
             <div class="icon-circle"><i class="fas fa-clock"></i></div>
             <h3>Daily Prayers</h3>
             <p>Join us for all five daily prayers in congregation.</p>
         </div>
-    </a>
-
-    <a href="/Hifz-Program.html" class="card-link">
         <div class="offer-card">
             <div class="icon-circle"><i class="fas fa-book-open"></i></div>
             <h3>Quran Classes</h3>
-            <p>Learn Quran recitation and memorization for all ages.</p>
+            <p>Learn Quran recitation and memorization.</p>
         </div>
-    </a>
-
-    <a href="/EventsPage.html" class="card-link">
         <div class="offer-card">
             <div class="icon-circle"><i class="fas fa-users"></i></div>
-            <h3>Community Events</h3>
-            <p>Regular gatherings, lectures, and family programs.</p>
+            <h3>Events</h3>
+            <p>Regular gatherings and family programs.</p>
         </div>
-    </a>
-
-    <a href="DonationPage.html" class="card-link">
         <div class="offer-card">
             <div class="icon-circle"><i class="fas fa-hand-holding-heart"></i></div>
-            <h3>Community Support</h3>
-            <p>Zakat distribution and community assistance programs.</p>
+            <h3>Support</h3>
+            <p>Zakat and community assistance.</p>
         </div>
-    </a>
-
-    <a href="ProgramsPage.html" class="card-link">
-        <div class="offer-card highlight-card">
-            <div class="icon-circle"><i class="fas fa-plus"></i></div>
-            <h3>And More</h3>
-            <p>Explore our wide range of additional community services.</p>
-            <div class="learn-more-btn">Learn More</div> </div>
-    </a>
-</div>
+    </div>
 </section>
-<br><br><br><br><br><br>
 
 <section class="home-prayer-section">
     <div class="prayer-widget-wrapper">
-        <h2 class="widget-title">Daily Prayer Schedule</h2>
-        
+        <h2 class="widget-title">Prayer Schedule</h2>
         <div class="iframe-inner-frame">
             <iframe 
-                src="//mawaqit.net/en/w/ibnutaymiyah-columbus?showOnly5PrayerTimes=0" 
+                src="https://mawaqit.net/en/w/ibnutaymiyah-columbus?showOnly5PrayerTimes=1&showNextPrayer=1" 
                 class="prayer-time-iframe" 
                 scrolling="no">
             </iframe>
         </div>
-        
-        <p class="widget-footer">Times updated live via Mawaqit</p>
     </div>
 </section>
-    
-    <br><br><br><br><br><br><br><br>
-
-<hr class="section-divider">
-
-<section class="mission-vision-section">
-    <div class="section-label">
-        </div>
-
-        <div class="mission-vision-section">
-            <h2 class="mission-vision-title">To Serve as a Home of Faith, Learning, and Shared Purpose for Muslims.</h2>
-            <p  class="gray-text">Masjid Ibn Taymiyyah & Islamic Center serves as a spiritual home for our community, offering daily prayers, educational programs, and social services that strengthen our faith and bonds.
-                <br><br>
-                    We are dedicated to fostering an environment of learning, compassion, and unity, guided by the teachings of Islam and the example of our beloved Prophet Muhammad (peace be upon him).</p>
-        </div>
-</section>
-
-
-
-    <a href="aboutUsPage.html" class="btn-about">Learn More</a>
-
-
-<!--Mission section is now complete-->
-<br><br><br><br><br><br><br><br><br>
-
-<!--What we offer section is now complete-->
-<hr class="section-divider">
 
 <div id="footer-placeholder"></div>
 
+<script>
+    fetch('components/nav.html').then(res => res.text()).then(data => document.getElementById('nav-placeholder').innerHTML = data);
+    fetch('components/footer.html').then(res => res.text()).then(data => document.getElementById('footer-placeholder').innerHTML = data);
 
-
-<script src="/script.js"></script>
-
-
+    let slideIndex = 0;
+    function showSlide(index) {
+        const slides = document.querySelectorAll(".slider img");
+        if (slides.length === 0) return;
+        slides.forEach(img => img.classList.remove("displaySlide"));
+        slideIndex = (index + slides.length) % slides.length;
+        slides[slideIndex].classList.add("displaySlide");
+    }
+    function nextSlide() { showSlide(slideIndex + 1); }
+    function prevSlide() { showSlide(slideIndex - 1); }
+</script>
 </body>
 </html>
