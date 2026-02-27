@@ -1172,12 +1172,16 @@ body {
     padding: 28px 24px;
     color: #c5a059;
     background: #111;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.give-card:hover {
-   box-shadow: 0 0 10px #c5a059, 0 0 30px #c5a059, 0 0 50px #c5a059;
-   transition: box-shadow 0.3s ease; 
+.giveCard p, .payCard p {
+    margin-bottom: 20px; /* Adds space specifically below the description text */
+}
+
+.giveCard:hover {
+    box-shadow: 0 0 10px #c5a059, 0 0 30px #c5a059, 0 0 50px #c5a059;
+   transform: translateY(-5px);
 }
 
 #WTGICON {
