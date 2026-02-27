@@ -420,20 +420,79 @@ img.displaySlide {
 
 
 /* ==========================================================================
-   INDEX PAGE: PRAYER WIDGET
+   INDEX PAGE: PRAYER WIDGET (Modern Refresh)
    ========================================================================== */
 
-.prayer-widget-side {
-    align-items: center;
+.home-prayer-section {
+    background-color: #050709; /* Matches your deep black theme */
+    padding: 60px 20px;
+    display: flex;
     justify-content: center;
+}
+
+.prayer-widget-wrapper {
+    width: 100%;
+    max-width: 1100px;
     text-align: center;
 }
 
+.widget-title {
+    color: #c5a059;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* This creates the "Frame" around the widget */
+.iframe-inner-frame {
+    position: relative;
+    background: #111; /* Slightly lighter black to create depth */
+    padding: 15px;
+    border-radius: 25px;
+    border: 1px solid rgba(197, 160, 89, 0.4); /* Faint gold border */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8), 
+                0 0 15px rgba(197, 160, 89, 0.1); /* Ambient gold glow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect for the whole widget */
+.iframe-inner-frame:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9), 
+                0 0 30px rgba(197, 160, 89, 0.2);
+    border-color: #c5a059;
+}
+
 .prayer-time-iframe {
-    width: 89%;
-    height: 820px;
-    border-radius: 20px;
-    border: 1px solid #ffffff;
+    width: 100%;
+    height: 600px; /* Adjusted height to fit Mawaqit perfectly */
+    border: none;  /* Removed the old white border */
+    border-radius: 15px;
+    display: block;
+}
+
+.widget-footer {
+    margin-top: 20px;
+    color: #666;
+    font-size: 0.9rem;
+    font-style: italic;
+}
+
+/* --- Mobile Fixes --- */
+@media (max-width: 768px) {
+    .widget-title {
+        font-size: 1.8rem;
+    }
+    
+    .iframe-inner-frame {
+        padding: 8px;
+        border-radius: 15px;
+    }
+    
+    .prayer-time-iframe {
+        height: 480px; /* Shorter for mobile screens */
+    }
 }
 
 
@@ -941,41 +1000,201 @@ body {
 
 
 /* ==========================================================================
-   PRAYER TIMES PAGE CSS SECTION
+   PRAYER TIMES PAGE - MODERN DESIGN
    ========================================================================== */
 
-/* Donation page CSS */
-
-
-
-/* --- Prayer Times CSS --- */
-
-.PrayerTimesPage-title {
-    font-size: 48px;
-    margin-bottom: 20px;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+.PrayerTimes-Section {
+    background-color: #050709;
+    padding: 80px 20px;
 }
 
 .PrayerTimesPage-container {
-    align-items: center;
-    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
     text-align: center;
-    background-color: #050709;
-}
-
-.PrayerTimesPage-container-iframe {
-    width: 70%;
-    height: 600px;
-    border: 10px solid #FAF9D0;
-    border-radius: 20px;
 }
 
 .PrayerTimesPage-container-title {
-    font-size: 100px;
-    margin-bottom: 30px;
+    font-size: clamp(3rem, 8vw, 6rem); 
+    margin-bottom: 20px;
     color: #c5a059;
+    font-weight: 800;
+}
+
+.PrayerTimesPage-description {
+    color: #a0a0a0;
+    max-width: 700px;
+    margin: 0 auto 50px auto;
+    line-height: 1.6;
+}
+
+/* The Wrapper handles the styling */
+.iframe-wrapper {
+    position: relative;
+    width: 85%; 
+    margin: 0 auto;
+    background: #111;
+    border-radius: 20px;
+    padding: 10px;
+    border: 1px solid rgba(197, 160, 89, 0.3); /* Subtle gold outline */
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 
+                0 0 20px rgba(197, 160, 89, 0.1); /* Soft gold glow */
+}
+
+.PrayerTimesPage-container-iframe {
+    width: 100%;
+    height: 650px; /* Slightly taller to ensure no scrolling */
+    border-radius: 15px;
+    display: block;
+}
+
+/* Target the Title ONLY when the Container is hovered */
+.PrayerTimesPage-container:hover .PrayerTimesPage-container-title {
+    color: #f0e5c5;           /* Changes to a lighter gold */
+    text-shadow: 0 0 20px rgba(197, 160, 89, 0.6); /* Adds a title glow */
+    transform: scale(1.05);   /* Makes the text grow slightly */
+}
+
+/* --- Media Query for Mobile --- */
+@media (max-width: 768px) {
+    .PrayerTimes-Section {
+        padding: 40px 15px;
+    }
+
+    .iframe-wrapper {
+        width: 100%; /* Take full width on phones */
+        padding: 5px;
+        border-radius: 12px;
+    }
+
+    .PrayerTimesPage-container-iframe {
+        height: 500px; /* Adjust height for mobile viewports */
+    }
+
+    .PrayerTimesPage-description {
+        font-size: 14px;
+        padding: 0 10px;
+    }
+}
+
+
+/* ==========================================================================
+    Prayer Schedule Section - Custom Classes
+   ========================================================================== */
+
+.prayer-schedule-section {
+    background-color: #000;
+    padding: 80px 20px;
+    color: #c5a059;
+}
+
+.prayer-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.prayer-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.prayer-times-list {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.prayer-time-entry {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #111; /* Darker than the page background */
+    border: 1px solid #333;
+    padding: 25px 40px;
+    border-radius: 15px;
+    transition: all 0.4s ease;
+    flex-wrap: wrap; /* Helps on mobile */
+}
+
+/* The Glow Effect */
+.prayer-time-entry:hover {
+    border-color: #c5a059;
+    box-shadow: 0 0 20px rgba(197, 160, 89, 0.2), 
+                inset 0 0 10px rgba(197, 160, 89, 0.1);
+    transform: translateX(10px); /* Subtle slide-right effect */
+}
+
+.prayer-info {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.prayer-indicator {
+    background-color: #f0e5c5; /* Your light cream color */
+    color: #000;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.prayer-title {
+    margin: 0;
+    font-size: 1.6rem;
+}
+
+.prayer-clock {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #f0e5c5;
+}
+
+
+.youth-version .prayer-subtext {
+    flex-basis: 100%;
+    margin-top: 15px;
+    opacity: 0.6;
+    font-style: italic;
+    border-top: 1px solid #333;
+    padding-top: 10px;
+}
+
+/* ==========================================================================
+    Mobile Responsive Fixes for Jummah Section
+   ========================================================================== */
+
+@media (max-width: 768px) {
+    .prayer-time-entry {
+        align-items: flex-start;   
+        gap: 15px;                 
+        padding: 20px;
+    }
+
+    .prayer-clock {
+        font-size: 1.5rem;        
+        align-self: flex-end;      
+        border-top: 1px solid #333; 
+        width: 100%;
+        text-align: right;
+        padding-top: 10px;
+    }
+
+    .prayer-title {
+        font-size: 1.2rem;         
+    }
+
+    .prayer-indicator {
+        width: 40px;             
+        height: 40px;
+        font-size: 0.9rem;
+    }
 }
 
 
@@ -1499,4 +1718,3 @@ body {
 .paymentPage-card-btn:hover {
     background-color: #e2ba73;
 }
-
