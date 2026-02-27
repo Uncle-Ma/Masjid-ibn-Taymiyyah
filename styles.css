@@ -991,9 +991,59 @@ body {
 .find-title { font-size: 32px; margin-bottom: 40px; color: #fff; }
 .map-frame { border-radius: 20px; overflow: hidden; border: 1px solid #222; }
 
+/* ==========================================================================
+   CONTACT PAGE MEDIA QUERIES (Study Version)
+   ========================================================================== */
+
+/* This triggers when the screen width is 900px or smaller */
 @media (max-width: 900px) {
-    .contact-grid { flex-direction: column; }
-    .name-row { flex-direction: column; gap: 0; }
+    
+    /* 1. Reset the Grid */
+    .contact-grid { 
+        flex-direction: column;         /* Changes side-by-side to top-and-bottom */
+        gap: 40px;                      /* Reduces the massive gap between columns */
+    }
+
+    /* 2. Hero Section Adjustments */
+    .contact-hero {
+        padding: 60px 20px;             /* Reduces top/bottom padding for smaller screens */
+    }
+
+    .gold-header-text {
+        font-size: 32px;                /* Shrinks the 48px title so it fits on one line */
+    }
+
+    /* 3. Container & Form Row Adjustments */
+    .main-body-container {
+        padding: 40px 20px;             /* Less white space around the main body */
+    }
+
+    .name-row { 
+        flex-direction: column;         /* Stacks First Name and Last Name vertically */
+        gap: 0;                         /* Removes horizontal gap since they are stacked */
+    }
+
+    /* 4. Column Titles */
+    .column-title {
+        text-align: center;             /* Centers "Get in Touch" for better mobile looks */
+        font-size: 24px;
+    }
+
+    /* 5. The Map Adjustment */
+    .find-us-full {
+        margin-top: 60px;               /* Moves the map section closer to the content */
+    }
+    
+    .map-frame iframe {
+        height: 350px;                  /* Makes the map shorter on mobile screens */
+    }
+
+    /* 6. Centering Socials */
+    .social-follow h3,
+    .social-circles {
+        justify-content: center;        /* Centers the social icons for better symmetry */
+        text-align: center;
+    }
 }
 
 /* END OF CONTACT PAGE CSS SECTION */
@@ -2007,5 +2057,185 @@ body {
 @media (max-width: 768px) {
     .checklist-items {
         grid-template-columns: 1fr; /* Single column on mobile */
+    }
+}
+
+/* ==========================================================================
+   EVENTS PAGE: HERO & SUBSCRIBE STYLES
+   ========================================================================== */
+
+.events-hero {
+    text-align: center;             /* Centers the text and child elements */
+    padding: 100px 20px;            /* 100px vertical, 20px horizontal padding */
+    background-color: #050709;      /* Deep black background for the theme */
+}
+
+.events-hero-icon {
+    font-size: 60px;                /* Sets size of the calendar icon */
+    color: #c5a059;                 /* Gold brand color */
+    margin-bottom: 20px;            /* Space below the icon */
+}
+
+.events-hero h1 {
+    color: #c5a059;                 /* Gold text for the main heading */
+    font-size: 3rem;                /* Large impact font size */
+    margin-bottom: 10px;            /* Space below the heading */
+}
+
+.subscribe-box {
+    background: #111;               /* Darker grey for the container */
+    padding: 30px;                  /* Space inside the box */
+    border-radius: 15px;            /* Rounded corners */
+    border: 1px solid #333;         /* Subtle border line */
+    max-width: 500px;               /* Limits the width on large screens */
+    margin: 40px auto 0 auto;       /* Centers the box horizontally */
+}
+
+.subscribe-form {
+    display: flex;                  /* Puts input and button in a row */
+    gap: 10px;                      /* 10px gap between input and button */
+    margin-top: 20px;               /* Space above the input fields */
+}
+
+.subscribe-form input {
+    flex: 1;                        /* Allows input to grow and fill space */
+    padding: 12px;                  /* Inner text spacing */
+    border-radius: 8px;             /* Rounded corners for the field */
+    border: 1px solid #222;         /* Dark border for the field */
+    background: #000;               /* Black background inside the input */
+    color: #fff;                    /* White text when user types */
+}
+
+.subscribe-btn {
+    background: #c5a059;            /* Gold background for the button */
+    color: #000;                    /* Black text on the button */
+    border: none;                   /* Removes default browser border */
+    padding: 0 20px;                /* Horizontal padding for button size */
+    border-radius: 8px;             /* Matches input field corners */
+    font-weight: bold;              /* Makes button text bold */
+    cursor: pointer;                /* Hand icon on mouse hover */
+}
+
+/* ==========================================================================
+   EVENTS PAGE: FLYER GRID & BADGE STYLES
+   ========================================================================== */
+
+.events-section {
+    max-width: 1100px;              /* Keeps content focused in the center */
+    margin: 0 auto 80px auto;       /* Centers horizontally with bottom margin */
+    padding: 0 20px;                /* Side padding for mobile devices */
+}
+
+.event-type-title {
+    color: #c5a059;                 /* Gold section header color */
+    border-bottom: 1px solid #333;  /* Underline for the header */
+    padding-bottom: 15px;           /* Space between text and line */
+    margin-bottom: 40px;            /* Space below the line */
+}
+
+.flyer-grid {
+    display: grid;                  /* Enables the CSS grid layout */
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Responsive columns */
+    gap: 32px;                      /* Gap between the flyer cards */
+}
+
+.event-flyer-card {
+    background: #181818;            /* Card background color */
+    border-radius: 12px;            /* Rounded corners */
+    border: 1px solid #222;         /* Card border color */
+    position: relative;             /* CRITICAL: Anchor for the bottom badge */
+    overflow: hidden;               /* Clips the badge to the rounded corners */
+    padding-bottom: 50px;           /* PADDING: Prevents text from being hidden by badge */
+    transition: 0.3s ease;          /* Speed for hover transition */
+}
+
+.event-flyer-card:hover {
+    border-color: #c5a059;          /* Turns border gold on hover */
+    transform: translateY(-5px);    /* Lifts the card slightly */
+}
+
+.flyer-content {
+    padding: 25px;                  /* Interior space for text */
+}
+
+.flyer-status-bottom {
+    position: absolute;             /* PINNING: Places it relative to the card */
+    bottom: 0;                      /* Sticks it to the bottom edge */
+    left: 0;                        /* Sticks it to the left edge */
+    width: 100%;                    /* Spans the full width of the card */
+    background: #ff4d4d;            /* Alert red background */
+    color: white;                   /* White text */
+    text-align: center;             /* Centers the "Tonight" text */
+    padding: 10px 0;                /* Vertical size of the bar */
+    font-size: 0.85rem;             /* Font size for the badge */
+    font-weight: bold;              /* Bold text for the badge */
+    text-transform: uppercase;      /* All caps text */
+    letter-spacing: 1px;            /* Space between letters */
+}
+
+.flyer-date {
+    color: #c5a059;                 /* Gold color for the date string */
+    font-size: 0.9rem;              /* Smaller text size for the date */
+    display: block;                 /* Forces date onto its own line */
+    margin-bottom: 10px;            /* Space below the date */
+}
+
+.instagram-link {
+    display: inline-block;          /* Allows for top/bottom margins */
+    margin-top: 20px;               /* Space above the link */
+    color: #c5a059;                 /* Gold link color */
+    text-decoration: none;          /* Removes default underline */
+    font-weight: bold;              /* Bold font weight */
+}
+
+/* ==========================================================================
+   EVENTS PAGE: REGULAR PROGRAMS & FOOTER
+   ========================================================================== */
+
+.regular-item {
+    display: flex;                  /* Places day and info in a row */
+    align-items: center;            /* Vertically centers the items */
+    padding: 20px;                  /* Vertical row spacing */
+    border-bottom: 1px solid #222;  /* Divider line between programs */
+}
+
+.program-day {
+    min-width: 120px;               /* Keeps all days aligned in a column */
+    color: #c5a059;                 /* Gold text color for the day */
+    font-weight: bold;              /* Bold text for the day */
+    font-size: 1.2rem;              /* Larger font for the day */
+}
+
+.request-event-footer {
+    text-align: center;             /* Centers footer content */
+    padding: 80px 20px;             /* Large top/bottom padding */
+    background: #0a0c0e;            /* Dark footer background */
+    border-top: 1px solid #222;     /* Line separating from the rest */
+}
+
+.request-btn {
+    display: inline-block;          /* Allows for padding and width */
+    margin-top: 30px;               /* Space above the button */
+    padding: 15px 40px;             /* Size of the button */
+    background: #c5a059;            /* Gold background */
+    color: #000;                    /* Black text */
+    text-decoration: none;          /* Removes underline */
+    font-weight: bold;              /* Bold text */
+    border-radius: 50px;            /* Pill shaped button */
+    transition: 0.3s;               /* Smooth hover effect */
+}
+
+/* ==========================================================================
+   EVENTS PAGE: MOBILE RESPONSIVENESS
+   ========================================================================== */
+
+@media (max-width: 768px) {
+    .subscribe-form {
+        flex-direction: column;     /* Stacks input and button on mobile */
+    }
+    
+    .regular-item {
+        flex-direction: column;     /* Stacks day on top of info on mobile */
+        align-items: flex-start;    /* Left-aligns text on mobile */
     }
 }
