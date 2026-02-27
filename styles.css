@@ -1196,144 +1196,164 @@ body {
         font-size: 0.9rem;
     }
 }
-
-
 /* ==========================================================================
-    Start of Progams Page CSS
+    Programs Page - Educational Styled CSS
    ========================================================================== */
 
+/* Header section styling */
+.progamPageHead {
+    text-align: center; /* Centers the text horizontally */
+    padding: 100px 20px; /* Adds space inside the top and bottom */
+    background-color: #050709; /* Sets the deep black background */
+}
+
+/* The big icon at the top */
 .progamPageHeadIcon {
-    display: flex;
-    font-size: 70px; 
-    color: #c5a059;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    margin: 0 auto 20px;
+    font-size: 70px; /* Makes the icon very large */
+    color: #c5a059; /* Your signature gold color */
+    margin-bottom: 20px; /* Space between icon and the title */
+    display: block; /* Ensures it takes its own line */
 }
 
-.progamPageHead  {
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    font-size: x-large; 
-    margin-bottom: 30px;
-    padding: 100px 20px;
+/* The main title "Our Programs" */
+.progamPageHead h1 {
+    font-size: 3rem; /* Large, bold font size */
+    color: #c5a059; /* Gold color */
+    margin-bottom: 10px; /* Space below the heading */
 }
 
+/* The subtitle below the main title */
+.progamPageHead p {
+    color: #a0a0a0; /* Subtle grey color for secondary text */
+    font-size: 1.2rem; /* Comfortable reading size */
+}
 
+/* The Grid Container for all cards */
 .programs-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 32px;
-    flex-direction: row;
-    padding-left: 10px;
-    padding-right: 10px;
+    display: grid; /* Enables the grid layout system */
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Most important line: automatically creates columns based on screen width */
+    gap: 32px; /* Adds even space between all cards */
+    max-width: 1200px; /* Prevents the grid from becoming too wide on huge monitors */
+    margin: 0 auto 100px auto; /* Centers the whole grid and adds bottom margin */
+    padding: 0 20px; /* Prevents cards from touching screen edges on mobile */
 }
 
-.programs-container ul li {
-    list-style: none;
-    color: white;
-    padding-left: 20px;
+/* The individual Program Card */
+.program-card {
+    background: #111; /* Darker than the page background to create depth */
+    border: 1px solid #222; /* Very subtle border to define the card shape */
+    border-radius: 15px; /* Rounded corners for a modern look */
+    padding: 30px; /* Space inside the card around the content */
+    display: flex; /* Allows us to use flexbox inside the card */
+    flex-direction: column; /* Stacks card content vertically */
+    transition: all 0.3s ease; /* Makes the hover effect smooth instead of snappy */
 }
 
-.programs-container p {
-    color: white;
+/* Hover effect for the card */
+.program-card:hover {
+    transform: translateY(-10px); /* Moves the card up 10px when hovered */
+    border-color: #c5a059; /* Changes border to gold on hover */
+    box-shadow: 0 10px 30px rgba(197, 160, 89, 0.15); /* Adds a soft gold glow behind the card */
 }
 
-.programs-section-divider {
-    color: #c5a059;
-    margin-bottom: 100px;
-
+/* Card titles (Hifz Program, etc) */
+.program-card h2 {
+    color: #c5a059; /* Gold color */
+    font-size: 1.6rem; /* Large enough to stand out */
+    margin-bottom: 15px; /* Space below the title */
 }
 
-
-
-   /* ==========================================================================
-    Program card for Program page css
-   ========================================================================== */
-
-
-
-.programCard-1, .programCard-2, .programCard-3, .programCard-4, .programCard-5 {
-    display: flex;
-    flex-direction: column; /* This keeps text stacked vertically */
-    flex: 1;              
-    min-width: 280px;       
-    height: auto;          
-    min-height: 450px;      
-    background: #181818;
-    border-radius: 12px;
-    padding: 30px;
-    transition: box-shadow 0.3s ease; 
-}
-[class^="programCard-"]:hover {
-    box-shadow: 0 0 10px #c5a059, 0 0 30px #c5a059, 0 0 50px #c5a059;
-    transition: box-shadow 0.3s ease; 
+/* Schedule and Age labels */
+.program-meta {
+    margin-bottom: 10px; /* Space between the schedule and age lines */
 }
 
-
-#programTimeAndAge {
-    font-size: 20px;
-    color: #c5a059;
+.label {
+    color: #c5a059; /* Gold color for the word "Schedule:" */
+    font-weight: bold; /* Makes it pop */
+    margin-right: 5px; /* Space before the actual time/age */
 }
 
-.programs-container li::before {
-    content: "•";           /* The bullet character */
-    color: #c5a059;         /* This is your BULLET color (Gold) */
-    font-weight: bold;
-    display: inline-block;
-    width: 1em;             /* Space for the bullet */
-    margin-left: -1em;      /* Pulls the bullet to the left of the text */
-    position: absolute;
+.value {
+    color: #ffffff; /* White color for the actual data */
 }
 
-
-
-.learn-more-btn-program-page {
-    display: inline-block;    
-    background-color: #c5a059; 
-    color: #ffffff;          
-    padding: 12px 24px;       
-    border-radius: 8px;      
-    text-decoration: none;    
-    font-weight: 600;        
-    margin-top: auto;        
-    text-align: center;
-    transition: all 0.3s ease; 
-    margin-top: 20px;
+/* Feature title (What this program features:) */
+.feature-title {
+    color: #c5a059; /* Gold color */
+    font-weight: bold; /* Bold text */
+    margin-top: 20px; /* Space above the list section */
+    margin-bottom: 10px; /* Space before the list starts */
 }
 
-
-
-
-.learn-more-btn-program-page:hover {
-     box-shadow: 0 0 10px #c5a059, 0 0 30px #c5a059, 0 0 50px #c5a059;       
-
+/* The Feature List */
+.program-card ul {
+    list-style: none; /* Removes default browser dots */
+    padding: 0; /* Removes default list indent */
+    margin-bottom: 30px; /* Space before the button */
 }
 
- /* ==========================================================================
-    Program card for Program page css is now compleete and the following is the start of it's footer
-   ========================================================================== */
+.program-card ul li {
+    color: #cccccc; /* Slightly dimmed white for list items */
+    padding: 5px 0 5px 20px; /* Space for the custom bullet */
+    position: relative; /* Needed to position the bullet correctly */
+}
+
+/* Custom Gold Bullet Points */
+.program-card ul li::before {
+    content: "•"; /* The character we want as a bullet */
+    color: #c5a059; /* Gold color */
+    position: absolute; /* Allows us to move it exactly where we want */
+    left: 0; /* Align to the far left of the list item */
+    font-weight: bold; /* Make it thick */
+}
+
+/* The "Learn More" Button */
+.program-btn {
+    margin-top: auto; /* Push the button to the bottom of the card regardless of text length */
+    background-color: #c5a059; /* Gold background */
+    color: #000; /* Black text for high contrast */
+    text-align: center; /* Center the text inside the button */
+    padding: 12px; /* Size of the button */
+    border-radius: 8px; /* Slightly rounded corners */
+    text-decoration: none; /* Remove the link underline */
+    font-weight: bold; /* Thick text */
+    transition: background 0.3s ease; /* Fade effect for hover */
+}
+
+.program-btn:hover {
+    background-color: #f0e5c5; /* Turns to a lighter cream color on hover */
+}
+
+/* Footer Section */
 .progamPageFooterHead {
-    width: 100%;
-    height: 100%;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    font-size: large; 
-    padding: 100px 20px;
-    margin-top: 30px;
+    text-align: center; /* Center all footer content */
+    padding: 100px 20px; /* Large space for the bottom of the page */
+    background-color: #0a0c0e; /* Slightly different black to separate from grid */
+}
+
+.progamPageFooterHead h2 {
+    color: #c5a059; /* Gold title */
+    font-size: 2.2rem; /* Large heading */
+    margin-bottom: 20px; /* Space before the paragraph */
 }
 
 .progamPageFooterHead p {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    font-size: x-large; 
-    max-width: 650px;
-    margin: 0 auto;
+    color: #ffffff; /* White text */
+    max-width: 700px; /* Prevents text from stretching across the whole screen */
+    margin: 0 auto 40px auto; /* Centers the block and adds space before button */
+    line-height: 1.6; /* Comfortable line spacing for reading */
+}
+
+/* Responsive Fixes for Small Screens */
+@media (max-width: 768px) {
+    .progamPageHead h1 {
+        font-size: 2.2rem; /* Shrinks title on phones */
+    }
+    
+    .programs-container {
+        grid-template-columns: 1fr; /* Forces cards into a single column on phones */
+    }
 }
 
 /* ==========================================================================
