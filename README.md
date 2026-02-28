@@ -3,7 +3,7 @@
 A modern, responsive, and community-focused web application built for **Masjid Ibn Taymiyyah** in Columbus, Ohio. This project serves as a digital gateway for congregants to access prayer times, educational programs, and donation portals.
 
 ## 🚀 Live Demo
-[View the Live Site here]([https://uncle-ma.github.io/Masjid-ibn-Taymiyah/](https://masjidibntaymiyyah.org/))
+[View the Live Site here](https://masjidibntaymiyyah.org/)
 
 ## 🛠️ Tech Stack
 - **Frontend:** HTML5, CSS3 (Custom Flexbox/Grid Layouts)
