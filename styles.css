@@ -1736,3 +1736,12 @@ body {
         align-items: flex-start;    /* Left-aligns text on mobile */
     }
 }
+
+/* ==========================================================================
+   makes the nav links look gold when on that page
+   ========================================================================== */
+.active-page {
+    color: #c5a059 !important; 
+    font-weight: bold;
+    border-bottom: 2px solid #c5a059;
+}

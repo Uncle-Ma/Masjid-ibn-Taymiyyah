@@ -105,3 +105,29 @@ document.querySelectorAll('.number, .impact-number').forEach(num => {
     num.innerText = "0+";
     observer.observe(num);
 });
+
+// Function to highlight the link
+function highlightCurrentPage() {
+    const currentPath = window.location.pathname;
+    // We look inside the placeholder specifically
+    const navLinks = document.querySelectorAll('#nav-placeholder a');
+
+    navLinks.forEach(link => {
+        // This checks if the link href is part of the current URL
+        if (currentPath.includes(link.getAttribute('href')) && link.getAttribute('href') !== "/") {
+            link.classList.add('active-page');
+        } 
+        // Special case for Home
+        else if (currentPath === "/" && link.getAttribute('href') === "/index.html") {
+            link.classList.add('active-page');
+        }
+    });
+}
+
+// Update your fetch to call the function AFTER the data is loaded
+fetch('components/nav.html')
+    .then(response => response.text())
+    .then(data => {
+        document.getElementById('nav-placeholder').innerHTML = data;
+        highlightCurrentPage(); // <--- CALL IT HERE
+    });
