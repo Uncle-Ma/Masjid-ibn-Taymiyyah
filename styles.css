@@ -1134,106 +1134,191 @@ img.displaySlide {
 }
 
 /* ==========================================================================
-   DONATION PAGE
+   DONATION PAGE - CORE LAYOUT
    ========================================================================== */
+
+/* Main Header Container: Centers all elements in the hero section */
 .donationPageHeadContainer {
-    display: flex;                              /* Centering column */
-    flex-direction: column;                     /* Vertical stacked row */
-    justify-content: center;                    /* Vertical centering */
-    align-items: center;                        /* Horizontal alignment */
-    text-align: center;                         /* Centered content */
+    display: flex;                              /* Enables flexbox for vertical stacking */
+    flex-direction: column;                     /* Stacks children (icon, text, buttons) vertically */
+    justify-content: center;                    /* Centers content vertically within container */
+    align-items: center;                        /* Centers content horizontally */
+    text-align: center;                         /* Ensures all text is centered */
+    padding-top: 60px;                          /* Adds space below the sticky navbar */
 }
 
+/* Large Heart Icon styling in the header */
 .donationPageHeadIcon {
-    font-size: 70px;                            /* Large header icon */
-    color: var(--primary-gold);                 /* Icon color gold */
-    justify-content: center;                    /* Alignment helper */
-    align-items: center;                        /* Centering helper */
-    text-align: center;                         /* Centers icon font */
-    margin: 0 auto 20px;                        /* Centers block and adds gap */
-    margin-top: 30px;                           /* Extra top buffer */
+    font-size: 70px;                            /* Massive icon size for visual impact */
+    color: var(--primary-gold);                 /* Uses primary brand gold */
+    margin: 0 auto 20px;                        /* Centers block and adds space below */
+    margin-top: 30px;                           /* Extra buffer from the top of the page */
 }
 
+/* Text block containing Title and Description */
 .donationPageHead {
-    justify-content: center;                    /* Center distribution */
-    align-items: center;                        /* Vertical centering */
-    text-align: center;                         /* Centers text */
-    gap: 20px;                                  /* vertical field room */
-    max-width: 650px;                           /* Content width cap */
+    max-width: 650px;                           /* Limits width for better readability */
+    margin-bottom: 20px;                        /* Space below the text block */
 }
 
+/* Container for the two main donation category buttons */
 .DonationPageHeadButtons {
-    display: flex;                              /* Row distribution */
-    justify-content: center;                    /* Centered horizontal */
-    align-items: center;                        /* Vertical alignment */
-    text-align: center;                         /* Centers buttons */
-    margin-top: 30px;                           /* Top buffer */
-    margin-bottom: 30px;                        /* Bottom buffer */
-    gap: 30px;                                  /* Button spacing */
+    display: flex;                              /* Places buttons side-by-side */
+    justify-content: center;                    /* Centers buttons horizontally */
+    gap: 30px;                                  /* Consistent spacing between buttons */
+    margin-top: 30px;                           /* Space above the button row */
+    margin-bottom: 30px;                        /* Space below the button row */
 }
 
+/* Styling for the specific links within the Header Button row */
 .DonationPageHeadButtons a {
-    border: 5px solid var(--primary-gold);      /* Thick gold outline */
-    color: var(--bg-black);                     /* Dark text contrast */
-    background-color: var(--primary-gold);      /* Gold background color */
-    text-decoration: none;                      /* No link styling */
-    border-radius: 5px;                         /* Standard rounding */
-    transition: box-shadow 0.3s ease;           /* Shadow speed timing */
-    padding-left: 10px;                         /* Internal room left */
-    padding-right: 10px;                        /* Internal room right */
-    padding-top: 5px;                           /* Internal room top */
-    padding-bottom: 5px;                        /* Internal room bottom */
+    border: 2px solid var(--primary-gold);      /* Clean gold border */
+    color: var(--bg-black);                     /* High contrast black text */
+    background-color: var(--primary-gold);      /* Solid gold background */
+    text-decoration: none;                      /* Removes default link underline */
+    border-radius: 8px;                         /* Rounded corners */
+    transition: all 0.3s ease;                  /* Smooth transition for hover effects */
+    padding: 12px 25px;                         /* Generous internal button spacing */
+    font-weight: bold;                          /* Bold text for hierarchy */
 }
 
+/* Hover effect for Header Buttons: Creates a gold glow */
 .DonationPageHeadButtons a:hover {
-    box-shadow: 0 0 10px #c5a059, 0 0 30px #c5a059, 0 0 50px #c5a059; /* Triple glow effect */
+    box-shadow: 0 0 20px var(--primary-gold);   /* Thematic glow effect on hover */
+    background-color: var(--hover-gold);        /* Slightly lighter gold on hover */
 }
 
+/* The "Hadith Bar": A full-width gold strip for spiritual reminders */
 .donationPageHeadSmallBarText {
-    display: flex;                              /* Centered bar container */
-    justify-content: center;                    /* Horizontal center */
-    align-items: center;                        /* Vertical alignment */
-    text-align: center;                         /* Centers inner p */
-    margin-top: 50px;                           /* Gap above bar */
-    background-color: var(--primary-gold);      /* Solid gold bar */
-    width: 100%;                                /* Full layout width */
-    padding-bottom: 10px;                       /* Bottom buffer bar */
-    padding-top: 10px;                          /* Top buffer bar */
+    background-color: var(--primary-gold);      /* Solid gold background across screen */
+    width: 100%;                                /* Spans full width of the viewport */
+    padding: 15px 0;                            /* Vertical padding for text room */
+    margin-top: 50px;                           /* Space above the bar */
 }
 
+/* Text inside the Hadith bar */
 .donationPageHeadSmallBarText p {
-    color: var(--bg-black);                     /* Contrast dark text */
+    color: var(--bg-black);                     /* Contrast black text on gold */
+    margin: 0;                                  /* Resets default paragraph margin */
+    font-weight: 700;                           /* Extra bold for emphasis */
 }
 
+/* ==========================================================================
+   DONATION PAGE - IMPACT SECTION (Counters)
+   ========================================================================== */
+
+/* Wrapper for the impact statistics section */
 .impact-section {
-    padding: 60px 20px;                         /* Vertical outer padding */
-    text-align: center;                         /* Centers section head */
+    padding: 80px 20px;                         /* Vertical and horizontal spacing */
+    text-align: center;                         /* Centers title and grid */
 }
 
-.impact-section-head {
-    font-size: x-large;                         /* Larger header size */
-    margin-bottom: 30px;                        /* vertical room header */
+/* Heading for the impact section */
+.impact-section-head h2 {
+    font-size: 2.5rem;                          /* Large section header */
+    margin-bottom: 40px;                        /* Space below title */
 }
 
+/* Grid/Flex container for the four statistic items */
 .impact-container {
-    display: flex;                              /* Horizontal row */
-    justify-content: space-around;              /* Even spreading */
-    flex-wrap: wrap;                            /* Mobile compatibility */
-    max-width: 1200px;                          /* Layout cap */
-    margin: 0 auto;                             /* Centers container */
-    gap: 30px;                                  /* Item grid spacing */
+    display: flex;                              /* Flex for horizontal alignment */
+    justify-content: space-around;              /* Spreads items evenly */
+    flex-wrap: wrap;                            /* Allows wrapping on mobile screens */
+    max-width: 1200px;                          /* Centers within a standard width */
+    margin: 0 auto;                             /* Centers container on page */
+    gap: 30px;                                  /* Space between individual stats */
 }
 
+/* Individual Stat Item */
 .impact-item {
-    flex: 1;                                    /* Flexible item size */
-    min-width: 200px;                           /* Layout floor width */
+    flex: 1;                                    /* Allows item to grow equally */
+    min-width: 200px;                           /* Prevents items from getting too small */
 }
 
+/* Large number styling for impact stats */
 .impact-number {
-    display: block;                             /* Standard block digit */
-    font-size: 3rem;                            /* Extra large digits */
-    font-weight: bold;                          /* Bold weight weight */
-    color: var(--primary-gold);                 /* Bold gold color */
+    display: block;                             /* Puts number on its own line */
+    font-size: 3.5rem;                          /* Massive font for data */
+    font-weight: 800;                           /* Extra bold weight */
+    color: var(--primary-gold);                 /* Bold brand gold */
+}
+
+/* ==========================================================================
+   DONATION PAGE - CARD GRIDS (Missing Logic Fixed)
+   ========================================================================== */
+
+/* Titles for "Ways to Give" and "Payment Methods" */
+.WaysToGive-Head {
+    text-align: center;                         /* Centers section header */
+    margin: 80px 0 40px;                        /* Large vertical margins */
+}
+
+/* Header within the grid section */
+.WaysToGive-Head h1, .WaysToGive-Head h2 {
+    color: var(--primary-gold);                 /* Section title in gold */
+    font-size: 2.5rem;                          /* Large font size */
+}
+
+/* THE GRID SYSTEM: Used for both Ways to Give and Payment cards */
+.card-container, .payment-card-container {
+    display: grid;                              /* Modern grid layout */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Auto-responsive columns */
+    gap: 25px;                                  /* Space between cards */
+    max-width: 1200px;                          /* Keeps grid centered */
+    margin: 0 auto 60px;                        /* Centers grid and adds bottom space */
+    padding: 0 20px;                            /* Prevents touching screen edges */
+}
+
+/* Individual Card Styling (Give & Pay) */
+.giveCard, .payCard {
+    background: var(--bg-card);                 /* Deep dark card background */
+    border: 1px solid #222;                     /* Subtle boundary line */
+    border-radius: 15px;                        /* Rounded card edges */
+    padding: 40px 30px;                         /* Spacious internal padding */
+    text-align: center;                         /* Centers all content in card */
+    transition: all 0.3s ease;                  /* Smooth lift/color animation */
+    display: flex;                              /* Flex to manage internal spacing */
+    flex-direction: column;                     /* Stacks icon, title, text vertically */
+}
+
+/* Interactive Hover effect for all donation cards */
+.giveCard:hover, .payCard:hover {
+    border-color: var(--primary-gold);          /* Highlight gold border */
+    transform: translateY(-10px);               /* Lifts card up 10px */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);    /* Adds depth shadow */
+}
+
+/* Icons inside the cards (FontAwesome & Emoji) */
+#WTGICON, #PMICON {
+    font-size: 40px;                            /* Uniform icon sizing */
+    color: var(--primary-gold);                 /* Icons in brand gold */
+    margin-bottom: 20px;                        /* Space below icon */
+}
+
+/* Description text inside cards */
+.giveCard p, .payCard p {
+    font-size: 0.95rem;                         /* Slightly smaller text for cards */
+    color: var(--text-muted);                   /* Muted grey color */
+    margin-bottom: 25px;                        /* Space above the button */
+    flex-grow: 1;                               /* Pushes button to bottom of card */
+}
+
+/* Button styling inside the donation cards */
+.donationPage-card-btn, .paymentPage-card-btn {
+    background: transparent;                    /* Transparent center */
+    border: 1px solid var(--primary-gold);      /* Gold outline */
+    color: var(--primary-gold);                 /* Gold text */
+    padding: 10px 20px;                         /* Standard button size */
+    border-radius: 5px;                         /* Matches brand buttons */
+    text-decoration: none;                      /* Removes underline */
+    font-weight: bold;                          /* Bold text */
+    transition: 0.3s ease;                      /* Fast transition speed */
+}
+
+/* Button hover state inside cards */
+.donationPage-card-btn:hover, .paymentPage-card-btn:hover {
+    background: var(--primary-gold);            /* Fill with gold on hover */
+    color: var(--bg-black);                     /* Flip text to black */
 }
 /* ==========================================================================
    EVENTS PAGE: HERO & SUBSCRIBE STYLES
@@ -1630,3 +1715,4 @@ img.displaySlide {
     color: var(--cream-gold) !important;
     border-color: var(--cream-gold);
 }
+

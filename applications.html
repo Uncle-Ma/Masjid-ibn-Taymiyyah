@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="MQ.css">
+    <link rel="icon" href="/images/masjid_ibnu_taymiyah_symbol_favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Application | Masjid Ibn Taymiyyah</title>
+</head>
+<body>
+    <div id="nav-placeholder"></div>
+
+    <section class="app-hero">
+        <div class="app-hero-content">
+            <i class="fas fa-file-signature app-icon"></i>
+            <h1>Program & Service Application</h1>
+            <p>Select your intent below to begin the specialized application process.</p>
+        </div>
+    </section>
+
+
+    <script>
+    fetch('components/nav.html')
+    .then(response => response.text())
+    .then(data => document.getElementById('nav-placeholder').innerHTML = data);
+
+    fetch('components/footer.html')
+    .then(response => response.text())
+    .then(data => document.getElementById('footer-placeholder').innerHTML = data);
+    </script>
+    <script src="index.js"></script>
+
+</body>
+</html>
