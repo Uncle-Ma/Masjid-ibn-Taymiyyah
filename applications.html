@@ -4,33 +4,789 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="MQ.css">
     <link rel="icon" href="/images/masjid_ibnu_taymiyah_symbol_favicon.ico">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <title>Application | Masjid Ibn Taymiyyah</title>
+    <title>Application Portal | Masjid Ibn Taymiyyah</title>
 </head>
-<body>
-    <div id="nav-placeholder"></div>
+<body class="app-portal-bg">
 
-    <section class="app-hero">
-        <div class="app-hero-content">
-            <i class="fas fa-file-signature app-icon"></i>
-            <h1>Program & Service Application</h1>
-            <p>Select your intent below to begin the specialized application process.</p>
-        </div>
-    </section>
+<div id="nav-placeholder"></div>
 
+<main class="app-container">
+    <div class="app-glass-card">
+        <header class="app-header">
+            <h1>Official Application</h1>
+            <p>Please complete all sections with honesty and detail to ensure a proper assessment by leadership.</p>
+        </header>
 
-    <script>
-    fetch('components/nav.html')
-    .then(response => response.text())
-    .then(data => document.getElementById('nav-placeholder').innerHTML = data);
+        <form id="masterAppForm">
+            <div class="form-section">
+                <h2 class="section-title"><i class="fa-solid fa-id-card"></i> 1. Universal Identification</h2>
+                <div class="input-grid">
+                    <div class="field">
+                        <label>Full Legal Name</label>
+                        <input type="text" name="legal_name" autocomplete="name" required>
+                    </div>
+                    <div class="field">
+                        <label>Preferred Name (if different)</label>
+                        <input type="text" name="preferred_name">
+                    </div>
+                    <div class="field">
+                        <label>Date of Birth</label>
+                        <input type="date" name="dob" required>
+                    </div>
+                    <div class="field">
+                        <label>Age</label>
+                        <input type="number" name="age" min="0" max="120" required>
+                    </div>
+                    <div class="field">
+                        <label>Gender (if relevant to eligibility)</label>
+                        <select name="gender">
+                            <option value="">Select</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="prefer_not_say">Prefer not to say</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label>Phone Number</label>
+                        <input type="tel" name="phone" autocomplete="tel" required>
+                    </div>
+                    <div class="field">
+                        <label>Email Address</label>
+                        <input type="email" name="email" autocomplete="email" required>
+                    </div>
+                    <div class="field">
+                        <label>Are you applying for yourself or on behalf of someone else?</label>
+                        <select name="on_behalf" required>
+                            <option value="self">Applying for Myself</option>
+                            <option value="other">On Behalf of Someone Else</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="field full-width">
+                    <label>Full Home Address</label>
+                    <input type="text" name="address" autocomplete="street-address" required>
+                </div>
+                
+                <div class="input-grid">
+                    <div class="field">
+                        <label>Emergency Contact Name</label>
+                        <input type="text" name="emergency_name" required>
+                    </div>
+                    <div class="field">
+                        <label>Emergency Contact Phone</label>
+                        <input type="tel" name="emergency_phone" required>
+                    </div>
+                    <div class="field">
+                        <label>Relationship to Emergency Contact</label>
+                        <input type="text" name="emergency_relationship" required>
+                    </div>
+                    <div class="field">
+                        <label>How did you hear about our Masjid/organization?</label>
+                        <input type="text" name="referral_source" placeholder="Friend, family, social media, website, event, etc.">
+                    </div>
+                </div>
 
-    fetch('components/footer.html')
-    .then(response => response.text())
-    .then(data => document.getElementById('footer-placeholder').innerHTML = data);
-    </script>
-    <script src="index.js"></script>
+                <div class="field full-width">
+                    <label>Have you previously used any service or enrolled in any program at this Masjid?</label>
+                    <textarea name="previous_involvement" placeholder="If yes, please specify which one and when..." rows="2"></textarea>
+                </div>
 
+                <div class="acknowledgment">
+                    <label class="checkbox-container">
+                        <input type="checkbox" name="truth_ack" required>
+                        <span class="checkmark"></span>
+                        I acknowledge that all information provided is truthful and accurate to the best of my knowledge.
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h2 class="section-title"><i class="fa-solid fa-code-branch"></i> 2. Selection Category</h2>
+                <div class="branch-ui">
+                    <label class="ui-card">
+                        <input type="radio" name="main_path" value="service" onclick="toggleMainBranch('service')">
+                        <div class="ui-card-content">
+                            <i class="fa-solid fa-handshake-angle"></i>
+                            <span>Service</span>
+                        </div>
+                    </label>
+                    <label class="ui-card">
+                        <input type="radio" name="main_path" value="program" onclick="toggleMainBranch('program')">
+                        <div class="ui-card-content">
+                            <i class="fa-solid fa-book-quran"></i>
+                            <span>Program</span>
+                        </div>
+                    </label>
+                </div>
+            </div>
+
+            <div id="service-branch" class="branch-container" style="display:none;">
+                <div class="selector-box">
+                    <label>Which service are you requesting?</label>
+                    <select id="service-select" onchange="showSubBranch('service', this.value)">
+                        <option value="">-- Choose a Service --</option>
+                        <option value="nikkah">Nikkah (Marriage)</option>
+                        <option value="zakat">Sadaqah & Zakat</option>
+                        <option value="shahadah">Shahadah & New Muslims</option>
+                        <option value="ruqyah">Ruqyah Services</option>
+                    </select>
+                </div>
+
+                <div id="sub-nikkah" class="sub-branch-form" style="display:none;">
+                    <h3>Nikkah (Marriage) Application</h3>
+                    <p>Please complete this section carefully to ensure Islamic validity, legal compliance, and pastoral readiness.</p>
+                    <div class="input-grid">
+                        <div class="field">
+                            <label>Groom's Full Legal Name</label>
+                            <input type="text" name="groom_name">
+                        </div>
+                        <div class="field">
+                            <label>Groom's Date of Birth</label>
+                            <input type="date" name="groom_dob">
+                        </div>
+                        <div class="field">
+                            <label>Groom's Phone Number</label>
+                            <input type="tel" name="groom_phone">
+                        </div>
+                        <div class="field">
+                            <label>Groom's Email Address</label>
+                            <input type="email" name="groom_email">
+                        </div>
+                        <div class="field">
+                            <label>Groom's Address</label>
+                            <input type="text" name="groom_address">
+                        </div>
+                        <div class="field">
+                            <label>Bride's Full Legal Name</label>
+                            <input type="text" name="bride_name">
+                        </div>
+                        <div class="field">
+                            <label>Bride's Date of Birth</label>
+                            <input type="date" name="bride_dob">
+                        </div>
+                        <div class="field">
+                            <label>Bride's Phone Number</label>
+                            <input type="tel" name="bride_phone">
+                        </div>
+                        <div class="field">
+                            <label>Bride's Email Address</label>
+                            <input type="email" name="bride_email">
+                        </div>
+                        <div class="field">
+                            <label>Bride's Address</label>
+                            <input type="text" name="bride_address">
+                        </div>
+                        <div class="field">
+                            <label>Wali's Full Name</label>
+                            <input type="text" name="wali_name" required>
+                        </div>
+                        <div class="field">
+                            <label>Wali's Phone Number</label>
+                            <input type="tel" name="wali_phone" required>
+                        </div>
+                        <div class="field">
+                            <label>Wali's Email Address (if available)</label>
+                            <input type="email" name="wali_email">
+                        </div>
+                        <div class="field">
+                            <label>Wali's Relationship to Bride</label>
+                            <input type="text" name="wali_relationship" required>
+                        </div>
+                    </div>
+
+                    <div class="input-grid">
+                        <div class="field">
+                            <label>Is the Wali aware of and consenting to this marriage?</label>
+                            <select name="wali_consents">
+                                <option value="">Select</option>
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                            </select>
+                        </div>
+                        <div class="field">
+                            <label>Have either the bride or groom been previously married?</label>
+                            <select name="previous_marriage">
+                                <option value="no">No</option>
+                                <option value="yes_divorced">Yes – divorced (documentation required)</option>
+                                <option value="yes_widowed">Yes – widowed (death certificate where applicable)</option>
+                            </select>
+                        </div>
+                        <div class="field">
+                            <label>Are both parties legally eligible to marry in this country/state?</label>
+                            <select name="legal_eligibility">
+                                <option value="">Select</option>
+                                <option value="yes">Yes</option>
+                                <option value="no">No / Unsure</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="input-grid">
+                        <div class="field">
+                            <label>Mahr Amount Agreed</label>
+                            <input type="text" name="mahr_amount" placeholder="Amount and currency">
+                        </div>
+                        <div class="field">
+                            <label>Mahr Type</label>
+                            <select name="mahr_type">
+                                <option value="prompt">Prompt (Mu'ajjal)</option>
+                                <option value="deferred">Deferred (Mu'akhkhar)</option>
+                                <option value="both">Partially Both</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="input-grid">
+                        <div class="field">
+                            <label>Proposed Nikkah Date</label>
+                            <input type="date" name="nikkah_date">
+                        </div>
+                        <div class="field">
+                            <label>Proposed Nikkah Time</label>
+                            <input type="time" name="nikkah_time">
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label>Ceremony Location</label>
+                        <select name="ceremony_location">
+                            <option value="masjid">At the Masjid</option>
+                            <option value="external">External Venue</option>
+                        </select>
+                    </div>
+
+                    <div class="input-grid">
+                        <div class="field">
+                            <label>Have you completed pre-marital counseling?</label>
+                            <select name="premarital_counseling">
+                                <option value="">Select</option>
+                                <option value="completed">Yes, already completed</option>
+                                <option value="willing_before">No, but willing to complete before ceremony</option>
+                                <option value="not_willing">No, not willing</option>
+                            </select>
+                        </div>
+                        <div class="field">
+                            <label>Do you require marriage contract preparation?</label>
+                            <select name="contract_prep">
+                                <option value="">Select</option>
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                            </select>
+                        </div>
+                        <div class="field">
+                            <label>Is civil documentation needed for legal registration?</label>
+                            <select name="civil_documentation">
+                                <option value="">Select</option>
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label>Bride's short reflection: Why do you wish to marry and do you understand the Islamic rights and responsibilities of marriage?</label>
+                        <textarea name="bride_reflection" rows="3"></textarea>
+                    </div>
+                    <div class="field">
+                        <label>Groom's short reflection: Why do you wish to marry and do you understand the Islamic rights and responsibilities of marriage?</label>
+                        <textarea name="groom_reflection" rows="3"></textarea>
+                    </div>
+
+                    <div class="input-grid">
+                        <div class="field">
+                            <label>Witness 1 (Full Name & Phone)</label>
+                            <input type="text" name="witness1">
+                        </div>
+                        <div class="field">
+                            <label>Witness 2 (Full Name & Phone)</label>
+                            <input type="text" name="witness2">
+                        </div>
+                    </div>
+
+                    <div class="acknowledgment">
+                        <label>
+                            <input type="checkbox" name="nikkah_free_will">
+                            Both bride and groom affirm they are entering this marriage willingly and without coercion.
+                        </label>
+                    </div>
+                </div>
+
+                <div id="sub-zakat" class="sub-branch-form" style="display:none;">
+                    <h3>Sadaqah & Zakat</h3>
+                    <div class="field">
+                        <label>I am a:</label>
+                        <select id="zakat-mode" onchange="toggleZakatView(this.value)">
+                            <option value="donate">Donor</option>
+                            <option value="request">Applicant for Assistance</option>
+                        </select>
+                    </div>
+
+                    <div id="zakat-donate-fields" style="margin-top:20px;">
+                        <div class="input-grid">
+                            <div class="field">
+                                <label>Donation Type</label>
+                                <select name="donation_type">
+                                    <option value="zakat_al_maal">Zakat al-Maal</option>
+                                    <option value="sadaqah">Voluntary Sadaqah</option>
+                                </select>
+                            </div>
+                            <div class="field">
+                                <label>Amount</label>
+                                <input type="number" name="donation_amount" min="1" step="0.01">
+                            </div>
+                            <div class="field">
+                                <label>Payment Method</label>
+                                <input type="text" name="donation_payment_method" placeholder="Card, cash, check, online, etc.">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label>Specific Cause Restriction (Hardship, Food Pantry, etc.)</label>
+                            <input type="text" name="donation_restriction">
+                        </div>
+                        <div class="field">
+                            <label>Donor Preference</label>
+                            <select name="donor_visibility">
+                                <option value="acknowledgment">Acknowledgment</option>
+                                <option value="anonymous">Anonymity</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div id="zakat-request-fields" style="display:none; margin-top:20px;">
+                        <div class="input-grid">
+                            <div class="field">
+                                <label>Household Size</label>
+                                <input type="number" name="household_size" min="1">
+                            </div>
+                            <div class="field">
+                                <label>Names of All Household Members</label>
+                                <textarea name="household_members" rows="3" placeholder="List names and relationships"></textarea>
+                            </div>
+                            <div class="field">
+                                <label>Employment Status</label>
+                                <input type="text" name="employment_status">
+                            </div>
+                            <div class="field">
+                                <label>Employer (if applicable)</label>
+                                <input type="text" name="employer">
+                            </div>
+                            <div class="field">
+                                <label>Monthly Income (approx.)</label>
+                                <input type="text" name="monthly_income">
+                            </div>
+                            <div class="field">
+                                <label>Total Monthly Expenses (Rent, utilities, debts, etc.)</label>
+                                <input type="text" name="monthly_expenses">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label>Describe the nature of hardship and reason for request</label>
+                            <textarea name="hardship_description" rows="4"></textarea>
+                        </div>
+                        <div class="field">
+                            <label>Have you applied for assistance elsewhere or are you receiving government support?</label>
+                            <textarea name="other_support" rows="2"></textarea>
+                        </div>
+                        <div class="field">
+                            <label>Type of Assistance Requested</label>
+                            <select name="assistance_type">
+                                <option value="food">Food</option>
+                                <option value="rent">Rent Support</option>
+                                <option value="utility">Utility Support</option>
+                                <option value="general">General Financial Relief</option>
+                            </select>
+                        </div>
+                        <div class="acknowledgment">
+                            <label>
+                                <input type="checkbox" name="assistance_consent">
+                                I consent to the organization verifying the information provided in order to determine eligibility.
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="sub-shahadah" class="sub-branch-form" style="display:none;">
+                    <h3>Shahadah & New Muslims</h3>
+                    <div class="field">
+                        <label>Full Legal Name</label>
+                        <input type="text" name="shahadah_legal_name">
+                    </div>
+                    <div class="field">
+                        <label>Name for Shahadah Certificate (if different)</label>
+                        <input type="text" name="shahadah_certificate_name">
+                    </div>
+                    <div class="field">
+                        <label>Current Religious Background</label>
+                        <input type="text" name="religious_background">
+                    </div>
+                    <div class="field">
+                        <label>Are you taking Shahadah for the first time or seeking certification?</label>
+                        <select name="shahadah_type">
+                            <option value="">Select</option>
+                            <option value="first_time">First-time Shahadah</option>
+                            <option value="certification">Certification / documentation</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label>Why do you wish to accept Islam? (Short written reflection)</label>
+                        <textarea name="why_islam" rows="3"></textarea>
+                    </div>
+                    <div class="field">
+                        <label>Do you have basic knowledge of the meaning of the Shahadah?</label>
+                        <select name="knowledge_of_shahadah">
+                            <option value="">Select</option>
+                            <option value="yes">Yes</option>
+                            <option value="some">Somewhat</option>
+                            <option value="no">Not yet</option>
+                        </select>
+                    </div>
+                    <div class="input-grid">
+                        <div class="field">
+                            <label>Preferred Date for Shahadah</label>
+                            <input type="date" name="shahadah_date">
+                        </div>
+                        <div class="field">
+                            <label>Do you prefer a public or private setting?</label>
+                            <select name="shahadah_setting">
+                                <option value="public">Public</option>
+                                <option value="private">Private</option>
+                            </select>
+                        </div>
+                        <div class="field">
+                            <label>Is your family aware and are there any safety concerns (need for discretion)?</label>
+                            <textarea name="family_awareness" rows="2"></textarea>
+                        </div>
+                    </div>
+                    <div class="checkbox-group">
+                        <p>Interested in:</p>
+                        <label><input type="checkbox" name="new_muslim_classes"> Introductory Islam Classes</label>
+                        <label><input type="checkbox" name="new_muslim_mentorship"> Mentorship Pairing</label>
+                        <label><input type="checkbox" name="new_muslim_gift_pack"> New Muslim Gift Pack</label>
+                    </div>
+                </div>
+
+                <div id="sub-ruqyah" class="sub-branch-form" style="display:none;">
+                    <h3>Ruqyah Services</h3>
+                    <div class="field">
+                        <label>Session Type</label>
+                        <select name="ruqyah_session_type">
+                            <option value="private">Private Session</option>
+                            <option value="group">Group Session</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label>Briefly describe the issue/concern for which Ruqyah is sought:</label>
+                        <textarea name="ruqyah_description" rows="4"></textarea>
+                    </div>
+                    <div class="field">
+                        <label>Have you sought medical or psychological consultation for this issue?</label>
+                        <select name="ruqyah_medical_consult">
+                            <option value="">Select</option>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label>Have you had prior Ruqyah sessions?</label>
+                        <select name="ruqyah_prior_sessions">
+                            <option value="">Select</option>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label>Are you currently taking any prescribed medications? If yes, please list them.</label>
+                        <textarea name="ruqyah_medications" rows="3"></textarea>
+                    </div>
+                    <div class="field">
+                        <label>Preferred Date and Time for Session</label>
+                        <input type="text" name="ruqyah_preferred_datetime" placeholder="Example: Friday evening, specific date/time if known">
+                    </div>
+                    <div class="acknowledgment">
+                        <label>
+                            <input type="checkbox" name="ruqyah_consent">
+                            I understand that Ruqyah is based on Qur'an and authentic supplications, involves no prohibited practices, and does not replace professional medical or psychological care.
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div id="program-branch" class="branch-container" style="display:none;">
+                <div class="selector-box">
+                    <label>Which program would you like to enroll in?</label>
+                    <select id="program-select" onchange="showSubBranch('program', this.value)">
+                        <option value="">-- Choose a Program --</option>
+                        <option value="hifz">Hifz Al-Qur'an (7-18)</option>
+                        <option value="arabic">Arabic Language (18+)</option>
+                        <option value="youth">Youth Mentorship (13-19)</option>
+                        <option value="sisters">Sisters’ Tajweed</option>
+                        <option value="weekend">Weekend Islamic School (5-12)</option>
+                    </select>
+                </div>
+
+                <div id="sub-hifz" class="sub-branch-form" style="display:none;">
+                    <h3>Hifz Al-Qur'an Enrollment</h3>
+                    <div class="input-grid">
+                        <div class="field">
+                            <label>Student Age (must be between 7 and 18)</label>
+                            <input type="number" name="hifz_age" min="7" max="18">
+                        </div>
+                        <div class="field">
+                            <label>Current Qur'an Reading Level</label>
+                            <select name="hifz_reading_level">
+                                <option value="">Select</option>
+                                <option value="beginner">Beginner</option>
+                                <option value="can_read_no_tajweed">Can read without Tajweed</option>
+                                <option value="with_tajweed">Reads fluently with Tajweed</option>
+                            </select>
+                        </div>
+                        <div class="field">
+                            <label>Number of Juz already memorized (if any)</label>
+                            <input type="number" name="hifz_juz_memorized" min="0" max="30">
+                        </div>
+                        <div class="field">
+                            <label>Has the student previously enrolled in any Hifz program? If yes, which and why did they leave?</label>
+                            <textarea name="hifz_previous_program" rows="3"></textarea>
+                        </div>
+                        <div class="field">
+                            <label>Parent/Guardian Name (if under 18)</label>
+                            <input type="text" name="hifz_guardian_name">
+                        </div>
+                        <div class="field">
+                            <label>Parent/Guardian Phone</label>
+                            <input type="tel" name="hifz_guardian_phone">
+                        </div>
+                        <div class="field">
+                            <label>Parent/Guardian Email</label>
+                            <input type="email" name="hifz_guardian_email">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label>Student's typical weekly schedule and availability</label>
+                        <textarea name="hifz_schedule" rows="3" placeholder="Please confirm ability to attend Saturday & Sunday 8am–2pm."></textarea>
+                    </div>
+                    <div class="field">
+                        <label>Is the student willing to commit to long-term memorization?</label>
+                        <select name="hifz_long_term_commitment">
+                            <option value="">Select</option>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label>Interest in Ijazah track</label>
+                        <select name="hifz_ijazah_interest">
+                            <option value="">Select</option>
+                            <option value="yes">Yes, interested in Ijazah track and understand additional commitment</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+                    <div class="acknowledgment">
+                        <label>
+                            <input type="checkbox" name="hifz_behavior_agreement">
+                            Student and parent/guardian agree to the behavior, discipline, and attendance expectations of the Hifz program.
+                        </label>
+                    </div>
+                </div>
+
+                <div id="sub-arabic" class="sub-branch-form" style="display:none;">
+                    <h3>Arabic Language (18+)</h3>
+                    <div class="input-grid">
+                        <div class="field">
+                            <label>Age (must be 18+)</label>
+                            <input type="number" name="arabic_age" min="18">
+                        </div>
+                        <div class="field">
+                            <label>Prior Arabic Study Experience</label>
+                            <textarea name="arabic_experience" rows="2"></textarea>
+                        </div>
+                        <div class="field">
+                            <label>Can you read the Arabic alphabet?</label>
+                            <select name="arabic_can_read">
+                                <option value="">Select</option>
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label>Primary Learning Goal</label>
+                        <select name="arabic_goal">
+                            <option value="">Select</option>
+                            <option value="quran_reading">Reading Qur'an</option>
+                            <option value="grammar">Grammar</option>
+                            <option value="conversational">Conversational fluency</option>
+                            <option value="academic">Academic / formal study</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label>Availability Confirmation</label>
+                        <textarea name="arabic_availability" rows="2" placeholder="Please confirm availability for Tuesday & Thursday evenings."></textarea>
+                    </div>
+                    <div class="field">
+                        <label>Short statement: Why do you want to learn Arabic?</label>
+                        <textarea name="arabic_why" rows="3"></textarea>
+                    </div>
+                    <div class="acknowledgment">
+                        <label>
+                            <input type="checkbox" name="arabic_assessment_ack">
+                            I confirm I am available for Tuesday & Thursday evenings and agree to semester-based assessments and exams.
+                        </label>
+                    </div>
+                </div>
+
+                <div id="sub-youth" class="sub-branch-form" style="display:none;">
+                    <h3>Youth Mentorship (13-19)</h3>
+                    <div class="input-grid">
+                        <div class="field">
+                            <label>Age (must be between 13 and 19)</label>
+                            <input type="number" name="youth_age" min="13" max="19">
+                        </div>
+                        <div class="field">
+                            <label>Current School Grade</label>
+                            <input type="text" name="youth_grade">
+                        </div>
+                        <div class="field">
+                            <label>Parent/Guardian Name (for minors)</label>
+                            <input type="text" name="youth_guardian_name">
+                        </div>
+                        <div class="field">
+                            <label>Parent/Guardian Phone</label>
+                            <input type="tel" name="youth_guardian_phone">
+                        </div>
+                        <div class="field">
+                            <label>Interests & Involvement in community activities</label>
+                            <textarea name="youth_interests" rows="2"></textarea>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label>What challenges do you face as a Muslim youth and what do you hope to gain from mentorship?</label>
+                        <textarea name="youth_challenges" rows="4"></textarea>
+                    </div>
+                    <div class="field">
+                        <label>Availability for Friday sessions and willingness to participate in social events & service projects</label>
+                        <textarea name="youth_availability" rows="2"></textarea>
+                    </div>
+                    <div class="acknowledgment">
+                        <label>
+                            <input type="checkbox" name="youth_parent_consent">
+                            Parent/guardian consent is granted (for minors), and the youth agrees to attend Friday sessions and participate respectfully in activities.
+                        </label>
+                    </div>
+                </div>
+
+                <div id="sub-sisters" class="sub-branch-form" style="display:none;">
+                    <h3>Sisters’ Tajweed</h3>
+                    <div class="input-grid">
+                        <div class="field">
+                            <label>Confirm you are a female participant</label>
+                            <select name="sisters_female_confirm">
+                                <option value="">Select</option>
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                            </select>
+                        </div>
+                        <div class="field">
+                            <label>Age</label>
+                            <input type="number" name="sisters_age" min="13">
+                        </div>
+                        <div class="field">
+                            <label>Current Tajweed Level</label>
+                            <select name="sisters_tajweed_level">
+                                <option value="">Select</option>
+                                <option value="beginner">Beginner</option>
+                                <option value="intermediate">Intermediate</option>
+                                <option value="advanced">Advanced</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label>Have you studied Makharij and Tajweed rules before? Briefly describe.</label>
+                        <textarea name="sisters_tajweed_background" rows="3"></textarea>
+                    </div>
+                    <div class="input-grid">
+                        <div class="field">
+                            <label>Do you require childcare?</label>
+                            <select name="sisters_childcare_needed">
+                                <option value="">Select</option>
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                            </select>
+                        </div>
+                        <div class="field">
+                            <label>If yes, number and ages of children</label>
+                            <textarea name="sisters_children_details" rows="2"></textarea>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label>Availability confirmation for Wednesday mornings</label>
+                        <textarea name="sisters_availability" rows="2"></textarea>
+                    </div>
+                    <div class="acknowledgment">
+                        <label>
+                            <input type="checkbox" name="sisters_group_conduct">
+                            I agree to participate respectfully in group circles and adhere to class etiquette.
+                        </label>
+                    </div>
+                </div>
+
+                <div id="sub-weekend" class="sub-branch-form" style="display:none;">
+                    <h3>Weekend Islamic School</h3>
+                    <div class="input-grid">
+                        <div class="field">
+                            <label>Child's Age (must be between 5 and 12)</label>
+                            <input type="number" name="weekend_child_age" min="5" max="12">
+                        </div>
+                        <div class="field">
+                            <label>Parent/Guardian Full Name</label>
+                            <input type="text" name="weekend_guardian_name">
+                        </div>
+                        <div class="field">
+                            <label>Parent/Guardian Phone</label>
+                            <input type="tel" name="weekend_guardian_phone">
+                        </div>
+                        <div class="field">
+                            <label>Parent/Guardian Email</label>
+                            <input type="email" name="weekend_guardian_email">
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label>Prior Islamic education and Qur'an reading ability (if applicable)</label>
+                        <textarea name="weekend_prior_education" rows="3"></textarea>
+                    </div>
+                    <div class="field">
+                        <label>Learning disabilities, allergies, or special accommodations needed</label>
+                        <textarea name="weekend_special_needs" rows="3"></textarea>
+                    </div>
+                    <div class="field">
+                        <label>Sunday availability and commitment to regular attendance</label>
+                        <textarea name="weekend_attendance_commitment" rows="2"></textarea>
+                    </div>
+                    <div class="acknowledgment">
+                        <label>
+                            <input type="checkbox" name="weekend_policy_agreement">
+                            I, the parent/guardian, commit to Sunday attendance and agree to the Weekend Islamic School policies.
+                        </label>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="form-footer">
+                <button type="submit" class="portal-btn">Submit to Leadership</button>
+            </div>
+        </form>
+    </div>
+</main>
+
+<div id="footer-placeholder"></div>
+
+<script>
+    fetch('components/nav.html').then(r => r.text()).then(d => document.getElementById('nav-placeholder').innerHTML = d);
+    fetch('components/footer.html').then(r => r.text()).then(d => document.getElementById('footer-placeholder').innerHTML = d);
+</script>
+<script src="script.js"></script>
 </body>
 </html>

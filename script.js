@@ -169,3 +169,55 @@ fetch('components/nav.html')
         document.getElementById('nav-placeholder').innerHTML = data;
         highlightCurrentPage(); // <--- CALL IT HERE
     });
+
+
+
+    /**
+ * APPLICATION BRANCHING LOGIC
+ * Follows the Decision Tree structure defined in the organization essay.
+ */
+
+function toggleMainBranch(path) {
+    const serviceBranch = document.getElementById('service-branch');
+    const programBranch = document.getElementById('program-branch');
+
+    // Reset visibility
+    serviceBranch.style.display = (path === 'service') ? 'block' : 'none';
+    programBranch.style.display = (path === 'program') ? 'block' : 'none';
+
+    // Clear sub-dropdowns and sub-forms when switching main branches
+    resetSubBranches();
+}
+
+function showSubBranch(parent, value) {
+    // Hide all sub-branch forms
+    const allSubForms = document.querySelectorAll('.sub-branch-form');
+    allSubForms.forEach(form => form.style.display = 'none');
+
+    // Show selected sub-form
+    if (value) {
+        const target = document.getElementById('sub-' + value);
+        if (target) target.style.display = 'block';
+    }
+}
+
+// Logic specifically for Zakat (Donate vs Request)
+function toggleZakatView(mode) {
+    const donateFields = document.getElementById('zakat-donate-fields');
+    const requestFields = document.getElementById('zakat-request-fields');
+
+    if (mode === 'request') {
+        donateFields.style.display = 'none';
+        requestFields.style.display = 'block';
+    } else {
+        donateFields.style.display = 'block';
+        requestFields.style.display = 'none';
+    }
+}
+
+function resetSubBranches() {
+    const allSubForms = document.querySelectorAll('.sub-branch-form');
+    allSubForms.forEach(form => form.style.display = 'none');
+    document.getElementById('service-select').selectedIndex = 0;
+    document.getElementById('program-select').selectedIndex = 0;
+}
