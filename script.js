@@ -172,52 +172,51 @@ fetch('components/nav.html')
 
 
 
-    /**
+/**
  * APPLICATION BRANCHING LOGIC
- * Follows the Decision Tree structure defined in the organization essay.
+ * Follows the decision tree: first pick Service or Program, then a specific path.
  */
 
-function toggleMainBranch(path) {
-    const serviceBranch = document.getElementById('service-branch');
-    const programBranch = document.getElementById('program-branch');
+function toggleMainBranch(path) {                 // Shows either the Service or Program branch based on the chosen radio
+    const serviceBranch = document.getElementById('service-branch'); // Grabs the container for all service-related forms
+    const programBranch = document.getElementById('program-branch'); // Grabs the container for all program-related forms
 
-    // Reset visibility
-    serviceBranch.style.display = (path === 'service') ? 'block' : 'none';
-    programBranch.style.display = (path === 'program') ? 'block' : 'none';
+    // Reset visibility so that only the active branch is visible
+    serviceBranch.style.display = (path === 'service') ? 'block' : 'none'; // Displays the service branch if "service" is selected
+    programBranch.style.display = (path === 'program') ? 'block' : 'none'; // Displays the program branch if "program" is selected
 
-    // Clear sub-dropdowns and sub-forms when switching main branches
-    resetSubBranches();
+    // Clear sub-dropdowns and sub-forms when switching the main branches
+    resetSubBranches(); // Hides all sub-branch panels and resets dropdowns to their default state
 }
 
-function showSubBranch(parent, value) {
-    // Hide all sub-branch forms
-    const allSubForms = document.querySelectorAll('.sub-branch-form');
-    allSubForms.forEach(form => form.style.display = 'none');
+function showSubBranch(parent, value) {          // Reveals a specific sub-branch form (e.g. Nikkah, Hifz) based on the dropdown value
+    const allSubForms = document.querySelectorAll('.sub-branch-form'); // Selects every element that represents a sub-branch panel
+    allSubForms.forEach(form => form.style.display = 'none');          // Hides every sub-branch so we can cleanly show only one
 
-    // Show selected sub-form
-    if (value) {
-        const target = document.getElementById('sub-' + value);
-        if (target) target.style.display = 'block';
+    // Show the matching sub-form if a value is present
+    if (value) {                                                   // Ensures a valid, non-empty selection
+        const target = document.getElementById('sub-' + value);    // Builds the ID (e.g. "sub-nikkah") and looks it up in the DOM
+        if (target) target.style.display = 'block';                // Makes the matched sub-form panel visible
     }
 }
 
-// Logic specifically for Zakat (Donate vs Request)
-function toggleZakatView(mode) {
-    const donateFields = document.getElementById('zakat-donate-fields');
-    const requestFields = document.getElementById('zakat-request-fields');
+// Logic specifically for Sadaqah & Zakat (Donor vs Assistance applicant)
+function toggleZakatView(mode) {                                   // Switches between "donate" and "request assistance" views
+    const donateFields = document.getElementById('zakat-donate-fields');   // Wraps all donation-related fields
+    const requestFields = document.getElementById('zakat-request-fields'); // Wraps all assistance-request fields
 
-    if (mode === 'request') {
-        donateFields.style.display = 'none';
-        requestFields.style.display = 'block';
-    } else {
-        donateFields.style.display = 'block';
-        requestFields.style.display = 'none';
+    if (mode === 'request') {                // When the applicant is requesting financial help
+        donateFields.style.display = 'none'; // Hide donor-specific inputs
+        requestFields.style.display = 'block'; // Show eligibility and hardship section
+    } else {                                 // Default and "donate" selection
+        donateFields.style.display = 'block'; // Show donor inputs (type, amount, method, etc.)
+        requestFields.style.display = 'none'; // Hide assistance section
     }
 }
 
-function resetSubBranches() {
-    const allSubForms = document.querySelectorAll('.sub-branch-form');
-    allSubForms.forEach(form => form.style.display = 'none');
-    document.getElementById('service-select').selectedIndex = 0;
-    document.getElementById('program-select').selectedIndex = 0;
+function resetSubBranches() {                                   // Utility to fully reset all branch-specific sections
+    const allSubForms = document.querySelectorAll('.sub-branch-form'); // Collects all sub-branch panels across Service and Program
+    allSubForms.forEach(form => form.style.display = 'none');          // Hides every single sub-form panel
+    document.getElementById('service-select').selectedIndex = 0;       // Resets service dropdown back to the placeholder
+    document.getElementById('program-select').selectedIndex = 0;       // Resets program dropdown back to the placeholder
 }
