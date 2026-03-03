@@ -1,0 +1,177 @@
+/* ==========================================================================
+   EXTRACTED MEDIA QUERIES
+   ========================================================================== */
+
+/* Tablet & Large Mobile (max-width: 1024px) */
+@media (max-width: 1024px) {
+    .navbar label { 
+        display: block; 
+        z-index: 2002; 
+    }
+    #nav-links {
+        position: fixed; 
+        top: 0; 
+        right: -280px;
+        width: 280px; 
+        height: 100vh;
+        background: #0a0a0a; 
+        flex-direction: column;
+        padding: 80px 30px; 
+        transition: 0.4s;
+        border-left: 1px solid #c5a059; 
+        z-index: 2001;
+    }
+    #menu-bar:checked ~ #nav-links { 
+        right: 0; 
+    }
+}
+
+/* Standard Tablet / Small Laptop (max-width: 900px) */
+@media (max-width: 900px) {
+    /* 1. Reset the Grid */
+    .contact-grid { 
+        flex-direction: column;         /* Changes side-by-side to top-and-bottom */
+        gap: 40px;                      /* Reduces the massive gap between columns */
+    }
+
+    /* 2. Hero Section Adjustments */
+    .contact-hero {
+        padding: 60px 20px;             /* Reduces top/bottom padding for smaller screens */
+    }
+
+    .gold-header-text {
+        font-size: 32px;                /* Shrinks the 48px title so it fits on one line */
+    }
+
+    /* 3. Container & Form Row Adjustments */
+    .main-body-container {
+        padding: 40px 20px;             /* Less white space around the main body */
+    }
+
+    .name-row { 
+        flex-direction: column;         /* Stacks First Name and Last Name vertically */
+        gap: 0;                         /* Removes horizontal gap since they are stacked */
+    }
+
+    /* 4. Column Titles */
+    .column-title {
+        text-align: center;             /* Centers "Get in Touch" for better mobile looks */
+        font-size: 24px;
+    }
+
+    /* 5. The Map Adjustment */
+    .find-us-full {
+        margin-top: 60px;               /* Moves the map section closer to the content */
+    }
+    
+    .map-frame iframe {
+        height: 350px;                  /* Makes the map shorter on mobile screens */
+    }
+
+    /* 6. Centering Socials */
+    .social-follow h3,
+    .social-circles {
+        justify-content: center;        /* Centers the social icons for better symmetry */
+        text-align: center;
+    }
+}
+
+/* Mobile Devices (max-width: 768px) */
+@media (max-width: 768px) {
+    /* About Page Fixes */
+    .nav-links { display: none; } 
+    .mission-vision { flex-direction: column; }
+    .stat-box { flex: 1 1 45%; }
+
+    /* Prayer Times Section */
+    .PrayerTimes-Section {
+        padding: 40px 15px;
+    }
+    .iframe-wrapper {
+        width: 100%; 
+        padding: 5px;
+        border-radius: 12px;
+    }
+    .PrayerTimesPage-container-iframe {
+        height: 500px; 
+    }
+    .PrayerTimesPage-description {
+        font-size: 14px;
+        padding: 0 10px;
+    }
+
+    /* Prayer Schedule List */
+    .prayer-time-entry {
+        align-items: flex-start;   
+        gap: 15px;                 
+        padding: 20px;
+    }
+    .prayer-clock {
+        font-size: 1.5rem;        
+        align-self: flex-end;      
+        border-top: 1px solid #333; 
+        width: 100%;
+        text-align: right;
+        padding-top: 10px;
+    }
+    .prayer-title {
+        font-size: 1.2rem;         
+    }
+    .prayer-indicator {
+        width: 40px;             
+        height: 40px;
+        font-size: 0.9rem;
+    }
+
+    /* Programs Page */
+    .progamPageHead h1 {
+        font-size: 2.2rem; 
+    }
+    .programs-container {
+        grid-template-columns: 1fr; 
+    }
+
+    /* Services Page */
+    .servicesPageHead {
+        padding: 60px 15px;
+        margin-bottom: 40px;
+    }
+    .servicesPageHead h1 {
+        font-size: 2.2rem; 
+    }
+    .services-container {
+        gap: 20px;
+        margin-bottom: 60px;
+    }
+    .service-card {
+        padding: 25px 20px;
+    }
+    .service-card h2 {
+        font-size: 1.5rem;
+    }
+    .learn-more-btn-program-page {
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
+
+/* Small Mobile (max-width: 600px) */
+@media (max-width: 600px) {
+    .hero-container { 
+        flex-direction: column; 
+        text-align: center; 
+        padding: 40px 5%; 
+    }
+    .slider-outer { 
+        order: -1; 
+        margin-bottom: 20px; 
+    }
+    .footer-column { 
+        flex: 1 1 40%; 
+        min-width: 140px; 
+        text-align: center; 
+    }
+    #navbar-title a { 
+        font-size: 24px; 
+    }
+}

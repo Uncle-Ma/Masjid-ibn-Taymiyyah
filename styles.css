@@ -1,1748 +1,1237 @@
 /* ==========================================================================
+   CENTRAL VARIABLES
+   ========================================================================== */
+:root {
+    --primary-gold: #c5a059;              /* Main brand gold */
+    --hover-gold: #d4b47a;                /* Lighter gold for hover states */
+    --cream-gold: #f0e5c5;                /* Light cream gold accent */
+    --bg-black: #000;                     /* Deep black background */
+    --bg-dark: #0a0a0a;                   /* Secondary dark background */
+    --bg-card: #111;                      /* Card/Elevated background */
+    --text-white: #fff;                   /* Pure white text */
+    --text-muted: #aaa;                   /* Dimmed grey text */
+    --transition-speed: 0.3s ease;        /* Standard animation speed */
+    --radius-pill: 50px;                  /* Fully rounded edges */
+    --radius-card: 15px;                  /* Standard container rounding */
+}
+
+/* ==========================================================================
    GLOBAL THEME
    ========================================================================== */
 body {
-    font-family: 'Inter', sans-serif;
-    margin: 0; padding: 0;
-    background-color: #000; color: #fff;
-    overflow-x: hidden;
+    font-family: 'Inter', sans-serif;    /* Primary font family */
+    margin: 0;                            /* Removes default margin */
+    padding: 0;                           /* Removes default padding */
+    background-color: var(--bg-black);    /* Sets background to black */
+    color: var(--text-white);             /* Sets base text to white */
+    overflow-x: hidden;                   /* Prevents horizontal scrolling */
 }
 
-a, h2, h3, h4, h5, h6 { color: #c5a059; text-decoration: none; transition: 0.3s ease; }
-p { color: #aaa; line-height: 1.5; }
+a, h2, h3, h4, h5, h6 { 
+    color: var(--primary-gold);           /* Links and headers in brand gold */
+    text-decoration: none;                /* Removes link underlines */
+    transition: var(--transition-speed);  /* Applies smooth color transition */
+}
+
+p { 
+    color: var(--text-muted);             /* Paragraphs in muted grey */
+    line-height: 1.5;                     /* Vertical text spacing */
+}
 
 /* ==========================================================================
    NAVIGATION
    ========================================================================== */
 .navbar {
-    background: #000;
-    padding: 15px 5%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: sticky; top: 0; z-index: 2000;
-    border-bottom: 1px solid #222;
+    background: var(--bg-black);          /* Navbar background color */
+    padding: 15px 5%;                     /* Spacing inside the navbar */
+    display: flex;                        /* Flexbox layout */
+    align-items: center;                  /* Centers items vertically */
+    justify-content: space-between;       /* Spreads items to the edges */
+    position: sticky;                     /* Keeps navbar at top on scroll */
+    top: 0;                               /* Top position for sticky */
+    z-index: 2000;                        /* Keeps navbar above content */
+    border-bottom: 1px solid #222;        /* Bottom separator line */
 }
 
-/* BIGGER, BOLD, CURLY MASJID TEXT */
 #navbar-title a {
-    font-family: 'Playfair Display', serif;
-    font-size: 32px; /* Bigger in the corner */
-    font-weight: 700;
-    font-style: italic; /* Adds that "curly" serif touch */
-    color: #c5a059;
-    letter-spacing: -0.5px;
+    font-family: 'Playfair Display', serif; /* Serif font for the title */
+    font-size: 32px;                      /* Large font size for title */
+    font-weight: 700;                     /* Bold text weight */
+    font-style: italic;                   /* Italic style for "curly" look */
+    color: var(--primary-gold);           /* Title in brand gold */
+    letter-spacing: -0.5px;               /* Tighter character spacing */
 }
 
-#nav-links { list-style: none; display: flex; gap: 25px; align-items: center; }
-#nav-links li a { color: #fff; font-weight: 500; transition: 0.3s; }
-#nav-links li a:hover { color: #c5a059; text-shadow: 0 0 8px rgba(197, 160, 89, 0.5); }
+#nav-links { 
+    list-style: none;                     /* Removes list bullets */
+    display: flex;                        /* Flexbox for link row */
+    gap: 25px;                            /* Space between links */
+    align-items: center;                  /* Vertical alignment */
+}
 
-/* ROUNDER PILL-STYLE DONATE BUTTON */
+#nav-links li a { 
+    color: var(--text-white);             /* White color for links */
+    font-weight: 500;                     /* Medium font weight */
+    transition: var(--transition-speed);  /* Hover transition effect */
+}
+
+#nav-links li a:hover { 
+    color: var(--primary-gold);           /* Gold text on hover */
+    text-shadow: 0 0 8px rgba(197, 160, 89, 0.5); /* Soft gold glow */
+}
+
 #donate-link {
-    background: #c5a059 !important; 
-    color: #000 !important;
-    padding: 12px 28px !important; 
-    border-radius: 50px; /* Makes it fully round/pill-shaped */
-    font-weight: 800;
-    text-transform: uppercase;
-    box-shadow: 0 4px 15px rgba(197, 160, 89, 0.3);
+    background: var(--primary-gold) !important; /* Force gold background */
+    color: var(--bg-black) !important;          /* Force black text */
+    padding: 12px 28px !important;              /* Button-style padding */
+    border-radius: var(--radius-pill);          /* Pill-shaped corners */
+    font-weight: 800;                           /* Extra bold text */
+    text-transform: uppercase;                  /* Uppercase lettering */
+    box-shadow: 0 4px 15px rgba(197, 160, 89, 0.3); /* Subtle button shadow */
 }
 
 #donate-link:hover {
-    transform: scale(1.05);
-    background: #d4b47a !important;
+    transform: scale(1.05);                     /* Grows slightly on hover */
+    background: var(--hover-gold) !important;   /* Changes to lighter gold */
 }
 
-/* Mobile Side Drawer Logic */
-#menu-bar { display: none; }
-.navbar label { font-size: 26px; color: #c5a059; cursor: pointer; display: none; }
+#menu-bar { 
+    display: none;                              /* Hides mobile checkbox */
+}
 
-@media (max-width: 1024px) {
-    .navbar label { display: block; z-index: 2002; }
-    #nav-links {
-        position: fixed; top: 0; right: -280px;
-        width: 280px; height: 100vh;
-        background: #0a0a0a; flex-direction: column;
-        padding: 80px 30px; transition: 0.4s;
-        border-left: 1px solid #c5a059; z-index: 2001;
-    }
-    #menu-bar:checked ~ #nav-links { right: 0; }
+.navbar label { 
+    font-size: 26px;                            /* Mobile icon size */
+    color: var(--primary-gold);                 /* Mobile icon color */
+    cursor: pointer;                            /* Pointer cursor */
+    display: none;                              /* Hidden by default */
 }
 
 /* ==========================================================================
    HERO SECTION
    ========================================================================== */
-.hero-container { display: flex; align-items: center; justify-content: space-between; padding: 80px 8%; gap: 40px; }
+.hero-container { 
+    display: flex;                              /* Side-by-side layout */
+    align-items: center;                        /* Centers items vertically */
+    justify-content: space-between;             /* Spreads content out */
+    padding: 80px 8%;                           /* Outer spacing */
+    gap: 40px;                                  /* Space between text and slider */
+}
 
-/* BIGGER BISMILLAH */
 .bismillah { 
-    font-size: 14px; /* Increased size */
-    font-weight: 500;
-    letter-spacing: 2px; 
-    border: 1px solid #c5a059; 
-    padding: 10px 25px; /* Bigger padding */
-    border-radius: 50px; 
-    color: #c5a059; 
-    display: inline-block;
-    margin-bottom: 25px;
+    font-size: 14px;                            /* Capsule font size */
+    font-weight: 500;                           /* Medium weight */
+    letter-spacing: 2px;                        /* Spaced out letters */
+    border: 1px solid var(--primary-gold);      /* Gold border */
+    padding: 10px 25px;                         /* Internal spacing */
+    border-radius: var(--radius-pill);          /* Pill shape */
+    color: var(--primary-gold);                 /* Gold text color */
+    display: inline-block;                      /* Wraps to content */
+    margin-bottom: 25px;                        /* Space below capsule */
 }
 
 .hero-title { 
-    font-family: 'Playfair Display', serif; 
-    font-size: clamp(45px, 6vw, 90px); 
-    line-height: 1.1; margin: 15px 0; 
-    font-weight: 700; 
-    color: #c5a059; 
+    font-family: 'Playfair Display', serif;      /* Serif font family */
+    font-size: clamp(45px, 6vw, 90px);           /* Responsive scaling font */
+    line-height: 1.1;                           /* Tight line height */
+    margin: 15px 0;                             /* Vertical margin */
+    font-weight: 700;                           /* Bold weight */
+    color: var(--primary-gold);                 /* Main title color gold */
 }
-.white-text-in-hero-title { color: #fff; }
+
+.white-text-in-hero-title { 
+    color: var(--text-white);                   /* White override for title parts */
+}
 
 .btn { 
-    background: #c5a059; color: #000; padding: 12px 24px; border-radius: 50px; /* Rounded hero buttons too */
-    font-weight: bold; display: inline-block; margin-top: 10px; border: none;
+    background: var(--primary-gold);            /* Gold background */
+    color: var(--bg-black);                     /* Black text color */
+    padding: 12px 24px;                         /* Button padding */
+    border-radius: var(--radius-pill);          /* Rounded corners */
+    font-weight: bold;                          /* Bold text */
+    display: inline-block;                      /* Positionable element */
+    margin-top: 10px;                           /* Space above button */
+    border: none;                               /* Removes default border */
 }
-.btn.outline { background: transparent; border: 2px solid #c5a059; color: #c5a059; }
 
-.slider-outer { width: 100%; max-width: 450px; }
-.slider { position: relative; border-radius: 20px; overflow: hidden; border: 1px solid #222; }
-.slider img { width: 100%; display: none; }
-img.displaySlide { display: block; }
-.slider button { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.5); border: none; color: #c5a059; width: 35px; height: 35px; border-radius: 50%; cursor: pointer; z-index: 5; }
-.prev { left: 10px; } .next { right: 10px; }
+.btn.outline { 
+    background: transparent;                    /* No background */
+    border: 2px solid var(--primary-gold);      /* Gold outline */
+    color: var(--primary-gold);                 /* Gold text */
+}
+
+.slider-outer { 
+    width: 100%;                                /* Full width container */
+    max-width: 450px;                           /* Limits slider size */
+}
+
+.slider { 
+    position: relative;                         /* Basis for absolute children */
+    border-radius: 20px;                        /* Rounded slider edges */
+    overflow: hidden;                           /* Clips images to radius */
+    border: 1px solid #222;                     /* Subtle border */
+}
+
+.slider img { 
+    width: 100%;                                /* Responsive image width */
+    display: none;                              /* Hides all images */
+}
+
+img.displaySlide { 
+    display: block;                             /* Shows active image */
+}
+
+.slider button { 
+    position: absolute;                         /* Floating controls */
+    top: 50%;                                   /* Centered vertically */
+    transform: translateY(-50%);                /* Exact centering adjustment */
+    background: rgba(0,0,0,0.5);                /* Translucent background */
+    border: none;                               /* No button border */
+    color: var(--primary-gold);                 /* Gold arrow color */
+    width: 35px;                                /* Button width */
+    height: 35px;                               /* Button height */
+    border-radius: 50%;                         /* Circular button */
+    cursor: pointer;                            /* Pointer cursor */
+    z-index: 5;                                 /* Ensures visibility above image */
+}
+
+.prev { left: 10px; }                           /* Places previous button left */
+.next { right: 10px; }                          /* Places next button right */
 
 /* ==========================================================================
    OFFERS SECTION
    ========================================================================== */
-.offers-section { padding: 60px 8%; text-align: center; }
-.offers-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-    margin-top: 40px;
+.offers-section { 
+    padding: 60px 8%;                           /* Outer section spacing */
+    text-align: center;                         /* Centers all section content */
 }
-.offer-card { background: #0a0a0a; padding: 30px 20px; border-radius: 15px; border: 1px solid #1a1a1a; transition: 0.3s; }
-.offer-card:hover { transform: translateY(-10px); border-color: #c5a059; }
+
+.offers-container {
+    display: grid;                              /* Grid layout system */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Auto-responsive columns */
+    gap: 20px;                                  /* Space between grid items */
+    margin-top: 40px;                           /* Space above grid */
+}
+
+.offer-card { 
+    background: var(--bg-dark);                 /* Dark background variable */
+    padding: 30px 20px;                         /* Card internal spacing */
+    border-radius: var(--radius-card);          /* Rounded card corners */
+    border: 1px solid #1a1a1a;                  /* Subtle boundary line */
+    transition: var(--transition-speed);        /* Smooth hover transition */
+}
+
+.offer-card:hover { 
+    transform: translateY(-10px);               /* Lifts card on hover */
+    border-color: var(--primary-gold);          /* Gold border highlight */
+}
 
 /* ==========================================================================
    PRAYER WIDGET
    ========================================================================== */
-.home-prayer-section { padding: 40px 5%; text-align: center; }
-.widget-title { font-size: 2.2rem; margin-bottom: 30px; }
-.iframe-inner-frame { max-width: 900px; margin: 0 auto; border-radius: 20px; overflow: hidden; border: 1px solid #222; }
-.prayer-time-iframe { width: 100%; height: 480px; border: none; }
+.home-prayer-section { 
+    padding: 40px 5%;                           /* Section padding */
+    text-align: center;                         /* Centers title and frame */
+}
+
+.widget-title { 
+    font-size: 2.2rem;                          /* Large section title */
+    margin-bottom: 30px;                        /* Space below title */
+}
+
+.iframe-inner-frame { 
+    max-width: 900px;                           /* Limit widget width */
+    margin: 0 auto;                             /* Centers the frame */
+    border-radius: 20px;                        /* Rounded container */
+    overflow: hidden;                           /* Clips iframe edges */
+    border: 1px solid #222;                     /* Subtle frame border */
+}
+
+.prayer-time-iframe { 
+    width: 100%;                                /* Full width of container */
+    height: 480px;                              /* Set widget height */
+    border: none;                               /* Removes iframe border */
+}
 
 /* ==========================================================================
    FOOTER MOBILE
    ========================================================================== */
-#footer-placeholder { border-top: 1px solid #222; padding: 40px 0; }
-
-@media (max-width: 600px) {
-    .hero-container { flex-direction: column; text-align: center; padding: 40px 5%; }
-    .slider-outer { order: -1; margin-bottom: 20px; }
-    .footer-column { flex: 1 1 40%; min-width: 140px; text-align: center; }
-    #navbar-title a { font-size: 24px; }
+#footer-placeholder { 
+    border-top: 1px solid #222;                 /* Top boundary line */
+    padding: 40px 0;                            /* Vertical padding */
 }
+
 /* ==========================================================================
    ABOUT US PAGE CSS SECTION
-   (NOTE: Everything below is your about page styling, in your original order.)
    ========================================================================== */
-
-/* --- Global Resets & Theme --- */
-* { margin: 0; padding: 0; box-sizing: border-box; }
-
-body {
-    background-color: #000;
-    color: #fff;
-    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    line-height: 1.6;
+* { 
+    margin: 0;                                  /* Resets margins */
+    padding: 0;                                 /* Resets padding */
+    box-sizing: border-box;                     /* Includes padding in dimensions */
 }
 
-.gold-text { color: #c5a059; }
+.gold-text { 
+    color: var(--primary-gold);                 /* Gold text helper class */
+}
 
-.active { border-bottom: 2px solid #c5a059; padding-bottom: 5px; }
+.active { 
+    border-bottom: 2px solid var(--primary-gold); /* Underline for active page */
+    padding-bottom: 5px;                        /* Space for underline */
+}
 
-/* --- Page Header --- */
 .about-header {
-    background-color: #0a0a0a;
-    padding: 120px 20px;
-    text-align: center;
-    border-bottom: 2px solid #c5a059;
+    background-color: var(--bg-dark);           /* Dark header background */
+    padding: 120px 20px;                        /* Large vertical padding */
+    text-align: center;                         /* Centers header content */
+    border-bottom: 2px solid var(--primary-gold); /* Bottom gold accent */
 }
 
-.gold-divider { width: 80px; height: 3px; background: #c5a059; margin: 20px auto; }
+.gold-divider { 
+    width: 80px;                                /* Divider width */
+    height: 3px;                                /* Divider thickness */
+    background: var(--primary-gold);            /* Gold fill */
+    margin: 20px auto;                          /* Centered with vertical space */
+}
 
-.about-header h1 { font-size: 3rem; margin-bottom: 10px; }
+.about-header h1 { 
+    font-size: 3rem;                            /* Main heading size */
+    margin-bottom: 10px;                        /* Space below heading */
+}
 
-/* --- Containers --- */
-.page-container { max-width: 1200px; margin: 0 auto; padding: 80px 20px; }
+.page-container { 
+    max-width: 1200px;                          /* Content width cap */
+    margin: 0 auto;                             /* Centers container */
+    padding: 80px 20px;                         /* Section spacing */
+}
 
-/* --- Mission & Vision Grid --- */
-.mission-vision { display: flex; gap: 40px; margin-bottom: 100px; flex-wrap: wrap; }
+.mission-vision { 
+    display: flex;                              /* Flexbox grid */
+    gap: 40px;                                  /* Space between columns */
+    margin-bottom: 100px;                       /* Bottom margin */
+    flex-wrap: wrap;                            /* Responsive wrapping */
+}
 
 .info-card {
-    flex: 1;
-    min-width: 300px;
-    padding: 40px;
-    background: #111;
-    border-radius: 15px;
-    border: 1px solid #333;
+    flex: 1;                                    /* Allows equal growth */
+    min-width: 300px;                           /* Breakpoint for columns */
+    padding: 40px;                              /* Internal room */
+    background: var(--bg-card);                 /* Card background color */
+    border-radius: var(--radius-card);          /* Rounded corners */
+    border: 1px solid #333;                     /* Subtle card border */
 }
 
-.info-card h2 { margin-bottom: 20px; font-size: 1.8rem; }
+.info-card h2 { 
+    margin-bottom: 20px;                        /* Space below card title */
+    font-size: 1.8rem;                          /* Card heading size */
+}
 
-/* --- Accomplishments / Stats --- */
-.accomplishments-section { text-align: center; margin-bottom: 100px; }
+.accomplishments-section { 
+    text-align: center;                         /* Centers section title */
+    margin-bottom: 100px;                       /* Vertical spacing */
+}
 
-.stats-grid { display: flex; justify-content: space-around; flex-wrap: wrap; gap: 30px; margin-top: 50px; }
+.stats-grid { 
+    display: flex;                              /* Horizontal row */
+    justify-content: space-around;              /* Even spacing */
+    flex-wrap: wrap;                            /* Mobile wrapping */
+    gap: 30px;                                  /* Space between boxes */
+    margin-top: 50px;                           /* Space above grid */
+}
 
-.stat-box { flex: 1; min-width: 200px; padding: 30px; background: #0a0a0a; border: 1px solid #222; border-radius: 12px; }
+.stat-box { 
+    flex: 1;                                    /* Equal growth */
+    min-width: 200px;                           /* Minimum width */
+    padding: 30px;                              /* Internal padding */
+    background: var(--bg-dark);                 /* Dark background */
+    border: 1px solid #222;                     /* Border color */
+    border-radius: 12px;                        /* Rounded corners */
+}
 
-.stat-box .number { font-size: 3rem; font-weight: bold; display: block; margin-bottom: 5px; }
+.stat-box .number { 
+    font-size: 3rem;                            /* Large digit size */
+    font-weight: bold;                          /* Extra thick digits */
+    display: block;                             /* Full line element */
+    margin-bottom: 5px;                         /* Space below digits */
+}
 
-/* --- History Section --- */
-.history-section { max-width: 850px; margin: 0 auto 100px; text-align: center; }
+.history-section { 
+    max-width: 850px;                           /* Limits text width */
+    margin: 0 auto 100px;                       /* Centers text block */
+    text-align: center;                         /* Centered content */
+}
 
-.history-section h2 { margin-bottom: 25px; font-size: 2.2rem; }
+.history-section h2 { 
+    margin-bottom: 25px;                        /* Space below header */
+    font-size: 2.2rem;                          /* Header font size */
+}
 
-.history-section p { margin-bottom: 20px; color: #ccc; font-size: 1.1rem; }
+.history-section p { 
+    margin-bottom: 20px;                        /* Paragraph spacing */
+    color: #ccc;                                /* Grey text for readability */
+    font-size: 1.1rem;                          /* Slightly larger body text */
+}
 
-/* --- Leadership Sections --- */
-.leadership-block { margin-bottom: 100px; }
+.leadership-block { 
+    margin-bottom: 100px;                       /* Section gap */
+}
 
-.section-title { text-align: center; margin-bottom: 40px; font-size: 2rem; }
+.section-title { 
+    text-align: center;                         /* Centers header */
+    margin-bottom: 40px;                        /* Space below header */
+    font-size: 2rem;                            /* Section header size */
+}
 
-.team-grid { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
+.team-grid { 
+    display: flex;                              /* Flex containers */
+    flex-wrap: wrap;                            /* Mobile responsiveness */
+    gap: 20px;                                  /* Gaps between cards */
+    justify-content: center;                    /* Centers grid content */
+}
 
 .team-card {
-    background: #111;
-    border: 1px solid #222;
-    padding: 30px 20px;
-    border-radius: 15px;
-    flex: 1;
-    min-width: 200px;
-    max-width: 220px;
-    text-align: center;
-    transition: 0.3s;
+    background: var(--bg-card);                 /* Card background */
+    border: 1px solid #222;                     /* Subtle border */
+    padding: 30px 20px;                         /* Internal spacing */
+    border-radius: var(--radius-card);          /* Card rounding */
+    flex: 1;                                    /* Flex behavior */
+    min-width: 200px;                           /* Column width floor */
+    max-width: 220px;                           /* Column width ceiling */
+    text-align: center;                         /* Centers card text */
+    transition: var(--transition-speed);        /* Hover effect transition */
 }
 
-.team-card:hover { border-color: #c5a059; transform: translateY(-5px); }
-
-.team-card.highlight { border: 2px solid #c5a059; background: #1a150e; }
-
-.icon-circle { width: 70px; height: 70px; border: 2px solid #c5a059; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; color: #c5a059; font-size: 28px; }
-
-.triple-only .team-card { max-width: 350px; }
-
-/* --- Connect / Social Section --- */
-.connect-links { text-align: center; padding: 80px 20px; background: #0a0a0a; border-radius: 15px; }
-
-.social-pills { display: flex; justify-content: center; gap: 20px; margin-top: 30px; flex-wrap: wrap; }
-
-.pill { text-decoration: none; color: #fff; padding: 12px 25px; border-radius: 50px; background: #222; transition: 0.3s; font-weight: bold; display: flex; align-items: center; gap: 10px; }
-
-.pill i { font-size: 1.3rem; }
-
-.pill.fb:hover { background: #1877f2; }
-.pill.ig:hover { background: #e4405f; }
-.pill.tt:hover { background: #000; border: 1px solid #fff; }
-
-/* --- Footer --- */
-.section-divider { border: 0; height: 1px; background: #222; margin: 0; }
-
-.footer { padding: 80px 5% 40px; background: #000; }
-
-.footer-container { display: flex; justify-content: space-between; gap: 50px; flex-wrap: wrap; }
-
-.footer-column { flex: 1; min-width: 280px; }
-
-.footer-column h3 { margin-bottom: 25px; font-weight: bold; }
-
-.footer-column ul { list-style: none; padding: 0; }
-
-.footer-column li { margin-bottom: 12px; }
-
-.footer-column a { text-decoration: none; color: #aaa; transition: 0.3s; }
-
-.footer-column a:hover { color: #c5a059; }
-
-.map-link { color: #c5a059 !important; font-weight: bold; }
-
-.social-icons { display: flex; gap: 15px; margin-top: 20px; }
-
-.social-icons a { color: #c5a059; font-size: 1.5rem; transition: 0.3s; }
-
-.social-icons a:hover { transform: scale(1.1); color: #fff; }
-
-.footer-bottom { border-top: 1px solid #111; margin-top: 60px; padding-top: 20px; display: flex; justify-content: space-between; font-size: 0.9rem; color: #555; }
-
-/* --- Responsive fixes --- */
-@media (max-width: 768px) {
-    .nav-links { display: none; } /* Consider a mobile menu later */
-    .mission-vision { flex-direction: column; }
-    .stat-box { flex: 1 1 45%; }
+.team-card:hover { 
+    border-color: var(--primary-gold);          /* Gold hover border */
+    transform: translateY(-5px);                /* Lift effect */
 }
 
+.team-card.highlight { 
+    border: 2px solid var(--primary-gold);      /* Featured card border */
+    background: #1a150e;                        /* Warm highlight background */
+}
+
+.icon-circle { 
+    width: 70px;                                /* Circle width */
+    height: 70px;                               /* Circle height */
+    border: 2px solid var(--primary-gold);      /* Gold outline */
+    border-radius: 50%;                         /* Perfect circle */
+    display: flex;                              /* Flex centering */
+    align-items: center;                        /* Horizontal center */
+    justify-content: center;                    /* Vertical center */
+    margin: 0 auto 20px;                        /* Horizontal centering */
+    color: var(--primary-gold);                 /* Icon color gold */
+    font-size: 28px;                            /* Icon font size */
+}
+
+.triple-only .team-card { 
+    max-width: 350px;                           /* Large card exception */
+}
+
+.connect-links { 
+    text-align: center;                         /* Centers content */
+    padding: 80px 20px;                         /* Vertical spacing */
+    background: var(--bg-dark);                 /* Dark section color */
+    border-radius: var(--radius-card);          /* Section rounding */
+}
+
+.social-pills { 
+    display: flex;                              /* Flex alignment */
+    justify-content: center;                    /* Horizontal centering */
+    gap: 20px;                                  /* Space between pills */
+    margin-top: 30px;                           /* Vertical gap */
+    flex-wrap: wrap;                            /* Mobile wrapping */
+}
+
+.pill { 
+    text-decoration: none;                      /* No link underline */
+    color: var(--text-white);                   /* White link text */
+    padding: 12px 25px;                         /* Pill internal spacing */
+    border-radius: var(--radius-pill);          /* Pill shape */
+    background: #222;                           /* Dark background */
+    transition: var(--transition-speed);        /* Smooth hover speed */
+    font-weight: bold;                          /* Bold text */
+    display: flex;                              /* Flex container */
+    align-items: center;                        /* Vertical centering */
+    gap: 10px;                                  /* Icon/Text gap */
+}
+
+.pill i { 
+    font-size: 1.3rem;                          /* Icon size */
+}
+
+.pill.fb:hover { background: #1877f2; }          /* Facebook brand hover color */
+.pill.ig:hover { background: #e4405f; }          /* Instagram brand hover color */
+.pill.tt:hover { background: #000; border: 1px solid var(--text-white); } /* Twitter/X style */
+
+.section-divider { 
+    border: 0;                                  /* Removes default border */
+    height: 1px;                                /* Line thickness */
+    background: #222;                           /* Dark grey color */
+    margin: 0;                                  /* Resets margins */
+}
+
+.footer { 
+    padding: 80px 5% 40px;                      /* Large footer spacing */
+    background: var(--bg-black);                /* Footer background color */
+}
+
+.footer-container { 
+    display: flex;                              /* Row layout */
+    justify-content: space-between;             /* Wide distribution */
+    gap: 50px;                                  /* Column spacing */
+    flex-wrap: wrap;                            /* Content wrapping */
+}
+
+.footer-column { 
+    flex: 1;                                    /* Column distribution */
+    min-width: 280px;                           /* Minimum width limit */
+}
+
+.footer-column h3 { 
+    margin-bottom: 25px;                        /* Spacing below header */
+    font-weight: bold;                          /* Bold weight */
+}
+
+.footer-column ul { 
+    list-style: none;                           /* No bullet list */
+    padding: 0;                                 /* Reset padding */
+}
+
+.footer-column li { 
+    margin-bottom: 12px;                        /* Link vertical spacing */
+}
+
+.footer-column a { 
+    text-decoration: none;                      /* No underlines */
+    color: var(--text-muted);                   /* Muted grey color */
+    transition: var(--transition-speed);        /* Link hover speed */
+}
+
+.footer-column a:hover { 
+    color: var(--primary-gold);                 /* Gold hover color */
+}
+
+.map-link { 
+    color: var(--primary-gold) !important;      /* Forces gold map link */
+    font-weight: bold;                          /* Bold map link text */
+}
+
+.social-icons { 
+    display: flex;                              /* Row of icons */
+    gap: 15px;                                  /* Icon gap */
+    margin-top: 20px;                           /* Space above icons */
+}
+
+.social-icons a { 
+    color: var(--primary-gold);                 /* Gold icon color */
+    font-size: 1.5rem;                          /* Large icon size */
+    transition: var(--transition-speed);        /* Interaction speed */
+}
+
+.social-icons a:hover { 
+    transform: scale(1.1);                      /* Pop effect */
+    color: var(--text-white);                   /* White hover color */
+}
+
+.footer-bottom { 
+    border-top: 1px solid var(--bg-card);       /* Bottom bar divider */
+    margin-top: 60px;                           /* Gap above bottom bar */
+    padding-top: 20px;                          /* Spacing inside bar */
+    display: flex;                              /* Horizontal layout */
+    justify-content: space-between;             /* Edge distribution */
+    font-size: 0.9rem;                          /* Smaller legal text */
+    color: #555;                                /* Dim text color */
+}
 
 /* ==========================================================================
    CONTACT PAGE CSS SECTION
    ========================================================================== */
-
-/* --- FINAL CONTACT PAGE REPLICA --- */
 .contact-page-final {
-    background-color: #000;
-    color: #fff;
-    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-black);          /* Black background color */
+    color: var(--text-white);                   /* White base text */
+    font-family: 'Inter', sans-serif;           /* Modern font family */
 }
 
-/* Banner Styling */
 .contact-hero {
-    background-color: #0a0a08;
-    padding: 100px 20px;
-    text-align: center;
+    background-color: #0a0a08;                  /* Slightly off-black banner */
+    padding: 100px 20px;                        /* Vertical banner spacing */
+    text-align: center;                         /* Centers hero content */
 }
 
 .gold-header-text {
-    font-size: 48px;
-    font-weight: 700;
-    margin-bottom: 15px;
-    color: #c5a059; 
+    font-size: 48px;                            /* Large header size */
+    font-weight: 700;                           /* Bold weight */
+    margin-bottom: 15px;                        /* Space below header */
+    color: var(--primary-gold);                 /* Title color gold */
 }
 
 .white-subtext {
-    color: #ffffff;
-    font-size: 18px;
-    max-width: 700px;
-    margin: 0 auto;
-    line-height: 1.6;
+    color: var(--text-white);                   /* White color for subtext */
+    font-size: 18px;                            /* Comfortable subtext size */
+    max-width: 700px;                           /* Limit readable width */
+    margin: 0 auto;                             /* Centered placement */
+    line-height: 1.6;                           /* Leading spacing */
 }
 
-/* Container */
 .main-body-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 80px 20px;
+    max-width: 1200px;                          /* Centered content width */
+    margin: 0 auto;                             /* Centers container */
+    padding: 80px 20px;                         /* Section padding */
 }
 
 .contact-grid {
-    display: flex;
-    gap: 60px;
+    display: flex;                              /* Flex layout grid */
+    gap: 60px;                                  /* Gap between columns */
 }
 
-/* Left Column Info Cards */
-.info-column { flex: 1; }
-.column-title { font-size: 28px; margin-bottom: 30px; color: #fff; }
+.info-column { 
+    flex: 1;                                    /* Info column size */
+}
+
+.column-title { 
+    font-size: 28px;                            /* Section header size */
+    margin-bottom: 30px;                        /* Vertical gap */
+    color: var(--text-white);                   /* Header color white */
+}
 
 .noor-card.light-theme {
-    background: #1a1611; 
-    border: 1px solid #2a2318;
-    padding: 25px;
-    border-radius: 12px;
-    display: flex;
-    gap: 20px;
-    margin-bottom: 20px;
-    box-shadow: 0 4px 20px rgba(197, 160, 89, 0.06);
+    background: #1a1611;                        /* Warm card color */
+    border: 1px solid #2a2318;                  /* Warm boundary line */
+    padding: 25px;                              /* Internal card spacing */
+    border-radius: 12px;                        /* Rounded card shape */
+    display: flex;                              /* Side-by-side flex */
+    gap: 20px;                                  /* Gap inside card */
+    margin-bottom: 20px;                        /* Space between cards */
+    box-shadow: 0 4px 20px rgba(197, 160, 89, 0.06); /* Soft warmth shadow */
 }
 
-.noor-card.light-theme .card-text h3 { color: #e8d5a3; font-weight: 700; margin: 0 0 5px; }
-.noor-card.light-theme .card-text p { color: #b0a080; font-weight: 500; margin-bottom: 10px; }
+.noor-card.light-theme .card-text h3 { 
+    color: #e8d5a3;                             /* Cream gold heading */
+    font-weight: 700;                           /* Bold weight */
+    margin: 0 0 5px;                            /* Tiny bottom gap */
+}
+
+.noor-card.light-theme .card-text p { 
+    color: #b0a080;                             /* Muted tan paragraph */
+    font-weight: 500;                           /* Medium weight */
+    margin-bottom: 10px;                        /* Space below text */
+}
 
 .icon-box {
-    width: 45px; height: 45px;
-    background: rgba(197, 160, 89, 0.2);
-    color: #c5a059;
-    border-radius: 10px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 20px;
+    width: 45px;                                /* Box width */
+    height: 45px;                               /* Box height */
+    background: rgba(197, 160, 89, 0.2);        /* Faint gold background */
+    color: var(--primary-gold);                 /* Bold gold icon */
+    border-radius: 10px;                        /* Slightly rounded */
+    display: flex;                              /* Flex centering */
+    align-items: center;                        /* Vertical alignment */
+    justify-content: center;                    /* Horizontal centering */
+    font-size: 20px;                            /* Icon size */
 }
 
 .maps-btn {
-    background: #c5a059;
-    color: #000;
-    padding: 8px 16px;
-    border-radius: 6px;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 14px;
-    display: inline-block;
+    background: var(--primary-gold);            /* Gold background color */
+    color: var(--bg-black);                     /* Black text color */
+    padding: 8px 16px;                          /* Small button padding */
+    border-radius: 6px;                         /* Slight rounding */
+    text-decoration: none;                      /* No link decoration */
+    font-weight: bold;                          /* Bold text */
+    font-size: 14px;                            /* Smaller link size */
+    display: inline-block;                      /* Inline flow */
 }
 
-/* Social Circles */
-.social-follow h3 { color: #c5a059; margin: 40px 0 20px; }
-.social-circles { display: flex; gap: 15px; }
+.social-follow h3 { 
+    color: var(--primary-gold);                 /* Header gold color */
+    margin: 40px 0 20px;                        /* Surrounding vertical gap */
+}
+
+.social-circles { 
+    display: flex;                              /* Row layout */
+    gap: 15px;                                  /* Space between icons */
+}
+
 .social-circles a i {
-    width: 40px; height: 40px;
-    border: 1px solid #c5a059;
-    color: #c5a059;
-    display: flex; align-items: center; justify-content: center;
-    border-radius: 50%; transition: 0.3s;
+    width: 40px;                                /* Circle width */
+    height: 40px;                               /* Circle height */
+    border: 1px solid var(--primary-gold);      /* Gold outline icon */
+    color: var(--primary-gold);                 /* Gold icon color */
+    display: flex;                              /* Centering flex */
+    align-items: center;                        /* Vertical alignment */
+    justify-content: center;                    /* Horizontal centering */
+    border-radius: 50%;                         /* Perfect circle icon */
+    transition: var(--transition-speed);        /* Hover interaction timing */
 }
+
 .social-circles a:hover i { 
-    background-color: #c5a059;
-    color: #000;
-    transform: scale(1.1);
+    background-color: var(--primary-gold);      /* Gold background hover */
+    color: var(--bg-black);                     /* Black icon hover */
+    transform: scale(1.1);                      /* Pop animation */
 }
 
+.form-column { 
+    flex: 1.6;                                  /* Larger form column */
+}
 
-/* Form Column */
-.form-column { flex: 1.6; }
 .message-card.white-bg {
-    background: #1a1611;
-    padding: 40px;
-    border-radius: 15px;
-    border: 1px solid #2a2318;
-    box-shadow: 0 4px 20px rgba(197, 160, 89, 0.06);
-    max-height: 900px;
+    background: #1a1611;                        /* Matching warm background */
+    padding: 40px;                              /* Spacious internal room */
+    border-radius: 15px;                        /* Rounded corners */
+    border: 1px solid #2a2318;                  /* Warm boundary border */
+    box-shadow: 0 4px 20px rgba(197, 160, 89, 0.06); /* Thematic shadow */
+    max-height: 900px;                          /* Maximum height limit */
 }
 
-.form-title { font-size: 24px; color: #e8d5a3; margin-bottom: 30px; font-weight: 700; }
+.form-title { 
+    font-size: 24px;                            /* Title size */
+    color: #e8d5a3;                             /* Cream gold color */
+    margin-bottom: 30px;                        /* Space below title */
+    font-weight: 700;                           /* Extra bold weight */
+}
 
-.input-group { margin-bottom: 20px; width: 100%; }
+.input-group { 
+    margin-bottom: 20px;                        /* Space between fields */
+    width: 100%;                                /* Full width field */
+}
+
 .input-group label {
-    display: block;
-    color: #c5a059;
-    font-weight: 600;
-    font-size: 14px;
-    margin-bottom: 8px;
+    display: block;                             /* Standard block label */
+    color: var(--primary-gold);                 /* Gold label text */
+    font-weight: 600;                           /* Semi-bold weight */
+    font-size: 14px;                            /* Smaller label text */
+    margin-bottom: 8px;                         /* Space above input */
 }
 
 .input-group input, 
 .input-group select, 
 .input-group textarea {
-    width: 100%;
-    background: #111;
-    border: 1px solid #2a2318;
-    color: #e0d0b0;
-    padding: 14px;
-    border-radius: 8px;
-    font-size: 15px;
-    font-family: inherit;
+    width: 100%;                                /* Responsive input width */
+    background: var(--bg-card);                 /* Dark background color */
+    border: 1px solid #2a2318;                  /* Subtle boundary border */
+    color: #e0d0b0;                             /* Cream text color */
+    padding: 14px;                              /* Internal room */
+    border-radius: 8px;                         /* Rounded field edges */
+    font-size: 15px;                            /* Text entry size */
+    font-family: inherit;                       /* Uses parent font */
 }
 
-.name-row { display: flex; gap: 20px; }
+.name-row { 
+    display: flex;                              /* Horizontal row */
+    gap: 20px;                                  /* Space between name fields */
+}
 
 .noor-send-btn {
-    width: 100%;
-    background: #c5a059;
-    color: #000;
-    padding: 16px;
-    border: none;
-    border-radius: 8px;
-    font-weight: bold;
-    font-size: 16px;
-    cursor: pointer;
-    margin-top: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    transition: 0.3s;
+    width: 100%;                                /* Full width submit */
+    background: var(--primary-gold);            /* Bold gold button */
+    color: var(--bg-black);                     /* High contrast black */
+    padding: 16px;                              /* Vertical button size */
+    border: none;                               /* Removes default border */
+    border-radius: 8px;                         /* Button rounding */
+    font-weight: bold;                          /* Bold weight */
+    font-size: 16px;                            /* Text size */
+    cursor: pointer;                            /* Clickable cursor */
+    margin-top: 10px;                           /* Space above button */
+    display: flex;                              /* Flex container icon */
+    align-items: center;                        /* Vertical centering */
+    justify-content: center;                    /* Horizontal centering */
+    gap: 10px;                                  /* Icon/Text gap */
+    transition: var(--transition-speed);        /* Hover interaction speed */
 }
 
 .noor-send-btn:hover {
-    background: #b38b4d;
+    background: #b38b4d;                        /* Darker gold on hover */
 }
 
-/* Find Us Map */
-.find-us-full { text-align: center; margin-top: 100px; }
-.find-title { font-size: 32px; margin-bottom: 40px; color: #fff; }
-.map-frame { border-radius: 20px; overflow: hidden; border: 1px solid #222; }
-
-/* ==========================================================================
-   CONTACT PAGE MEDIA QUERIES (Study Version)
-   ========================================================================== */
-
-/* This triggers when the screen width is 900px or smaller */
-@media (max-width: 900px) {
-    
-    /* 1. Reset the Grid */
-    .contact-grid { 
-        flex-direction: column;         /* Changes side-by-side to top-and-bottom */
-        gap: 40px;                      /* Reduces the massive gap between columns */
-    }
-
-    /* 2. Hero Section Adjustments */
-    .contact-hero {
-        padding: 60px 20px;             /* Reduces top/bottom padding for smaller screens */
-    }
-
-    .gold-header-text {
-        font-size: 32px;                /* Shrinks the 48px title so it fits on one line */
-    }
-
-    /* 3. Container & Form Row Adjustments */
-    .main-body-container {
-        padding: 40px 20px;             /* Less white space around the main body */
-    }
-
-    .name-row { 
-        flex-direction: column;         /* Stacks First Name and Last Name vertically */
-        gap: 0;                         /* Removes horizontal gap since they are stacked */
-    }
-
-    /* 4. Column Titles */
-    .column-title {
-        text-align: center;             /* Centers "Get in Touch" for better mobile looks */
-        font-size: 24px;
-    }
-
-    /* 5. The Map Adjustment */
-    .find-us-full {
-        margin-top: 60px;               /* Moves the map section closer to the content */
-    }
-    
-    .map-frame iframe {
-        height: 350px;                  /* Makes the map shorter on mobile screens */
-    }
-
-    /* 6. Centering Socials */
-    .social-follow h3,
-    .social-circles {
-        justify-content: center;        /* Centers the social icons for better symmetry */
-        text-align: center;
-    }
+.find-us-full { 
+    text-align: center;                         /* Centers map block */
+    margin-top: 100px;                          /* Large section gap */
 }
 
-/* END OF CONTACT PAGE CSS SECTION */
+.find-title { 
+    font-size: 32px;                            /* Map header size */
+    margin-bottom: 40px;                        /* Gap below header */
+    color: var(--text-white);                   /* Header color white */
+}
 
+.map-frame { 
+    border-radius: 20px;                        /* Rounded map corners */
+    overflow: hidden;                           /* Clips iframe edge */
+    border: 1px solid #222;                     /* Subtle frame border */
+}
 
 /* ==========================================================================
    PRAYER TIMES PAGE - MODERN DESIGN
    ========================================================================== */
-
 .PrayerTimes-Section {
-    background-color: #050709;
-    padding: 80px 20px;
+    background-color: #050709;                  /* Deep dark background */
+    padding: 80px 20px;                         /* Vertical section spacing */
 }
 
 .PrayerTimesPage-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    text-align: center;
+    max-width: 1200px;                          /* Limits container width */
+    margin: 0 auto;                             /* Centers the content */
+    text-align: center;                         /* Centered alignment */
 }
 
 .PrayerTimesPage-container-title {
-    font-size: clamp(3rem, 8vw, 6rem); 
-    margin-bottom: 20px;
-    color: #c5a059;
-    font-weight: 800;
+    font-size: clamp(3rem, 8vw, 6rem);           /* Responsive bold title */
+    margin-bottom: 20px;                        /* Space below title */
+    color: var(--primary-gold);                 /* Bold gold title */
+    font-weight: 800;                           /* Extra thick header */
 }
 
 .PrayerTimesPage-description {
-    color: #a0a0a0;
-    max-width: 700px;
-    margin: 0 auto 50px auto;
-    line-height: 1.6;
+    color: #a0a0a0;                             /* Muted text color */
+    max-width: 700px;                           /* Limits text width */
+    margin: 0 auto 50px auto;                   /* Centers text block */
+    line-height: 1.6;                           /* Leading spacing */
 }
 
-/* The Wrapper handles the styling */
 .iframe-wrapper {
-    position: relative;
-    width: 85%; 
-    margin: 0 auto;
-    background: #111;
-    border-radius: 20px;
-    padding: 10px;
-    border: 1px solid rgba(197, 160, 89, 0.3); /* Subtle gold outline */
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 
-                0 0 20px rgba(197, 160, 89, 0.1); /* Soft gold glow */
+    position: relative;                         /* Base for children */
+    width: 85%;                                 /* Desktop width scale */
+    margin: 0 auto;                             /* Centers the frame */
+    background: var(--bg-card);                 /* Card background color */
+    border-radius: 20px;                        /* Outer frame rounding */
+    padding: 10px;                              /* Internal frame room */
+    border: 1px solid rgba(197, 160, 89, 0.3);  /* Gold outline glow */
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 20px rgba(197, 160, 89, 0.1); /* Thematic shadows */
 }
 
 .PrayerTimesPage-container-iframe {
-    width: 100%;
-    height: 650px; /* Slightly taller to ensure no scrolling */
-    border-radius: 15px;
-    display: block;
+    width: 100%;                                /* Full responsive width */
+    height: 650px;                              /* Static frame height */
+    border-radius: 15px;                        /* Internal frame rounding */
+    display: block;                             /* Block display element */
 }
 
-/* Target the Title ONLY when the Container is hovered */
 .PrayerTimesPage-container:hover .PrayerTimesPage-container-title {
-    color: #f0e5c5;           /* Changes to a lighter gold */
-    text-shadow: 0 0 20px rgba(197, 160, 89, 0.6); /* Adds a title glow */
-    transform: scale(1.05);   /* Makes the text grow slightly */
+    color: var(--cream-gold);                   /* Lighter hover color */
+    text-shadow: 0 0 20px rgba(197, 160, 89, 0.6); /* Gold title glow */
+    transform: scale(1.05);                     /* Interactive text pop */
 }
-
-/* --- Media Query for Mobile --- */
-@media (max-width: 768px) {
-    .PrayerTimes-Section {
-        padding: 40px 15px;
-    }
-
-    .iframe-wrapper {
-        width: 100%; /* Take full width on phones */
-        padding: 5px;
-        border-radius: 12px;
-    }
-
-    .PrayerTimesPage-container-iframe {
-        height: 500px; /* Adjust height for mobile viewports */
-    }
-
-    .PrayerTimesPage-description {
-        font-size: 14px;
-        padding: 0 10px;
-    }
-}
-
 
 /* ==========================================================================
-    Prayer Schedule Section - Custom Classes
+   PRAYER SCHEDULE SECTION
    ========================================================================== */
-
 .prayer-schedule-section {
-    background-color: #000;
-    padding: 80px 20px;
-    color: #c5a059;
+    background-color: var(--bg-black);          /* Solid black section */
+    padding: 80px 20px;                         /* Outer spacing */
+    color: var(--primary-gold);                 /* Primary text gold */
 }
 
 .prayer-header {
-    text-align: center;
-    margin-bottom: 50px;
+    text-align: center;                         /* Center header contents */
+    margin-bottom: 50px;                        /* Spacing below header */
 }
 
 .prayer-header h1 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
+    font-size: 2.5rem;                          /* Heading font size */
+    margin-bottom: 10px;                        /* Vertical gap */
 }
 
 .prayer-times-list {
-    max-width: 900px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+    max-width: 900px;                           /* Limit list width */
+    margin: 0 auto;                             /* Center the list */
+    display: flex;                              /* Flex column layout */
+    flex-direction: column;                     /* Vertical stacking */
+    gap: 20px;                                  /* Space between items */
 }
 
 .prayer-time-entry {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #111; /* Darker than the page background */
-    border: 1px solid #333;
-    padding: 25px 40px;
-    border-radius: 15px;
-    transition: all 0.4s ease;
-    flex-wrap: wrap; /* Helps on mobile */
+    display: flex;                              /* Item row layout */
+    justify-content: space-between;             /* Edge distribution */
+    align-items: center;                        /* Vertical centering */
+    background: var(--bg-card);                 /* Card background color */
+    border: 1px solid #333;                     /* Subtle border line */
+    padding: 25px 40px;                         /* Spacious entry room */
+    border-radius: 15px;                        /* Rounded entry edges */
+    transition: all 0.4s ease;                  /* Smooth entry animation */
+    flex-wrap: wrap;                            /* Mobile compatibility */
 }
 
-/* The Glow Effect */
 .prayer-time-entry:hover {
-    border-color: #c5a059;
-    box-shadow: 0 0 20px rgba(197, 160, 89, 0.2), 
-                inset 0 0 10px rgba(197, 160, 89, 0.1);
-    transform: translateX(10px); /* Subtle slide-right effect */
+    border-color: var(--primary-gold);          /* Gold highlight border */
+    box-shadow: 0 0 20px rgba(197, 160, 89, 0.2), inset 0 0 10px rgba(197, 160, 89, 0.1); /* Entry glow */
+    transform: translateX(10px);                /* Interactive slide right */
 }
 
 .prayer-info {
-    display: flex;
-    align-items: center;
-    gap: 25px;
+    display: flex;                              /* Group alignment */
+    align-items: center;                        /* Vertical centering */
+    gap: 25px;                                  /* Space inside info */
 }
 
 .prayer-indicator {
-    background-color: #f0e5c5; /* Your light cream color */
-    color: #000;
-    width: 50px;
-    height: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    font-weight: bold;
-    font-size: 1.1rem;
+    background-color: var(--cream-gold);        /* Accent indicator background */
+    color: var(--bg-black);                     /* Dark icon color */
+    width: 50px;                                /* Circle size width */
+    height: 50px;                               /* Circle size height */
+    display: flex;                              /* Centering flex */
+    justify-content: center;                    /* Horizontal centering */
+    align-items: center;                        /* Vertical alignment */
+    border-radius: 50%;                         /* Perfect indicator circle */
+    font-weight: bold;                          /* Thick weight */
+    font-size: 1.1rem;                          /* Text size */
 }
 
 .prayer-title {
-    margin: 0;
-    font-size: 1.6rem;
+    margin: 0;                                  /* Resets margins */
+    font-size: 1.6rem;                          /* Title font size */
 }
 
 .prayer-clock {
-    font-size: 2rem;
-    font-weight: 800;
-    color: #f0e5c5;
+    font-size: 2rem;                            /* Large clock size */
+    font-weight: 800;                           /* Extra thick text */
+    color: var(--cream-gold);                   /* Highlighted clock color */
 }
-
 
 .youth-version .prayer-subtext {
-    flex-basis: 100%;
-    margin-top: 15px;
-    opacity: 0.6;
-    font-style: italic;
-    border-top: 1px solid #333;
-    padding-top: 10px;
+    flex-basis: 100%;                           /* Full width subtext */
+    margin-top: 15px;                           /* Vertical gap */
+    opacity: 0.6;                               /* Dimmed text opacity */
+    font-style: italic;                         /* Italicized styling */
+    border-top: 1px solid #333;                 /* Separator top border */
+    padding-top: 10px;                          /* Vertical room */
 }
 
 /* ==========================================================================
-    Mobile Responsive Fixes for Jummah Section
+   PROGRAMS PAGE
    ========================================================================== */
-
-@media (max-width: 768px) {
-    .prayer-time-entry {
-        align-items: flex-start;   
-        gap: 15px;                 
-        padding: 20px;
-    }
-
-    .prayer-clock {
-        font-size: 1.5rem;        
-        align-self: flex-end;      
-        border-top: 1px solid #333; 
-        width: 100%;
-        text-align: right;
-        padding-top: 10px;
-    }
-
-    .prayer-title {
-        font-size: 1.2rem;         
-    }
-
-    .prayer-indicator {
-        width: 40px;             
-        height: 40px;
-        font-size: 0.9rem;
-    }
-}
-/* ==========================================================================
-    Programs Page - Educational Styled CSS
-   ========================================================================== */
-
-/* Header section styling */
 .progamPageHead {
-    text-align: center; /* Centers the text horizontally */
-    padding: 100px 20px; /* Adds space inside the top and bottom */
-    background-color: #050709; /* Sets the deep black background */
+    text-align: center;                         /* Centered content block */
+    padding: 100px 20px;                        /* Hero section vertical room */
+    background-color: #050709;                  /* Specific dark background */
 }
 
-/* The big icon at the top */
 .progamPageHeadIcon {
-    font-size: 70px; /* Makes the icon very large */
-    color: #c5a059; /* Your signature gold color */
-    margin-bottom: 20px; /* Space between icon and the title */
-    display: block; /* Ensures it takes its own line */
+    font-size: 70px;                            /* Icon font size */
+    color: var(--primary-gold);                 /* Signature gold color */
+    margin-bottom: 20px;                        /* vertical room icon */
+    display: block;                             /* Standard block icon */
 }
 
-/* The main title "Our Programs" */
 .progamPageHead h1 {
-    font-size: 3rem; /* Large, bold font size */
-    color: #c5a059; /* Gold color */
-    margin-bottom: 10px; /* Space below the heading */
+    font-size: 3rem;                            /* Main title size */
+    color: var(--primary-gold);                 /* Header gold color */
+    margin-bottom: 10px;                        /* Spacing under header */
 }
 
-/* The subtitle below the main title */
 .progamPageHead p {
-    color: #a0a0a0; /* Subtle grey color for secondary text */
-    font-size: 1.2rem; /* Comfortable reading size */
+    color: var(--text-muted);                   /* Muted descriptive text */
+    font-size: 1.2rem;                          /* Clean reading size */
 }
 
-/* The Grid Container for all cards */
 .programs-container {
-    display: grid; /* Enables the grid layout system */
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Most important line: automatically creates columns based on screen width */
-    gap: 32px; /* Adds even space between all cards */
-    max-width: 1200px; /* Prevents the grid from becoming too wide on huge monitors */
-    margin: 0 auto 100px auto; /* Centers the whole grid and adds bottom margin */
-    padding: 0 20px; /* Prevents cards from touching screen edges on mobile */
+    display: grid;                              /* Grid layout system */
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Responsive columns */
+    gap: 32px;                                  /* Vertical/Horizontal gaps */
+    max-width: 1200px;                          /* Container width limit */
+    margin: 0 auto 100px auto;                  /* Outer layout margin */
+    padding: 0 20px;                            /* Horizontal mobile room */
 }
 
-/* The individual Program Card */
 .program-card {
-    background: #111; /* Darker than the page background to create depth */
-    border: 1px solid #222; /* Very subtle border to define the card shape */
-    border-radius: 15px; /* Rounded corners for a modern look */
-    padding: 30px; /* Space inside the card around the content */
-    display: flex; /* Allows us to use flexbox inside the card */
-    flex-direction: column; /* Stacks card content vertically */
-    transition: all 0.3s ease; /* Makes the hover effect smooth instead of snappy */
+    background: var(--bg-card);                 /* Elevated card color */
+    border: 1px solid #222;                     /* Subtle edge border */
+    border-radius: 15px;                        /* Card edge rounding */
+    padding: 30px;                              /* Card internal room */
+    display: flex;                              /* Flex column container */
+    flex-direction: column;                     /* Vertical stack behavior */
+    transition: all 0.3s ease;                  /* Smooth interaction timing */
 }
 
-/* Hover effect for the card */
 .program-card:hover {
-    transform: translateY(-10px); /* Moves the card up 10px when hovered */
-    border-color: #c5a059; /* Changes border to gold on hover */
-    box-shadow: 0 10px 30px rgba(197, 160, 89, 0.15); /* Adds a soft gold glow behind the card */
+    transform: translateY(-10px);               /* Interactive lift pop */
+    border-color: var(--primary-gold);          /* Bold gold border hover */
+    box-shadow: 0 10px 30px rgba(197, 160, 89, 0.15); /* Soft gold shadow */
 }
 
-/* Card titles (Hifz Program, etc) */
 .program-card h2 {
-    color: #c5a059; /* Gold color */
-    font-size: 1.6rem; /* Large enough to stand out */
-    margin-bottom: 15px; /* Space below the title */
+    color: var(--primary-gold);                 /* Card heading gold */
+    font-size: 1.6rem;                          /* Header font size */
+    margin-bottom: 15px;                        /* Vertical under header */
 }
 
-/* Schedule and Age labels */
 .program-meta {
-    margin-bottom: 10px; /* Space between the schedule and age lines */
+    margin-bottom: 10px;                        /* Info line spacing */
 }
 
 .label {
-    color: #c5a059; /* Gold color for the word "Schedule:" */
-    font-weight: bold; /* Makes it pop */
-    margin-right: 5px; /* Space before the actual time/age */
+    color: var(--primary-gold);                 /* Key label gold */
+    font-weight: bold;                          /* Bold key text */
+    margin-right: 5px;                          /* Space for value */
 }
 
 .value {
-    color: #ffffff; /* White color for the actual data */
+    color: var(--text-white);                   /* Value white color */
 }
 
-/* Feature title (What this program features:) */
 .feature-title {
-    color: #c5a059; /* Gold color */
-    font-weight: bold; /* Bold text */
-    margin-top: 20px; /* Space above the list section */
-    margin-bottom: 10px; /* Space before the list starts */
+    color: var(--primary-gold);                 /* Subsection title gold */
+    font-weight: bold;                          /* Extra bold weight */
+    margin-top: 20px;                           /* Vertical section gap */
+    margin-bottom: 10px;                        /* Space below title */
 }
 
-/* The Feature List */
 .program-card ul {
-    list-style: none; /* Removes default browser dots */
-    padding: 0; /* Removes default list indent */
-    margin-bottom: 30px; /* Space before the button */
+    list-style: none;                           /* Resets browser lists */
+    padding: 0;                                 /* Removes list indent */
+    margin-bottom: 30px;                        /* Gap above button */
 }
 
 .program-card ul li {
-    color: #cccccc; /* Slightly dimmed white for list items */
-    padding: 5px 0 5px 20px; /* Space for the custom bullet */
-    position: relative; /* Needed to position the bullet correctly */
+    color: #cccccc;                             /* Light grey list text */
+    padding: 5px 0 5px 20px;                    /* Custom bullet room */
+    position: relative;                         /* Base for absolute bullet */
 }
 
-/* Custom Gold Bullet Points */
 .program-card ul li::before {
-    content: "•"; /* The character we want as a bullet */
-    color: #c5a059; /* Gold color */
-    position: absolute; /* Allows us to move it exactly where we want */
-    left: 0; /* Align to the far left of the list item */
-    font-weight: bold; /* Make it thick */
+    content: "•";                               /* Custom bullet character */
+    color: var(--primary-gold);                 /* Bullet gold color */
+    position: absolute;                         /* Floating bullet placement */
+    left: 0;                                    /* Align to bullet room */
+    font-weight: bold;                          /* Bold bullet weight */
 }
 
-/* The "Learn More" Button */
 .program-btn {
-    margin-top: auto; /* Push the button to the bottom of the card regardless of text length */
-    background-color: #c5a059; /* Gold background */
-    color: #000; /* Black text for high contrast */
-    text-align: center; /* Center the text inside the button */
-    padding: 12px; /* Size of the button */
-    border-radius: 8px; /* Slightly rounded corners */
-    text-decoration: none; /* Remove the link underline */
-    font-weight: bold; /* Thick text */
-    transition: background 0.3s ease; /* Fade effect for hover */
+    margin-top: auto;                           /* Pushes to bottom of flex */
+    background-color: var(--primary-gold);      /* Primary gold background */
+    color: var(--bg-black);                     /* Dark text contrast */
+    text-align: center;                         /* Centers link text */
+    padding: 12px;                              /* Button padding size */
+    border-radius: 8px;                         /* Button corner rounding */
+    text-decoration: none;                      /* No link decoration */
+    font-weight: bold;                          /* Bold text weight */
+    transition: background 0.3s ease;           /* Background color shift */
 }
 
 .program-btn:hover {
-    background-color: #f0e5c5; /* Turns to a lighter cream color on hover */
+    background-color: var(--cream-gold);        /* Light hover color */
 }
 
-/* Footer Section */
 .progamPageFooterHead {
-    text-align: center; /* Center all footer content */
-    padding: 100px 20px; /* Large space for the bottom of the page */
-    background-color: #0a0c0e; /* Slightly different black to separate from grid */
+    text-align: center;                         /* Centers footer content */
+    padding: 100px 20px;                        /* Vertical vertical room */
+    background-color: #0a0c0e;                  /* Specific footer dark */
 }
 
 .progamPageFooterHead h2 {
-    color: #c5a059; /* Gold title */
-    font-size: 2.2rem; /* Large heading */
-    margin-bottom: 20px; /* Space before the paragraph */
+    color: var(--primary-gold);                 /* Footer header gold */
+    font-size: 2.2rem;                          /* Header font size */
+    margin-bottom: 20px;                        /* vertical room header */
 }
 
 .progamPageFooterHead p {
-    color: #ffffff; /* White text */
-    max-width: 700px; /* Prevents text from stretching across the whole screen */
-    margin: 0 auto 40px auto; /* Centers the block and adds space before button */
-    line-height: 1.6; /* Comfortable line spacing for reading */
-}
-
-/* Responsive Fixes for Small Screens */
-@media (max-width: 768px) {
-    .progamPageHead h1 {
-        font-size: 2.2rem; /* Shrinks title on phones */
-    }
-    
-    .programs-container {
-        grid-template-columns: 1fr; /* Forces cards into a single column on phones */
-    }
+    color: var(--text-white);                   /* Footer white text */
+    max-width: 700px;                           /* Reading width cap */
+    margin: 0 auto 40px auto;                   /* Outer layout centers */
+    line-height: 1.6;                           /* Leading spacing */
 }
 
 /* ==========================================================================
-    Services Page Styles
+   SERVICES PAGE
    ========================================================================== */
-
 .servicesPageHead {
-    text-align: center;
-    padding: 100px 20px;
-    background-color: #050709;
+    text-align: center;                         /* Centers head section */
+    padding: 100px 20px;                        /* Vertical section padding */
+    background-color: #050709;                  /* Specific dark background */
 }
 
 .servicesPageHead h1 {
-    font-size: 3rem;
-    color: #c5a059;
-    margin-bottom: 10px;
+    font-size: 3rem;                            /* Header font size */
+    color: var(--primary-gold);                 /* Header color gold */
+    margin-bottom: 10px;                        /* vertical gap header */
 }
 
 .servicesPageHead p {
-    color: #a0a0a0;
-    font-size: 1.2rem;
+    color: var(--text-muted);                   /* Muted grey text */
+    font-size: 1.2rem;                          /* Font entry size */
 }
 
 .servicesPageHeadIcon {
-    font-size: 70px; 
-    color: #c5a059;
-    margin-bottom: 20px;
+    font-size: 70px;                            /* Large header icon */
+    color: var(--primary-gold);                 /* Icon color gold */
+    margin-bottom: 20px;                        /* vertical room icon */
 }
 
-/* Services Grid Layout */
 .services-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    max-width: 1200px;
-    margin: 0 auto 100px auto;
-    padding: 0 20px;
+    display: grid;                              /* Grid layout system */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive cols */
+    gap: 30px;                                  /* Grid row/col spacing */
+    max-width: 1200px;                          /* Layout container width */
+    margin: 0 auto 100px auto;                  /* Outer page margin */
+    padding: 0 20px;                            /* Horizontal mobile buffer */
 }
 
-/* Individual Service Card */
 .service-card {
-    background: #111;
-    border: 1px solid #333;
-    border-radius: 15px;
-    padding: 35px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-    display: flex;
-    flex-direction: column;
+    background: var(--bg-card);                 /* Elevated background color */
+    border: 1px solid #333;                     /* Subtle edge line */
+    border-radius: 15px;                        /* Rounded card shape */
+    padding: 35px;                              /* Card internal padding */
+    transition: all 0.3s ease;                  /* Universal speed timing */
+    display: flex;                              /* Flex column layout */
+    flex-direction: column;                     /* Vertical stacking */
 }
 
 .service-card h2 {
-    color: #c5a059;
-    font-size: 1.8rem;
-    margin-bottom: 15px;
+    color: var(--primary-gold);                 /* Card header gold */
+    font-size: 1.8rem;                          /* Header font size */
+    margin-bottom: 15px;                        /* vertical room header */
 }
 
 .service-card p {
-    color: #cccccc;
-    line-height: 1.6;
-    margin-bottom: 20px;
+    color: #cccccc;                             /* Light grey paragraph */
+    line-height: 1.6;                           /* Leading spacing */
+    margin-bottom: 20px;                        /* vertical gap paragraph */
 }
 
 .service-feature-title {
-    font-size: 1.1rem;
-    color: #c5a059 !important;
-    font-weight: bold;
-    margin-bottom: 10px !important;
+    font-size: 1.1rem;                          /* Small feature header */
+    color: var(--primary-gold) !important;      /* Forces gold feature text */
+    font-weight: bold;                          /* Extra thick text */
+    margin-bottom: 10px !important;             /* Vertical field room */
 }
 
-/* Bullet Points */
 .service-card ul {
-    list-style: none;
-    padding: 0;
+    list-style: none;                           /* No standard browser bullets */
+    padding: 0;                                 /* Resets indents */
 }
 
 .service-card ul li {
-    color: #ffffff;
-    padding: 8px 0 8px 25px;
-    position: relative;
+    color: var(--text-white);                   /* White feature text */
+    padding: 8px 0 8px 25px;                    /* Bullet horizontal room */
+    position: relative;                         /* Base for bullet */
 }
 
 .service-card ul li::before {
-    content: "•";
-    color: #c5a059;
-    font-weight: bold;
-    position: absolute;
-    left: 0;
-    font-size: 1.2rem;
+    content: "•";                               /* Custom list bullet */
+    color: var(--primary-gold);                 /* Bullet gold color */
+    font-weight: bold;                          /* Extra bold bullet */
+    position: absolute;                         /* Floating bullet placement */
+    left: 0;                                    /* Align to bullet room */
+    font-size: 1.2rem;                          /* Bullet character size */
 }
 
-/* Glow & Interaction */
 .service-card:hover {
-    transform: translateY(-10px);
-    border-color: #c5a059;
-    box-shadow: 0 0 15px rgba(197, 160, 89, 0.2), 0 0 40px rgba(197, 160, 89, 0.1);
-}
-
-/* Footer Section */
-.progamPageFooterHead {
-    text-align: center;
-    padding: 80px 20px;
-    background: #0a0c0e;
+    transform: translateY(-10px);               /* Animated lift interactive */
+    border-color: var(--primary-gold);          /* Gold boundary highlight */
+    box-shadow: 0 0 15px rgba(197, 160, 89, 0.2), 0 0 40px rgba(197, 160, 89, 0.1); /* Thematic glow shadow */
 }
 
 .learn-more-btn-program-page {
-    display: inline-block;
-    margin-top: 30px;
-    padding: 15px 40px;
-    background-color: #c5a059;
-    color: #000;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 10px;
-    transition: background 0.3s ease;
+    display: inline-block;                      /* Flow block element */
+    margin-top: 30px;                           /* Vertical section room */
+    padding: 15px 40px;                         /* Spacious button padding */
+    background-color: var(--primary-gold);      /* Primary gold color */
+    color: var(--bg-black);                     /* Dark text contrast */
+    text-decoration: none;                      /* No link decoration */
+    font-weight: bold;                          /* Bold weight */
+    border-radius: 10px;                        /* Rounded button edges */
+    transition: background 0.3s ease;           /* Background color speed */
 }
 
 .learn-more-btn-program-page:hover {
-    background-color: #f0e5c5;
+    background-color: var(--cream-gold);        /* Hover interaction color */
 }
 
-
 /* ==========================================================================
-    Services Page - Mobile Responsiveness
+   DONATION PAGE
    ========================================================================== */
-
-@media (max-width: 768px) {
-    /* Reduce the massive padding from the header */
-    .servicesPageHead {
-        padding: 60px 15px;
-        margin-bottom: 40px;
-    }
-
-    .servicesPageHead h1 {
-        font-size: 2.2rem; /* Shrink title so it doesn't wrap weirdly */
-    }
-
-    /* Make the grid gap smaller so we save screen space */
-    .services-container {
-        gap: 20px;
-        margin-bottom: 60px;
-    }
-
-    /* Adjust the card padding so text has more room */
-    .service-card {
-        padding: 25px 20px;
-    }
-
-    .service-card h2 {
-        font-size: 1.5rem;
-    }
-
-    /* Make the footer button full-width for easier tapping */
-    .learn-more-btn-program-page {
-        width: 100%;
-        box-sizing: border-box;
-    }
-}
-
-
-/* ==========================================================================
-    Start of Donation Page CSS
-   ========================================================================== */
-
-   /* ==========================================================================
-    Start of Donation Page Head CSS
-   ========================================================================== */
-
 .donationPageHeadContainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+    display: flex;                              /* Centering column */
+    flex-direction: column;                     /* Vertical stacked row */
+    justify-content: center;                    /* Vertical centering */
+    align-items: center;                        /* Horizontal alignment */
+    text-align: center;                         /* Centered content */
 }
 
 .donationPageHeadIcon {
-    font-size: 70px; 
-    color: #c5a059;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    margin: 0 auto 20px;
-    margin-top: 30px;
+    font-size: 70px;                            /* Large header icon */
+    color: var(--primary-gold);                 /* Icon color gold */
+    justify-content: center;                    /* Alignment helper */
+    align-items: center;                        /* Centering helper */
+    text-align: center;                         /* Centers icon font */
+    margin: 0 auto 20px;                        /* Centers block and adds gap */
+    margin-top: 30px;                           /* Extra top buffer */
 }
-    
+
 .donationPageHead {
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    gap: 20px;
-    max-width: 650px;
+    justify-content: center;                    /* Center distribution */
+    align-items: center;                        /* Vertical centering */
+    text-align: center;                         /* Centers text */
+    gap: 20px;                                  /* vertical field room */
+    max-width: 650px;                           /* Content width cap */
 }
 
 .DonationPageHeadButtons {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    gap: 30px;
+    display: flex;                              /* Row distribution */
+    justify-content: center;                    /* Centered horizontal */
+    align-items: center;                        /* Vertical alignment */
+    text-align: center;                         /* Centers buttons */
+    margin-top: 30px;                           /* Top buffer */
+    margin-bottom: 30px;                        /* Bottom buffer */
+    gap: 30px;                                  /* Button spacing */
 }
 
 .DonationPageHeadButtons a {
-    border: 5px solid #c5a059;
-    color: black;
-    background-color: #c5a059;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: 0.3s;
-    transition: box-shadow 0.3s ease; 
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    border: 5px solid var(--primary-gold);      /* Thick gold outline */
+    color: var(--bg-black);                     /* Dark text contrast */
+    background-color: var(--primary-gold);      /* Gold background color */
+    text-decoration: none;                      /* No link styling */
+    border-radius: 5px;                         /* Standard rounding */
+    transition: box-shadow 0.3s ease;           /* Shadow speed timing */
+    padding-left: 10px;                         /* Internal room left */
+    padding-right: 10px;                        /* Internal room right */
+    padding-top: 5px;                           /* Internal room top */
+    padding-bottom: 5px;                        /* Internal room bottom */
 }
 
 .DonationPageHeadButtons a:hover {
-    box-shadow: 0 0 10px #c5a059, 0 0 30px #c5a059, 0 0 50px #c5a059;
-    transition: box-shadow 0.3s ease; 
+    box-shadow: 0 0 10px #c5a059, 0 0 30px #c5a059, 0 0 50px #c5a059; /* Triple glow effect */
 }
 
 .donationPageHeadSmallBarText {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    margin-top: 50px;
-    background-color: #c5a059;
-    width: 100%;
-    padding-bottom: 10px;
-    padding-top: 10px;
+    display: flex;                              /* Centered bar container */
+    justify-content: center;                    /* Horizontal center */
+    align-items: center;                        /* Vertical alignment */
+    text-align: center;                         /* Centers inner p */
+    margin-top: 50px;                           /* Gap above bar */
+    background-color: var(--primary-gold);      /* Solid gold bar */
+    width: 100%;                                /* Full layout width */
+    padding-bottom: 10px;                       /* Bottom buffer bar */
+    padding-top: 10px;                          /* Top buffer bar */
 }
 
- .donationPageHeadSmallBarText p {
-    color: black; 
- }
- /* ==========================================================================
-    Start of Donation Page Impact section CSS
-   ========================================================================== */
+.donationPageHeadSmallBarText p {
+    color: var(--bg-black);                     /* Contrast dark text */
+}
 
 .impact-section {
-    padding: 60px 20px;
-    text-align: center;
+    padding: 60px 20px;                         /* Vertical outer padding */
+    text-align: center;                         /* Centers section head */
 }
 
 .impact-section-head {
-    font-size: x-large;
-    margin-bottom: 30px;
+    font-size: x-large;                         /* Larger header size */
+    margin-bottom: 30px;                        /* vertical room header */
 }
 
 .impact-container {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;              
-    max-width: 1200px;
-    margin: 0 auto;
-    gap: 30px;
+    display: flex;                              /* Horizontal row */
+    justify-content: space-around;              /* Even spreading */
+    flex-wrap: wrap;                            /* Mobile compatibility */
+    max-width: 1200px;                          /* Layout cap */
+    margin: 0 auto;                             /* Centers container */
+    gap: 30px;                                  /* Item grid spacing */
 }
 
 .impact-item {
-    flex: 1;                      
-    min-width: 200px;              
+    flex: 1;                                    /* Flexible item size */
+    min-width: 200px;                           /* Layout floor width */
 }
 
 .impact-number {
-    display: block;
-    font-size: 3rem;
-    font-weight: bold;
-    color: #c5a059;              
-    margin-bottom: 10px;
-}
-
-.impact-label {
-    font-size: 1.1rem;
-    color: #c5a059;
-    line-height: 1.4;
-}
-
- /* ==========================================================================
-    Start of Donation Page Ways to Give CSS
-   ========================================================================== */
-.WaysToGive-Head {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-size: x-large;
-    margin-bottom: 40px;
-    padding: 0 20px;
-    color: #c5a059;
-}
-.card-container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 24px;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-    margin-bottom: 80px;
-}
-
-.giveCard {
-    display: flex;
-    flex-direction: column; 
-    align-items: flex-start; 
-    text-align: left;
-    justify-content: flex-start;
-    border: 1px solid #333;
-    border-radius: 12px;
-    padding: 28px 24px;
-    color: #c5a059;
-    background: #111;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.giveCard p, .payCard p {
-    margin-bottom: 20px; /* Adds space specifically below the description text */
-}
-
-.giveCard:hover {
-    box-shadow: 0 0 10px #c5a059, 0 0 30px #c5a059, 0 0 50px #c5a059;
-   transform: translateY(-5px);
-}
-
-#WTGICON {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 60px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: #f0e5c5;
-    margin-bottom: 20px;
-    font-size: 20px;
-    border-radius: 20px;
-    padding-left: 10px;
-    padding-right: 10px;
-}
-
-.donationPage-card-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    padding: 14px 0;
-    text-align: center;
-    box-sizing: border-box;
-    margin-top: auto;
-    border-radius: 10px;
-    background-color: #c5a059;
-    color: #000;
-    font-weight: bold;
-    font-size: 15px;
-    transition: background 0.3s ease;
-}
-
-.donationPage-card-btn:hover {
-    background-color: #e2ba73;
-}
-
-/* Donation page grid responsive */
-@media (max-width: 1024px) {
-    .card-container {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 600px) {
-    .card-container {
-        grid-template-columns: 1fr;
-    }
-
-    .DonationPageHeadButtons {
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    .impact-container {
-        flex-direction: column;
-        align-items: center;
-    }
-}
-
-/* ==========================================================================
-    Payment Methods Section - Matching Ways to Give
-   ========================================================================== */
-
-.PaymentSection-Wrapper {
-    padding-bottom: 100px;
-    background-color: #000; 
-}
-
-.payment-card-container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 24px;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-.payCard {
-    display: flex;
-    flex-direction: column; 
-    align-items: flex-start; 
-    text-align: left;
-    justify-content: flex-start;
-    border: 1px solid #333; 
-    border-radius: 12px;
-    padding: 28px 24px;
-    color: #c5a059;
-    background: #111; 
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-
-.payCard:hover {
-   box-shadow: 0 0 10px #c5a059, 0 0 30px #c5a059, 0 0 50px #c5a059;
-   transform: translateY(-5px);
-}
-
-#PMICON {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 60px;
-    height: 40px;
-    background-color: #f0e5c5;
-    margin-bottom: 20px;
-    font-size: 20px;
-    border-radius: 20px;
-    padding: 0 10px;
-    color: #000; 
-}
-
-.paymentPage-card-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    padding: 14px 0;
-    text-align: center;
-    box-sizing: border-box;
-    margin-top: auto;
-    border-radius: 10px;
-    background-color: #c5a059;
-    color: #000;
-    font-weight: bold;
-    text-decoration: none;
-    transition: background 0.3s ease;
-}
-
-.paymentPage-card-btn:hover {
-    background-color: #e2ba73;
-}
-
-/* ==========================================================================
-    Responsive Design
-   ========================================================================== */
-
-@media (max-width: 1100px) {
-    .card-container, .payment-card-container {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 768px) {
-    .impact-number {
-        font-size: 2.5rem;
-    }
-    
-    .DonationPageHeadButtons {
-        flex-direction: column;
-        width: 100%;
-        max-width: 300px;
-        gap: 30px;
-    }
-    
-    .impact-item.box-style {
-        max-width: 100%;
-        width: 100%;
-    }
-}
-
-@media (max-width: 600px) {
-    .card-container, .payment-card-container {
-        grid-template-columns: 1fr;
-    }
-    
-    .donationPageHead h1 {
-        font-size: 1.8rem;
-    }
-}
-/* ==========================================================================
-   HIFZ PROGRAM PAGE STYLING
-   ========================================================================== */
-
-.hifz-details-area {
-    background-color: #050709;
-    padding: 100px 20px;
-    color: #c5a059;
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
-.hifz-header {
-    text-align: center;
-    margin-bottom: 60px;
-}
-
-.hifz-header h1 {
-    font-size: 3rem;
-    margin-bottom: 15px;
-}
-
-/* Grid for Age, Cost, Schedule */
-.hifz-info-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    margin-bottom: 50px;
-}
-
-.hifz-stat-card {
-    background: #111;
-    border: 1px solid #333;
-    padding: 30px;
-    border-radius: 15px;
-    text-align: center;
-    transition: transform 0.3s ease;
-}
-
-.hifz-stat-card:hover {
-    transform: translateY(-10px);
-    border-color: #c5a059;
-}
-
-.hifz-icon {
-    font-size: 2rem;
-    margin-bottom: 15px;
-}
-
-/* Document List Styling */
-.hifz-requirements {
-    background: rgba(197, 160, 89, 0.05); /* Very faint gold tint */
-    padding: 40px;
-    border-radius: 20px;
-    border-left: 4px solid #c5a059;
-    margin-bottom: 60px;
-}
-
-.doc-list {
-    list-style: none;
-    padding: 0;
-    margin-top: 20px;
-}
-
-.doc-list li {
-    padding: 10px 0;
-    border-bottom: 1px solid #222;
-    display: flex;
-    align-items: center;
-}
-
-.doc-list li::before {
-    content: "✓";
-    margin-right: 15px;
-    color: #f0e5c5;
-    font-weight: bold;
-}
-
-/* Action Buttons */
-.hifz-action-bar {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-top: 40px;
-}
-
-.btn-primary, .btn-secondary {
-    padding: 15px 35px;
-    border-radius: 10px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: all 0.3s ease;
-}
-
-.btn-primary {
-    background-color: #c5a059;
-    color: #000;
-}
-
-.btn-primary:hover {
-    background-color: #f0e5c5;
-    box-shadow: 0 0 20px rgba(197, 160, 89, 0.4);
-}
-
-.btn-secondary {
-    background-color: transparent;
-    border: 1px solid #c5a059;
-    color: #c5a059;
-}
-
-.btn-secondary:hover {
-    background-color: rgba(197, 160, 89, 0.1);
-}
-
-/* Mobile Responsive */
-@media (max-width: 600px) {
-    .hifz-action-bar {
-        flex-direction: column;
-    }
-    .btn-primary, .btn-secondary {
-        text-align: center;
-    }
-}
-
-/* ==========================================================================
-   HIFZ OFFERS & CHECKLIST STYLES
-   ========================================================================== */
-
-.section-title {
-    font-size: 2rem;
-    margin-bottom: 30px;
-    text-align: left;
-    color: #f0e5c5; /* Lighter gold for headers */
-}
-
-/* Offers Grid */
-.offers-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
-    margin-bottom: 60px;
-}
-
-.offer-item {
-    background: rgba(197, 160, 89, 0.03);
-    border: 1px dashed #333; /* Dashed border for a "scholarly" look */
-    padding: 25px;
-    border-radius: 12px;
-    transition: all 0.3s ease;
-}
-
-.offer-item:hover {
-    border-style: solid;
-    border-color: #c5a059;
-    background: rgba(197, 160, 89, 0.08);
-}
-
-.offer-item h4 {
-    color: #c5a059;
-    margin-bottom: 10px;
-    font-size: 1.3rem;
-}
-
-/* Checklist Styling */
-.hifz-checklist-container {
-    background: #111;
-    padding: 35px;
-    border-radius: 15px;
-    border: 1px solid #222;
-    margin-bottom: 60px;
-}
-
-.checklist-intro {
-    color: #a0a0a0;
-    margin-bottom: 20px;
-}
-
-.checklist-items {
-    list-style: none;
-    padding: 0;
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Two columns on desktop */
-    gap: 15px;
-}
-
-.checklist-items li {
-    display: flex;
-    align-items: center;
-    color: #c5a059;
-}
-
-.checklist-items li::before {
-    content: "◈"; /* Islamic geometric bullet point */
-    margin-right: 12px;
-    color: #f0e5c5;
-}
-
-/* Mobile Fix for Checklist */
-@media (max-width: 768px) {
-    .checklist-items {
-        grid-template-columns: 1fr; /* Single column on mobile */
-    }
-}
-
-/* ==========================================================================
-   EVENTS PAGE: HERO & SUBSCRIBE STYLES
-   ========================================================================== */
-
-.events-hero {
-    text-align: center;             /* Centers the text and child elements */
-    padding: 100px 20px;            /* 100px vertical, 20px horizontal padding */
-    background-color: #050709;      /* Deep black background for the theme */
-}
-
-.events-hero-icon {
-    font-size: 60px;                /* Sets size of the calendar icon */
-    color: #c5a059;                 /* Gold brand color */
-    margin-bottom: 20px;            /* Space below the icon */
-}
-
-.events-hero h1 {
-    color: #c5a059;                 /* Gold text for the main heading */
-    font-size: 3rem;                /* Large impact font size */
-    margin-bottom: 10px;            /* Space below the heading */
-}
-
-.subscribe-box {
-    background: #111;               /* Darker grey for the container */
-    padding: 30px;                  /* Space inside the box */
-    border-radius: 15px;            /* Rounded corners */
-    border: 1px solid #333;         /* Subtle border line */
-    max-width: 500px;               /* Limits the width on large screens */
-    margin: 40px auto 0 auto;       /* Centers the box horizontally */
-}
-
-.subscribe-form {
-    display: flex;                  /* Puts input and button in a row */
-    gap: 10px;                      /* 10px gap between input and button */
-    margin-top: 20px;               /* Space above the input fields */
-}
-
-.subscribe-form input {
-    flex: 1;                        /* Allows input to grow and fill space */
-    padding: 12px;                  /* Inner text spacing */
-    border-radius: 8px;             /* Rounded corners for the field */
-    border: 1px solid #222;         /* Dark border for the field */
-    background: #000;               /* Black background inside the input */
-    color: #fff;                    /* White text when user types */
-}
-
-.subscribe-btn {
-    background: #c5a059;            /* Gold background for the button */
-    color: #000;                    /* Black text on the button */
-    border: none;                   /* Removes default browser border */
-    padding: 0 20px;                /* Horizontal padding for button size */
-    border-radius: 8px;             /* Matches input field corners */
-    font-weight: bold;              /* Makes button text bold */
-    cursor: pointer;                /* Hand icon on mouse hover */
-}
-
-/* ==========================================================================
-   EVENTS PAGE: FLYER GRID & BADGE STYLES
-   ========================================================================== */
-
-.events-section {
-    max-width: 1100px;              /* Keeps content focused in the center */
-    margin: 0 auto 80px auto;       /* Centers horizontally with bottom margin */
-    padding: 0 20px;                /* Side padding for mobile devices */
-}
-
-.event-type-title {
-    color: #c5a059;                 /* Gold section header color */
-    border-bottom: 1px solid #333;  /* Underline for the header */
-    padding-bottom: 15px;           /* Space between text and line */
-    margin-bottom: 40px;            /* Space below the line */
-}
-
-.flyer-grid {
-    display: grid;                  /* Enables the CSS grid layout */
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Responsive columns */
-    gap: 32px;                      /* Gap between the flyer cards */
-}
-
-.event-flyer-card {
-    background: #181818;            /* Card background color */
-    border-radius: 12px;            /* Rounded corners */
-    border: 1px solid #222;         /* Card border color */
-    position: relative;             /* CRITICAL: Anchor for the bottom badge */
-    overflow: hidden;               /* Clips the badge to the rounded corners */
-    padding-bottom: 50px;           /* PADDING: Prevents text from being hidden by badge */
-    transition: 0.3s ease;          /* Speed for hover transition */
-}
-
-.event-flyer-card:hover {
-    border-color: #c5a059;          /* Turns border gold on hover */
-    transform: translateY(-5px);    /* Lifts the card slightly */
-}
-
-.flyer-content {
-    padding: 25px;                  /* Interior space for text */
-}
-
-.flyer-status-bottom {
-    position: absolute;             /* PINNING: Places it relative to the card */
-    bottom: 0;                      /* Sticks it to the bottom edge */
-    left: 0;                        /* Sticks it to the left edge */
-    width: 100%;                    /* Spans the full width of the card */
-    background: #ff4d4d;            /* Alert red background */
-    color: white;                   /* White text */
-    text-align: center;             /* Centers the "Tonight" text */
-    padding: 10px 0;                /* Vertical size of the bar */
-    font-size: 0.85rem;             /* Font size for the badge */
-    font-weight: bold;              /* Bold text for the badge */
-    text-transform: uppercase;      /* All caps text */
-    letter-spacing: 1px;            /* Space between letters */
-}
-
-.flyer-date {
-    color: #c5a059;                 /* Gold color for the date string */
-    font-size: 0.9rem;              /* Smaller text size for the date */
-    display: block;                 /* Forces date onto its own line */
-    margin-bottom: 10px;            /* Space below the date */
-}
-
-.instagram-link {
-    display: inline-block;          /* Allows for top/bottom margins */
-    margin-top: 20px;               /* Space above the link */
-    color: #c5a059;                 /* Gold link color */
-    text-decoration: none;          /* Removes default underline */
-    font-weight: bold;              /* Bold font weight */
-}
-
-/* ==========================================================================
-   EVENTS PAGE: REGULAR PROGRAMS & FOOTER
-   ========================================================================== */
-
-.regular-item {
-    display: flex;                  /* Places day and info in a row */
-    align-items: center;            /* Vertically centers the items */
-    padding: 20px;                  /* Vertical row spacing */
-    border-bottom: 1px solid #222;  /* Divider line between programs */
-}
-
-.program-day {
-    min-width: 120px;               /* Keeps all days aligned in a column */
-    color: #c5a059;                 /* Gold text color for the day */
-    font-weight: bold;              /* Bold text for the day */
-    font-size: 1.2rem;              /* Larger font for the day */
-}
-
-.request-event-footer {
-    text-align: center;             /* Centers footer content */
-    padding: 80px 20px;             /* Large top/bottom padding */
-    background: #0a0c0e;            /* Dark footer background */
-    border-top: 1px solid #222;     /* Line separating from the rest */
-}
-
-.request-btn {
-    display: inline-block;          /* Allows for padding and width */
-    margin-top: 30px;               /* Space above the button */
-    padding: 15px 40px;             /* Size of the button */
-    background: #c5a059;            /* Gold background */
-    color: #000;                    /* Black text */
-    text-decoration: none;          /* Removes underline */
-    font-weight: bold;              /* Bold text */
-    border-radius: 50px;            /* Pill shaped button */
-    transition: 0.3s;               /* Smooth hover effect */
-}
-
-/* ==========================================================================
-   EVENTS PAGE: MOBILE RESPONSIVENESS
-   ========================================================================== */
-
-@media (max-width: 768px) {
-    .subscribe-form {
-        flex-direction: column;     /* Stacks input and button on mobile */
-    }
-    
-    .regular-item {
-        flex-direction: column;     /* Stacks day on top of info on mobile */
-        align-items: flex-start;    /* Left-aligns text on mobile */
-    }
-}
-
-/* ==========================================================================
-   makes the nav links look gold when on that page
-   ========================================================================== */
-.active-page {
-    color: #c5a059 !important; 
-    font-weight: bold;
-    border-bottom: 2px solid #c5a059;
+    display: block;                             /* Standard block digit */
+    font-size: 3rem;                            /* Extra large digits */
+    font-weight: bold;                          /* Bold weight weight */
+    color: var(--primary-gold);                 /* Bold gold color */
 }
