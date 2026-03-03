@@ -1235,3 +1235,364 @@ img.displaySlide {
     font-weight: bold;                          /* Bold weight weight */
     color: var(--primary-gold);                 /* Bold gold color */
 }
+/* ==========================================================================
+   EVENTS PAGE: HERO & SUBSCRIBE STYLES
+   ========================================================================== */
+
+.events-hero {
+    text-align: center;             /* Centers the text and child elements */
+    padding: 100px 20px;            /* 100px vertical, 20px horizontal padding */
+    background-color: var(--bg-black);      /* Deep black background for the theme */
+}
+
+.events-hero-icon {
+    font-size: 60px;                /* Sets size of the calendar icon */
+    color: var(--primary-gold);                 /* Gold brand color */
+    margin-bottom: 20px;            /* Space below the icon */
+}
+
+.events-hero h1 {
+    color: var(--primary-gold);                 /* Gold text for the main heading */
+    font-size: 3rem;                /* Large impact font size */
+    margin-bottom: 10px;            /* Space below the heading */
+}
+
+.subscribe-box {
+    background: var(--bg-dark);               /* Darker grey for the container */
+    padding: 30px;                  /* Space inside the box */
+    border-radius: 15px;            /* Rounded corners */
+    border: 1px solid #333;         /* Subtle border line */
+    max-width: 500px;               /* Limits the width on large screens */
+    margin: 40px auto 0 auto;       /* Centers the box horizontally */
+}
+
+.subscribe-form {
+    display: flex;                  /* Puts input and button in a row */
+    gap: 10px;                      /* 10px gap between input and button */
+    margin-top: 20px;               /* Space above the input fields */
+}
+
+.subscribe-form input {
+    flex: 1;                        /* Allows input to grow and fill space */
+    padding: 12px;                  /* Inner text spacing */
+    border-radius: 8px;             /* Rounded corners for the field */
+    border: 1px solid #222;         /* Dark border for the field */
+    background: var(--bg-black);               /* Black background inside the input */
+    color: var(--text-white);                    /* White text when user types */
+}
+
+.subscribe-btn {
+    background: var(--primary-gold);            /* Gold background for the button */
+    color: var(--bg-black);                    /* Black text on the button */
+    border: none;                   /* Removes default browser border */
+    padding: 0 20px;                /* Horizontal padding for button size */
+    border-radius: 8px;             /* Matches input field corners */
+    font-weight: bold;              /* Makes button text bold */
+    cursor: pointer;                /* Hand icon on mouse hover */
+}
+
+/* ==========================================================================
+   EVENTS PAGE: FLYER GRID & BADGE STYLES
+   ========================================================================== */
+
+.events-section {
+    max-width: 1100px;              /* Keeps content focused in the center */
+    margin: 0 auto 80px auto;       /* Centers horizontally with bottom margin */
+    padding: 0 20px;                /* Side padding for mobile devices */
+}
+
+.event-type-title {
+    color: var(--primary-gold);                 /* Gold section header color */
+    border-bottom: 1px solid #333;  /* Underline for the header */
+    padding-bottom: 15px;           /* Space between text and line */
+    margin-bottom: 40px;            /* Space below the line */
+}
+
+.flyer-grid {
+    display: grid;                  /* Enables the CSS grid layout */
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Responsive columns */
+    gap: 32px;                      /* Gap between the flyer cards */
+}
+
+.event-flyer-card {
+    background: var(--bg-card);            /* Card background color */
+    border-radius: 12px;            /* Rounded corners */
+    border: 1px solid #222;         /* Card border color */
+    position: relative;             /* CRITICAL: Anchor for the bottom badge */
+    overflow: hidden;               /* Clips the badge to the rounded corners */
+    padding-bottom: 50px;           /* PADDING: Prevents text from being hidden by badge */
+    transition: var(--transition-speed);          /* Speed for hover transition */
+}
+
+.event-flyer-card:hover {
+    border-color: var(--primary-gold);          /* Turns border gold on hover */
+    transform: translateY(-5px);    /* Lifts the card slightly */
+}
+
+.flyer-content {
+    padding: 25px;                  /* Interior space for text */
+}
+
+.flyer-status-bottom {
+    position: absolute;             /* PINNING: Places it relative to the card */
+    bottom: 0;                      /* Sticks it to the bottom edge */
+    left: 0;                        /* Sticks it to the left edge */
+    width: 100%;                    /* Spans the full width of the card */
+    background: #ff4d4d;            /* Alert red background */
+    color: white;                   /* White text */
+    text-align: center;             /* Centers the "Tonight" text */
+    padding: 10px 0;                /* Vertical size of the bar */
+    font-size: 0.85rem;             /* Font size for the badge */
+    font-weight: bold;              /* Bold text for the badge */
+    text-transform: uppercase;      /* All caps text */
+    letter-spacing: 1px;            /* Space between letters */
+}
+
+.flyer-date {
+    color: var(--primary-gold);                 /* Gold color for the date string */
+    font-size: 0.9rem;              /* Smaller text size for the date */
+    display: block;                 /* Forces date onto its own line */
+    margin-bottom: 10px;            /* Space below the date */
+}
+
+.instagram-link {
+    display: inline-block;          /* Allows for top/bottom margins */
+    margin-top: 20px;               /* Space above the link */
+    color: var(--primary-gold);                 /* Gold link color */
+    text-decoration: none;          /* Removes default underline */
+    font-weight: bold;              /* Bold font weight */
+}
+
+/* ==========================================================================
+   EVENTS PAGE: REGULAR PROGRAMS & FOOTER
+   ========================================================================== */
+
+.regular-item {
+    display: flex;                  /* Places day and info in a row */
+    align-items: center;            /* Vertically centers the items */
+    padding: 20px;                  /* Vertical row spacing */
+    border-bottom: 1px solid #222;  /* Divider line between programs */
+}
+
+.program-day {
+    min-width: 120px;               /* Keeps all days aligned in a column */
+    color: var(--primary-gold);                 /* Gold text color for the day */
+    font-weight: bold;              /* Bold text for the day */
+    font-size: 1.2rem;              /* Larger font for the day */
+}
+
+.request-event-footer {
+    text-align: center;             /* Centers footer content */
+    padding: 80px 20px;             /* Large top/bottom padding */
+    background: var(--bg-dark);            /* Dark footer background */
+    border-top: 1px solid #222;     /* Line separating from the rest */
+}
+
+.request-btn {
+    display: inline-block;          /* Allows for padding and width */
+    margin-top: 30px;               /* Space above the button */
+    padding: 15px 40px;             /* Size of the button */
+    background: var(--primary-gold);            /* Gold background */
+    color: var(--bg-black);                    /* Black text */
+    text-decoration: none;          /* Removes underline */
+    font-weight: bold;              /* Bold text */
+    border-radius: 50px;            /* Pill shaped button */
+    transition: var(--transition-speed);               /* Smooth hover effect */
+}
+
+/* ==========================================================================
+   HIFZ PROGRAM PAGE STYLING
+   ========================================================================== */
+
+.hifz-details-area {
+    background-color: var(--bg-black);    /* Deep black background for the theme */
+    padding: 100px 20px;                 /* 100px vertical, 20px horizontal padding */
+    color: var(--primary-gold);          /* Gold brand color */
+    max-width: 1000px;                   /* Keeps content focused in the center */
+    margin: 0 auto;                      /* Centers the container horizontally */
+}
+
+.hifz-header {
+    text-align: center;                  /* Centers the text and child elements */
+    margin-bottom: 60px;                 /* Space below the header section */
+}
+
+.hifz-header h1 {
+    font-size: 3rem;                     /* Large impact font size */
+    margin-bottom: 15px;                 /* Space below the main heading */
+}
+
+/* Grid for Age, Cost, Schedule */
+.hifz-info-grid {
+    display: grid;                       /* Enables the CSS grid layout */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive columns */
+    gap: 20px;                           /* 20px gap between the cards */
+    margin-bottom: 50px;                 /* Space below the grid */
+}
+
+.hifz-stat-card {
+    background: var(--bg-dark);          /* Darker grey for the container */
+    border: 1px solid #333;              /* Subtle border line */
+    padding: 30px;                       /* Space inside the card */
+    border-radius: 15px;                 /* Rounded corners */
+    text-align: center;                  /* Centers content within card */
+    transition: transform 0.3s ease;     /* Smooth hover transition */
+}
+
+.hifz-stat-card:hover {
+    transform: translateY(-10px);        /* Lifts the card slightly on hover */
+    border-color: var(--primary-gold);   /* Turns border gold on hover */
+}
+
+.hifz-icon {
+    font-size: 2rem;                     /* Sets size of the icons */
+    margin-bottom: 15px;                 /* Space below the icon */
+}
+
+/* Document List Styling */
+.hifz-requirements {
+    background: rgba(197, 160, 89, 0.05); /* Very faint gold tint */
+    padding: 40px;                       /* Interior space for text */
+    border-radius: 20px;                 /* Rounded corners */
+    border-left: 4px solid var(--primary-gold); /* Gold accent bar on the left */
+    margin-bottom: 60px;                 /* Space below the requirements block */
+}
+
+.doc-list {
+    list-style: none;                    /* Removes default browser bullets */
+    padding: 0;                          /* Resets padding */
+    margin-top: 20px;                    /* Space above the list items */
+}
+
+.doc-list li {
+    padding: 10px 0;                     /* Vertical row spacing */
+    border-bottom: 1px solid #222;       /* Divider line between items */
+    display: flex;                       /* Places icon and text in a row */
+    align-items: center;                 /* Vertically centers the items */
+}
+
+.doc-list li::before {
+    content: "✓";                        /* Checkmark symbol */
+    margin-right: 15px;                  /* Space after the icon */
+    color: var(--cream-gold);            /* Lighter gold for the icon */
+    font-weight: bold;                   /* Bold icon weight */
+}
+
+/* Action Buttons */
+.hifz-action-bar {
+    display: flex;                       /* Puts buttons in a row */
+    justify-content: center;             /* Centers buttons horizontally */
+    gap: 20px;                           /* 20px gap between buttons */
+    margin-top: 40px;                    /* Space above the button bar */
+}
+
+.btn-primary, .btn-secondary {
+    padding: 15px 35px;                  /* Size of the button */
+    border-radius: 10px;                 /* Rounded corners for the buttons */
+    text-decoration: none;               /* Removes underline from links */
+    font-weight: bold;                   /* Bold button text */
+    transition: all 0.3s ease;           /* Smooth transition for all properties */
+}
+
+.btn-primary {
+    background-color: var(--primary-gold); /* Gold background */
+    color: var(--bg-black);                /* Black text */
+}
+
+.btn-primary:hover {
+    background-color: var(--cream-gold);   /* Lighter gold on hover */
+    box-shadow: 0 0 20px rgba(197, 160, 89, 0.4); /* Subtle gold glow */
+}
+
+.btn-secondary {
+    background-color: transparent;       /* Hollow button */
+    border: 1px solid var(--primary-gold); /* Gold border */
+    color: var(--primary-gold);            /* Gold text */
+}
+
+.btn-secondary:hover {
+    background-color: rgba(197, 160, 89, 0.1); /* Very light gold fill on hover */
+}
+
+/* Mobile Responsive */
+@media (max-width: 600px) {
+    .hifz-action-bar {
+        flex-direction: column;          /* Stacks buttons vertically on mobile */
+    }
+    .btn-primary, .btn-secondary {
+        text-align: center;              /* Centers button text when stacked */
+    }
+}
+
+/* ==========================================================================
+   HIFZ OFFERS & CHECKLIST STYLES
+   ========================================================================== */
+
+.section-title {
+    font-size: 2rem;                     /* Bold section size */
+    margin-bottom: 30px;                 /* Gap below title */
+    text-align: left;                    /* Aligns title to left */
+    color: var(--cream-gold);            /* Lighter gold for headers */
+}
+
+/* Offers Grid */
+.offers-grid {
+    display: grid;                       /* Enables CSS grid layout */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive cards */
+    gap: 25px;                           /* Gap between cards */
+    margin-bottom: 60px;                 /* Space below the offers section */
+}
+
+.offer-item {
+    background: rgba(197, 160, 89, 0.03); /* Extremely subtle gold tint */
+    border: 1px dashed #333;             /* Dashed border for a "scholarly" look */
+    padding: 25px;                       /* Interior space for text */
+    border-radius: 12px;                 /* Rounded card corners */
+    transition: all 0.3s ease;           /* Smooth hover speed */
+}
+
+.offer-item:hover {
+    border-style: solid;                 /* Changes border to solid on hover */
+    border-color: var(--primary-gold);   /* Turns border gold */
+    background: rgba(197, 160, 89, 0.08); /* Darkens tint slightly on hover */
+}
+
+.offer-item h4 {
+    color: var(--primary-gold);          /* Gold heading within the card */
+    margin-bottom: 10px;                 /* Space below card title */
+    font-size: 1.3rem;                   /* Clean sub-heading size */
+}
+
+/* Checklist Styling */
+.hifz-checklist-container {
+    background: var(--bg-dark);          /* Dark grey background for container */
+    padding: 35px;                       /* Interior space */
+    border-radius: 15px;                 /* Rounded corners */
+    border: 1px solid #222;              /* Subtle boundary */
+    margin-bottom: 60px;                 /* Space below checklist block */
+}
+
+.checklist-intro {
+    color: var(--text-muted);            /* Greyed out intro text */
+    margin-bottom: 20px;                 /* Space below intro paragraph */
+}
+
+.checklist-items {
+    list-style: none;                    /* Removes default bullets */
+    padding: 0;                          /* Resets padding */
+    display: grid;                       /* Enables grid for list items */
+    grid-template-columns: 1fr 1fr;      /* Two columns on desktop */
+    gap: 15px;                           /* Gap between checklist items */
+}
+
+.checklist-items li {
+    display: flex;                       /* Places icon and text in a row */
+    align-items: center;                 /* Vertically centers list items */
+    color: var(--primary-gold);          /* Gold text for checklist items */
+}
+
+.checklist-items li::before {
+    content: "◈";                        /* Islamic geometric bullet point */
+    margin-right: 12px;                  /* Space after the symbol */
+    color: var(--cream-gold);            /* Lighter gold for the icon */
+}
