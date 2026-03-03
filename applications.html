@@ -57,11 +57,12 @@
                         <input type="email" name="email" autocomplete="email" required>
                     </div>
                     <div class="field">
-                        <label>Are you applying for yourself or on behalf of someone else?</label>
+                        <label>Applicant Type</label>
                         <select name="on_behalf" required>
                             <option value="self">Applying for Myself</option>
                             <option value="other">On Behalf of Someone Else</option>
                         </select>
+                        <small class="field-help">Are you applying for yourself, or submitting this on behalf of another person?</small>
                     </div>
                 </div>
                 <div class="field full-width">
@@ -83,14 +84,15 @@
                         <input type="text" name="emergency_relationship" required>
                     </div>
                     <div class="field">
-                        <label>How did you hear about our Masjid/organization?</label>
+                        <label>Referral Source</label>
                         <input type="text" name="referral_source" placeholder="Friend, family, social media, website, event, etc.">
                     </div>
                 </div>
 
                 <div class="field full-width">
-                    <label>Have you previously used any service or enrolled in any program at this Masjid?</label>
+                    <label>Previous Services or Programs</label>
                     <textarea name="previous_involvement" placeholder="If yes, please specify which one and when..." rows="2"></textarea>
+                    <small class="field-help">Let us know if you have used any service or enrolled in any program here before.</small>
                 </div>
 
                 <div class="acknowledgment">
@@ -256,7 +258,7 @@
                             <option value="external">External Venue</option>
                         </select>
                     </div>
-
+                    
                     <div class="input-grid">
                         <div class="field">
                             <label>Have you completed pre-marital counseling?</label>
@@ -284,7 +286,7 @@
                             </select>
                         </div>
                     </div>
-
+                    
                     <div class="field">
                         <label>Bride's short reflection: Why do you wish to marry and do you understand the Islamic rights and responsibilities of marriage?</label>
                         <textarea name="bride_reflection" rows="3"></textarea>
@@ -293,7 +295,7 @@
                         <label>Groom's short reflection: Why do you wish to marry and do you understand the Islamic rights and responsibilities of marriage?</label>
                         <textarea name="groom_reflection" rows="3"></textarea>
                     </div>
-
+                    
                     <div class="input-grid">
                         <div class="field">
                             <label>Witness 1 (Full Name & Phone)</label>
@@ -771,8 +773,8 @@
                         </label>
                     </div>
                 </div>
-
-            </div>
+                
+                </div>
 
             <div class="form-footer">
                 <button type="submit" class="portal-btn">Submit to Leadership</button>

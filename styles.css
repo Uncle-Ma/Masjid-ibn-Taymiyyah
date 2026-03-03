@@ -1716,395 +1716,331 @@ img.displaySlide {
     border-color: var(--cream-gold);
 }
 
+/* ==========================================================================
+   1. GLOBAL PORTAL FOUNDATION
+   ========================================================================== */
 
-
-
-/* --- APP PORTAL MASTER STYLESHEET --- */
-
-/* 1. Global Reset & Body for Application Portal */
-.app-portal-bg { /* Dedicated background for the application experience */
-    background: radial-gradient(circle at top, #111 0, var(--bg-black) 55%, #000 100%); /* Creates a premium halo behind the form card */
-    color: var(--text-white); /* Ensures text contrasts against the dark gradient */
-    font-family: 'Inter', system-ui, -apple-system, sans-serif; /* Uses the modern font stack for clarity */
-    line-height: 1.6; /* Comfortable vertical spacing for dense forms */
-    margin: 0; /* Prevents stray page margins around the experience */
+.app-portal-bg { 
+    background: radial-gradient(circle at top, #111 0, var(--bg-black) 55%, #000 100%); /* Premium dark halo effect for the page background */
+    color: var(--text-white); /* Sets global text to high-contrast white */
+    font-family: 'Inter', system-ui, -apple-system, sans-serif; /* Clean, professional modern font stack */
+    line-height: 1.6; /* Balanced vertical spacing for paragraph text */
+    margin: 0; /* Ensures no default browser gaps around the portal */
 }
 
-/* 2. Main Container & Glass Card */
-.app-container { /* Constrains width and centers the portal card */
-    padding: 120px 24px 100px; /* Adds generous top/bottom spacing to feel like a hero section */
-    max-width: 1120px; /* Slightly wider lane for multi-column enterprise forms */
-    margin: 0 auto; /* Centers the form horizontally */
+.app-container { 
+    padding: 120px 24px 100px; /* Massive top padding to center the form in the viewport */
+    max-width: 1120px; /* Standardized width for enterprise-grade forms */
+    margin: 0 auto; /* Centers the entire container horizontally */
 }
 
-.app-glass-card { /* High-end glassy container for the entire application form */
-    background: linear-gradient(135deg, rgba(15, 15, 15, 0.98), rgba(7, 7, 7, 0.98)); /* Subtle diagonal sheen for depth */
-    border: 1px solid rgba(197, 160, 89, 0.18); /* Fine, gold-tinted border for refinement */
-    padding: 56px 60px; /* Spacious interior padding to reduce visual clutter */
-    border-radius: 24px; /* Soft, modern curvature */
-    box-shadow:
-        0 35px 90px rgba(0, 0, 0, 0.85), /* Deep drop shadow separating the card from the background */
-        0 0 0 1px rgba(255, 255, 255, 0.02); /* Hairline highlight ring for sharpness */
-    position: relative; /* Enables pseudo-elements and internal positioning */
-    overflow: hidden; /* Clips decorative elements to rounded corners */
+.app-glass-card { 
+    background: linear-gradient(135deg, rgba(15, 15, 15, 0.98), rgba(7, 7, 7, 0.98)); /* Deep, dark glass-morphism effect */
+    border: 1px solid rgba(197, 160, 89, 0.18); /* Subtle gold stroke around the main card */
+    padding: 56px 60px; /* Internal cushion between the border and the content */
+    border-radius: 24px; /* Large, smooth modern corner curvature */
+    box-shadow: 0 35px 90px rgba(0, 0, 0, 0.85); /* Heavy drop shadow to create depth against background */
+    position: relative; /* Context for absolute-positioned decorative elements */
+    overflow: hidden; /* Ensures internal elements don't bleed past the rounded corners */
 }
 
-.app-glass-card::before { /* Decorative top accent line echoing brand gold */
-    content: "";
-    position: absolute;
-    inset: 0 18% auto; /* Restricts the glowing bar to the upper portion of the card */
-    height: 2px;
-    background: linear-gradient(90deg, transparent, var(--primary-gold), transparent); /* Fades gold into transparency on both sides */
-    opacity: 0.6; /* Keeps it subtle */
-    pointer-events: none; /* Ensures it never interferes with interaction */
+/* ==========================================================================
+   2. TYPOGRAPHY & HEADER
+   ========================================================================== */
+
+.app-header { 
+    margin-bottom: 60px; /* Significant gap between the title and the first form section */
 }
 
-/* 3. Header Styling */
-.app-header { /* Wraps the main title and intro copy */
-    margin-bottom: 40px; /* Separates header from the first section */
+.app-header h1 { 
+    font-family: 'Playfair Display', serif; /* Elegant serif font for the main title */
+    font-size: clamp(2.2rem, 3.2vw, 2.8rem); /* Responsive font size that scales with screen width */
+    font-weight: 800; /* Maximum weight for immediate visual impact */
+    color: var(--cream-gold); /* High-end cream-gold color for the header */
+    margin: 0 0 12px 0; /* Margin only at the bottom to separate from subtext */
+    letter-spacing: 0.04em; /* Slight tracking for a more sophisticated look */
 }
 
-.app-header h1 { /* Primary hero title for the application portal */
-    font-family: 'Playfair Display', serif; /* Uses the brand serif for premium feel */
-    font-size: clamp(2.2rem, 3.2vw, 2.8rem); /* Scales smoothly between devices */
-    font-weight: 800; /* Strong visual weight for importance */
-    color: var(--cream-gold); /* Slightly softer gold for elegance */
-    margin: 0 0 8px 0; /* Compact vertical margins */
-    letter-spacing: 0.04em; /* Subtle tracking for sophistication */
+.app-header p { 
+    color: #b9af99; /* Muted, warm-grey gold tone for secondary header text */
+    font-size: 1rem; /* Standard body-text size */
+    max-width: 640px; /* Limits width to keep line lengths readable */
+    margin: 0; /* Reset default margins */
 }
 
-.app-header p { /* Supporting description beneath the hero title */
-    color: #b9af99; /* Warm grey/gold tone for legible secondary content */
-    font-size: 0.98rem; /* Slightly smaller than base body */
-    max-width: 640px; /* Limits line length for readability */
-    margin: 0; /* Aligns snugly under the title */
+/* ==========================================================================
+   3. STRUCTURAL FORM LAYOUT (THE ALIGNMENT FIX)
+   ========================================================================== */
+
+.form-section { 
+    padding: 32px 0; /* Balanced vertical spacing for each major form block */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04); /* Faint horizontal divider for sectioning */
 }
 
-/* 4. Form Sections & Titles */
-.form-section { /* Logical grouping for each big step of the decision tree */
-    padding: 24px 0 8px; /* Adds breathing room above/below section contents */
-    border-bottom: 1px solid rgba(255, 255, 255, 0.04); /* Light divider for scanability */
+.section-title { 
+    color: var(--primary-gold); /* Bold gold for primary section headings */
+    font-size: 1.3rem; /* Larger than body text for clear hierarchy */
+    font-weight: 700; /* Bold weight to stand out */
+    display: inline-flex; /* Icon and text sit perfectly side-by-side */
+    align-items: center; /* Vertically centers the icon with the text */
+    gap: 12px; /* Fixed space between the icon and the text label */
+    border-bottom: 1px solid rgba(197, 160, 89, 0.3); /* Underline for structural emphasis */
+    padding-bottom: 12px; /* Space between the text baseline and underline */
+    margin: 40px 0 30px; /* Outer margins to separate from content above/below */
+    text-transform: uppercase; /* Structural casing for a navigational feel */
+    letter-spacing: 0.08em; /* Widened tracking for readability in caps */
 }
 
-.form-section:last-of-type { /* Avoids extra line after the final section */
-    border-bottom: none;
+/* FIX: Forced 3-column Grid for Emergency Contact and Universal ID */
+.input-grid { 
+    display: grid; /* Enables CSS grid layout */
+    grid-template-columns: 1fr 1fr 1fr; /* FORCED: Each column is exactly 33.3% wide for perfect alignment */
+    row-gap: 38px; /* Slightly larger vertical spacing between rows (questions) */
+    column-gap: 24px; /* FIX: Horizontal spacing between columns (within the same row) */
+    margin-bottom: 32px; /* Unified bottom spacing so grid blocks feel evenly stepped */
 }
 
-.section-title { /* Section headings like '1. Universal Identification' */
-    color: var(--primary-gold); /* Uses core brand gold */
-    font-size: 1.25rem; /* Slightly larger than body for hierarchy */
-    font-weight: 700; /* Emphasized without being overpowering */
-    display: inline-flex; /* Keeps icon and text aligned on a tight baseline */
-    align-items: center; /* Vertically centers icon with text */
-    gap: 10px; /* Space between icon and label */
-    border-bottom: 1px solid rgba(197, 160, 89, 0.3); /* Underline accent for clarity */
-    padding-bottom: 10px; /* Moves underline a bit away from the text */
-    margin: 26px 0 22px; /* Vertical spacing between sections */
-    text-transform: uppercase; /* Makes section titles feel structural */
-    letter-spacing: 0.08em; /* Adds a refined, navigational style */
+/* Specific fix for 2-item rows to ensure they stay even */
+.input-grid-2 {
+    display: grid; /* Keeps the same layout model for 2-item rows */
+    grid-template-columns: 1fr 1fr; /* FORCED: Perfect 50/50 split for dual-input rows */
+    row-gap: 38px; /* Mirrors the row spacing of the main input grid */
+    column-gap: 24px; /* Mirrors the column spacing of the main input grid */
+    margin-bottom: 32px; /* Matches spacing used by the main input grid */
 }
 
-.section-title i { /* Icons sitting next to the section headings */
-    font-size: 1.05rem; /* Keeps the icon roughly aligned with text height */
-    color: var(--cream-gold); /* Slightly lighter tone than the text for nuance */
+.field { 
+    display: flex; /* Stacks label and input vertically via flex */
+    flex-direction: column; /* Label stays on top, Input stays on bottom */
+    width: 100%; /* Ensures the field fills its grid cell exactly */
 }
 
-/* 5. Input Grid & Fields */
-.input-grid { /* Responsive multi-column layout for related fields */
-    display: grid; /* Enables a grid-based layout */
-    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); /* Automatically fits as many columns as space allows */
-    gap: 18px 22px; /* Vertical and horizontal spacing between grid cells */
-    margin-bottom: 20px; /* Separates grid groups from adjacent content */
+.field.full-width { 
+    grid-column: 1 / -1; /* Tells the field to span every column in the current row */
 }
 
-.field { /* Base wrapper for individual label + control */
-    display: flex; /* Stacks label and input vertically */
-    flex-direction: column; /* Ensures label remains above the input */
+/* FIX: Space between question (label) and field (input) */
+.field label { 
+    display: flex; /* Allows us to vertically align label text within a fixed label area */
+    align-items: flex-end; /* Anchors multi-line labels to the bottom so all inputs start at the same height */
+    font-size: 0.82rem; /* Compact size for form questions */
+    color: #a29b8b; /* Soft gold-grey tone for less visual aggression */
+    letter-spacing: 0.05em; /* Crisp spacing for small uppercase text */
+    text-transform: uppercase; /* Distinguishes questions from user-entered text */
+    margin-bottom: 20px; /* Extra space between the label and the field */
+    font-weight: 700; /* Strong weight for visibility */
+    min-height: 40px; /* Ensures labels have a consistent block height even when text wraps to two lines */
 }
 
-.field.full-width { /* Forces certain fields to span the full grid width */
-    grid-column: 1 / -1; /* Instructs CSS grid to stretch across all columns */
+/* Optional helper text that appears under certain fields */
+.field-help { 
+    display: block; /* Places helper text on its own line */
+    margin-top: 8px; /* Space between the field and the helper copy */
+    font-size: 0.78rem; /* Smaller than labels and body */
+    color: #7f7764; /* Muted warm tone so it doesn’t compete with questions */
 }
 
-/* Text label above each form control */
-.field label { /* Styles the question text that appears above each answer field */
-    font-size: 0.84rem; /* Keeps labels compact so the form doesn’t feel bulky */
-    color: #a29b8b; /* Uses a warm grey that is readable but softer than pure white */
-    letter-spacing: 0.03em; /* Adds a bit of tracking for crisp small-text legibility */
-    text-transform: uppercase; /* Visually separates questions from written answers */
-    margin-bottom: 12px; /* Adds clear space between the question and its input field */
+/* ==========================================================================
+   4. INTERACTIVE CONTROLS (INPUTS, SELECTS, TEXTAREAS)
+   ========================================================================== */
+
+input, select, textarea { 
+    width: 100%; /* Spans full width of the parent container */
+    background: rgba(15, 15, 15, 0.96); /* Dark neutral background for high contrast */
+    border: 1px solid rgba(120, 120, 120, 0.4); /* Subtle structural border */
+    padding: 14px 16px; /* Harmonised padding for consistent control height */
+    color: #f5f5f5; /* Pure off-white for user-entered text */
+    border-radius: 10px; /* Clean, modern corner rounding */
+    font-size: 1rem; /* Standard font size for ease of reading */
+    line-height: 1.4; /* FIX: Normalised line-height to reduce browser variance */
+    font-family: inherit; /* Inherits the global Inter font */
+    box-sizing: border-box; /* Includes padding and border in width calculations */
+    transition: all 0.2s ease-in-out; /* Smooth transition for hover and focus states */
 }
 
-/* 6. Inputs, Selects, and Textareas */
-input,
-select,
-textarea { /* Shared visual language for every control in the portal */
-    width: 100%; /* Full width within its grid cell */
-    background: rgba(15, 15, 15, 0.96); /* Deep charcoal interior for contrast */
-    border: 1px solid rgba(120, 120, 120, 0.55); /* Subtle border for structure */
-    padding: 11px 12px; /* Horizontal and vertical padding for comfort */
-    color: #f5f5f5; /* High-contrast text inside controls */
-    border-radius: 9px; /* Slight rounding to match the card softness */
-    font-size: 0.95rem; /* Harmonized with body copy size */
-    font-family: inherit; /* Ensures consistency with global typography */
-    box-sizing: border-box; /* Keeps padding inside defined width */
-    transition: border-color var(--transition-speed), box-shadow var(--transition-speed), background-color var(--transition-speed), transform 0.12s ease-out; /* Smooth micro-interactions on focus/hover */
+/* FIX: Enforce identical vertical sizing for selects and text inputs in the same row */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+input[type="date"],
+input[type="time"],
+select { 
+    min-height: 50px; /* Forces a shared minimum height to eliminate step-laddering */
 }
 
-input::placeholder,
-textarea::placeholder { /* Placeholder styling for hint text */
-    color: #6d6656; /* Muted tone to differentiate from real answers */
+/* State changes for when a user clicks into a field */
+input:focus, select:focus, textarea:focus { 
+    outline: none; /* Removes default browser focus ring */
+    border-color: var(--primary-gold); /* Highlights active field with gold border */
+    box-shadow: 0 0 0 1px rgba(197, 160, 89, 0.4), 0 10px 25px rgba(0, 0, 0, 0.4); /* Glow and depth */
+    transform: translateY(-2px); /* Tactile lift effect on focus */
+    background: #000; /* Pure black background for the active field */
 }
 
-input:focus,
-select:focus,
-textarea:focus { /* Unified focus state across all interactive fields */
-    outline: none; /* Removes browser default outlines */
-    border-color: var(--primary-gold); /* Highlights field with brand color */
-    box-shadow: 0 0 0 1px rgba(197, 160, 89, 0.55), 0 0 18px rgba(197, 160, 89, 0.3); /* Creates soft glowing ring */
-    transform: translateY(-1px); /* Tiny lift for tactile feedback */
-    background: #111; /* Slightly darkens background to emphasize active state */
+/* Custom Dropdown Arrow styling */
+select { 
+    appearance: none; /* Hides the ugly default browser dropdown arrow */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23c5a059' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E"); /* Gold SVG Chevron */
+    background-repeat: no-repeat; /* Prevents arrow tiling */
+    background-position: right 18px center; /* Positions arrow inside the right edge */
+    padding-right: 45px; /* Ensures text doesn't overlap the arrow */
 }
 
-/* Custom Dropdown Arrow */
-select { /* Refines the default select to match the premium design */
-    appearance: none; /* Hides default OS arrow for custom styling */
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23c5a059' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E"); /* Inline SVG chevron in brand gold */
-    background-repeat: no-repeat; /* Ensures icon is only drawn once */
-    background-position: right 16px center; /* Positions chevron inside the field */
-    padding-right: 40px; /* Adds room so text doesn’t overlap icon */
+/* ==========================================================================
+   5. NAVIGATION & SELECTION BRANCHES
+   ========================================================================== */
+
+.branch-ui { 
+    display: flex; /* Arranges Service/Program cards side-by-side */
+    gap: 24px; /* Space between the two selection cards */
+    margin: 40px 0; /* Vertical spacing from previous content */
 }
 
-/* 7. Branch Selection UI (Radio Cards) */
-.branch-ui { /* Horizontal row of Service vs Program cards */
-    display: flex; /* Places options side-by-side */
-    gap: 18px; /* Space between cards */
-    margin-bottom: 28px; /* Separates from subsequent content */
+.ui-card { 
+    flex: 1; /* Ensures cards are always exactly the same width */
+    cursor: pointer; /* Changes cursor to hand for interactivity signal */
 }
 
-.ui-card { /* Wrapper for a single radio card */
-    flex: 1; /* Equal widths for each option */
-    cursor: pointer; /* Indicates that the whole card is clickable */
+.ui-card input { 
+    display: none; /* Hides the native radio button entirely */
 }
 
-.ui-card input { /* Hides the underlying radio */
-    display: none; /* Keeps semantics without visual clutter */
+.ui-card-content { 
+    background: rgba(18, 18, 18, 0.96); /* Neutral card background */
+    border: 1px solid rgba(255, 255, 255, 0.05); /* Very faint border */
+    padding: 40px 20px; /* Spacious internal padding */
+    border-radius: 18px; /* Rounded corners for the cards */
+    text-align: center; /* Centers icon and label */
+    transition: all 0.3s ease; /* Smooth hover and selection transitions */
+    display: flex; /* Vertically aligns icon and label */
+    flex-direction: column; /* Icon sits on top of label */
+    align-items: center; /* Centers items horizontally */
+    gap: 15px; /* Vertical gap between icon and text */
 }
 
-.ui-card-content { /* Styled surface for the clickable card */
-    background: rgba(18, 18, 18, 0.96); /* Dark neutral base */
-    border: 1px solid rgba(70, 70, 70, 0.9); /* Soft neutral border */
-    padding: 26px 22px; /* Internal spacing for icon + label */
-    border-radius: 14px; /* Rounds edges for a softer aesthetic */
-    text-align: center; /* Centers content horizontally */
-    transition: background-color var(--transition-speed), border-color var(--transition-speed), box-shadow var(--transition-speed), transform 0.2s ease; /* Smooth highlight transitions */
-    display: flex; /* Allows vertical alignment of icon and text */
-    flex-direction: column; /* Stacks icon over text */
-    align-items: center; /* Centers content horizontally */
-    gap: 10px; /* Space between icon and text */
+/* Selected state for the branch cards */
+.ui-card input:checked + .ui-card-content { 
+    border-color: var(--primary-gold); /* Gold border for selected choice */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6); /* Drop shadow to highlight choice */
+    background: radial-gradient(circle at top, #1f1a10, #0a0a0a); /* Inner gold glow effect */
+    transform: translateY(-4px); /* Persistent lift for the active choice */
 }
 
-.ui-card-content i { /* Icon at the top of each branch card */
-    font-size: 1.6rem; /* Slightly larger than typical body icons */
-    color: var(--cream-gold); /* Warm gold tone to draw attention */
+/* Main decision dropdown container */
+.selector-box { 
+    background: linear-gradient(145deg, #121212, #050505); /* Premium angled gradient */
+    padding: 50px 40px; /* Massive internal padding for focus */
+    border-radius: 20px; /* Corner curvature to match card */
+    border: 1px solid rgba(197, 160, 89, 0.4); /* Framed gold border */
+    margin: 50px 0; /* Significant vertical gap from rest of form */
+    text-align: center; /* Centers the question and the select */
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.7); /* Strong depth shadow */
 }
 
-.ui-card-content span { /* Text label for each branch card */
-    font-weight: 600; /* Stronger than regular body text */
-    letter-spacing: 0.05em; /* Adds decision-dashboard feel */
-    text-transform: uppercase; /* Stresses categorical nature of the choice */
-    font-size: 0.9rem; /* Compact yet readable */
+.selector-box label { 
+    display: block; /* Places label on its own line */
+    font-size: 1.5rem; /* Large, bold font for the main question */
+    font-weight: 800; /* Heaviest weight for emphasis */
+    color: var(--cream-gold); /* Bright gold text */
+    margin-bottom: 25px; /* Space between the question and the dropdown */
 }
 
-.ui-card input:checked + .ui-card-content { /* Visual state when a card is selected */
-    border-color: var(--primary-gold); /* Highlights selected card boundary */
-    box-shadow: 0 0 20px rgba(197, 160, 89, 0.22); /* Soft halo around card */
-    background: radial-gradient(circle at top, #1f1a10, #131313); /* Adds a subtle gold-tinted glow */
-    transform: translateY(-2px); /* Slight lift to indicate selection */
+/* ==========================================================================
+   6. NESTED FORMS & CHECKBOX GROUPS
+   ========================================================================== */
+
+.sub-branch-form { 
+    padding: 45px; /* Deep internal cushion */
+    background: rgba(10, 10, 10, 0.8); /* Slightly different dark shade for layering */
+    border-radius: 20px; /* Rounded edges */
+    border-left: 4px solid var(--primary-gold); /* Gold bar signals which branch is active */
+    margin-top: 40px; /* Space from the selector above */
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8); /* Depth shadow */
 }
 
-.ui-card-content:hover { /* Hover treatment even before selection */
-    border-color: rgba(197, 160, 89, 0.4); /* Signals interactivity */
+/* "Interested in" grouping container */
+.checkbox-group { 
+    background: rgba(255, 255, 255, 0.02); /* Translucent background for grouping */
+    padding: 35px; /* Internal spacing */
+    border-radius: 15px; /* Modern rounding */
+    border: 1px solid rgba(255, 255, 255, 0.05); /* Faint container border */
+    margin: 50px 0; /* External vertical gap */
 }
 
-/* 8. Selector Box (Service/Program Choice) */
-.selector-box { /* Highlighted area for the "Which service/program?" dropdowns */
-    background: linear-gradient(145deg, #151515, #090909); /* Premium angled gradient for focus area */
-    padding: 36px 30px; /* Comfortable spacing around the selector’s content */
-    border-radius: 18px; /* Echoes the main card’s curvature */
-    border: 1px solid rgba(197, 160, 89, 0.35); /* Gold-tinted border that frames the selector */
-    margin: 30px 0; /* Separates the selector from surrounding sections */
-    text-align: center; /* Centers the label and dropdown horizontally */
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.55); /* Adds perceived depth and importance */
+.checkbox-group p { 
+    color: var(--primary-gold); /* Gold sub-heading text */
+    font-weight: 800; /* Bold sub-heading */
+    font-size: 1.2rem; /* Distinct header size */
+    margin-bottom: 25px; /* Space before the list starts */
+    text-transform: uppercase; /* Structural casing */
+    letter-spacing: 1.5px; /* Wide tracking for clarity */
 }
 
-.selector-box label { /* Label for the main selector dropdown */
-    display: block; /* Ensures the label occupies its own line */
-    font-size: 1.3rem; /* Injects prominence without overshadowing h1 */
-    font-weight: 800; /* Strong weight for primary question */
-    color: var(--cream-gold); /* Slightly lighter gold for readability */
-    margin-bottom: 18px; /* Space before the select control */
+/* Custom checkbox label behavior */
+.checkbox-group label { 
+    display: inline-flex; /* Shrinks label width to content so text hugs its checkbox */
+    align-items: center; /* Centers text with checkbox box */
+    justify-content: flex-start; /* Keeps text directly next to the checkbox */
+    gap: 12px; /* Gap between box and text */
+    margin-bottom: 18px; /* Space between different options */
+    cursor: pointer; /* Interaction signal */
+    font-size: 1.05rem; /* Slightly larger text for options */
+    transition: 0.2s ease; /* Hover transition */
 }
 
-.selector-box select { /* Large combobox for choosing service/program */
-    max-width: 460px; /* Avoids stretching too wide on desktops */
-    height: 58px; /* Taller height for tap targets */
-    font-size: 1.05rem; /* Slightly larger text for primary choice */
-    border: 2px solid var(--primary-gold); /* Strong border to signify importance */
-    background-color: var(--bg-black); /* Keeps interior dark and focused */
+.checkbox-group label:hover { 
+    color: var(--primary-gold); /* Gold text on hover */
+    transform: translateX(8px); /* Subtle slide to indicate hover */
 }
 
-/* 9. Sub-Branch Forms */
-.branch-container { /* Wraps the entire branch logic region */
-    margin-top: 16px; /* Gentle spacing between the selector and nested panels */
+/* ==========================================================================
+   7. FINAL AFFIRMATION & SUBMISSION
+   ========================================================================== */
+
+.acknowledgment { 
+    margin: 60px 0; /* Massive gap from fields for finality */
+    padding: 24px 30px; /* Padding for the pill-shape */
+    background: linear-gradient(90deg, rgba(197, 160, 89, 0.15), rgba(0, 0, 0, 0.4)); /* Premium highlight gradient */
+    border-radius: 100px; /* Pill-shaped container */
+    border: 1px solid rgba(197, 160, 89, 0.4); /* Gold ring around affirmation */
 }
 
-.sub-branch-form { /* Panels for each specific branch (Nikkah, Zakat, etc.) */
-    padding: 28px 26px; /* Internal breathing room for many fields */
-    background: rgba(10, 10, 10, 0.96); /* Deep neutral to separate from card background */
-    border-radius: 16px; /* Smooth edges */
-    border-left: 3px solid var(--primary-gold); /* Strong visual marker for active branch */
-    margin-top: 24px; /* Vertical division from previous content */
-    box-shadow: 0 22px 46px rgba(0, 0, 0, 0.8); /* Adds layered depth under branch panels */
+/* Custom Checkmark visuals */
+.checkmark { 
+    height: 28px; /* Box height */
+    width: 28px; /* Box width */
+    background: radial-gradient(circle at top left, #fffbe8, #b88a3f); /* Metallic gold finish */
+    border-radius: 8px; /* Square rounding */
+    position: relative; /* Context for the tick mark */
+    flex-shrink: 0; /* Prevents the box from squashing */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5); /* Icon depth shadow */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.23, 1); /* Smooth snap animation */
 }
 
-.sub-branch-form h3 { /* Titles for sub-branch panels */
-    font-size: 1.25rem; /* Distinct from section title yet strong */
-    color: var(--cream-gold); /* Light gold for emphasis */
-    margin: 0 0 8px; /* Tight spacing above fields */
+.form-footer { 
+    margin-top: 100px; /* BUFFER: Forces the submit button away from any content */
+    padding-top: 40px; /* Internal cushion above the button */
+    border-top: 1px solid rgba(255, 255, 255, 0.05); /* Final horizontal dividing line */
 }
 
-.sub-branch-form p { /* Optional intro sentences under branch titles */
-    color: #aca38f; /* Muted, warm explanatory text */
-    margin: 0 0 16px; /* Bottom margin only */
-    font-size: 0.9rem; /* Slightly reduced size to indicate secondary role */
+.portal-btn { 
+    width: 100%; /* Spans full width for a strong anchor */
+    background: linear-gradient(90deg, var(--primary-gold), #e2c47b); /* High-end gold gradient */
+    color: var(--bg-black); /* Dark text on bright button for readability */
+    padding: 24px; /* Large target for clicks/taps */
+    font-weight: 900; /* Maximum bold for call-to-action */
+    font-size: 1.1rem; /* Clear text size */
+    text-transform: uppercase; /* Action casing */
+    letter-spacing: 0.15em; /* Impactful tracking */
+    border: none; /* Removes default button borders */
+    border-radius: 100px; /* Pill-shaped button */
+    cursor: pointer; /* Interaction signal */
+    transition: all 0.25s ease; /* Hover and active state timing */
 }
 
-/* 10. Checkbox Groups (Interested In) */
-.checkbox-group { /* Container for grouped "Interested in" checkmarks */
-    background: rgba(255, 255, 255, 0.03); /* Light translucent panel to group options */
-    padding: 30px; /* Internal spacing so options aren’t crowded */
-    border-radius: var(--radius-card); /* Matches other card radii for consistency */
-    border: 1px solid rgba(255, 255, 255, 0.05); /* Subtle border to define the area */
-    margin: 40px 0; /* Vertical gap separating from other sections */
-}
-
-.checkbox-group p { /* Heading inside the checkbox group */
-    color: var(--primary-gold); /* Uses primary gold to label this sub-section */
-    font-weight: 800; /* Bold weight to stand out from surrounding text */
-    font-size: 1.2rem; /* Slightly larger text for mini-heading */
-    margin-bottom: 20px; /* Space before the list of checkboxes */
-    text-transform: uppercase; /* Makes the group label structural */
-    letter-spacing: 1px; /* Widens tracking to look like a sub-heading */
-}
-
-.checkbox-group label { /* Each row of checkbox + label text */
-    display: flex; /* Aligns box and text on a single line */
-    align-items: center; /* Vertically centers text and checkbox */
-    gap: 15px; /* Spacing between the checkbox and text */
-    margin-bottom: 15px; /* Gap between option rows */
-    cursor: pointer; /* Signals clickable region */
-    font-size: 1.05rem; /* Slightly larger than body for clarity */
-    color: var(--text-white); /* High contrast option text */
-    transition: var(--transition-speed); /* Smooth hover movement/color */
-}
-
-.checkbox-group label:hover { /* Hover feedback for option rows */
-    color: var(--primary-gold); /* Highlights text on hover */
-    transform: translateX(6px); /* Small slide to show interaction */
-}
-
-.checkbox-group input[type="checkbox"] { /* Checkbox visuals within the group */
-    width: 20px; /* Slightly larger than default for better accessibility */
-    height: 20px; /* Matches width to remain square */
-    accent-color: var(--primary-gold); /* Uses brand gold for the checked state */
-}
-
-/* 11. Acknowledgment Block and Custom Checkmark */
-.acknowledgment { /* Container for affirmation / consent statements */
-    margin: 32px 0; /* Vertical spacing away from other inputs */
-    padding: 22px 22px 22px 26px; /* Balanced padding inside the acknowledgment pill */
-    background: radial-gradient(circle at left, rgba(197, 160, 89, 0.2), rgba(15, 15, 15, 0.98)); /* Warm gradient to draw attention */
-    border-radius: 999px; /* Pill-shaped container for a premium chips-like feel */
-    border: 1px solid rgba(197, 160, 89, 0.4); /* Defined gold-tinted border */
-}
-
-.checkbox-container { /* Layout for the main acknowledgment checkbox + text */
-    display: flex; /* Places checkmark and text inline */
-    align-items: center; /* Centers text next to the check icon */
-    gap: 16px; /* Spacing between the icon and the copy */
-    cursor: pointer; /* Indicates the whole pill is interactive */
-    font-weight: 500; /* Slightly bold for legal/important language */
-    color: var(--text-white); /* Ensures maximum readability */
-}
-
-.checkbox-container input { /* Hides the raw checkbox input element */
-    position: absolute; /* Positions it off-layout but still clickable */
-    opacity: 0; /* Makes it invisible while remaining interactive */
-}
-
-.checkmark { /* Custom visual box that replaces the native checkbox */
-    height: 26px; /* Dimension of the check container */
-    width: 26px; /* Keeps it square */
-    background: radial-gradient(circle at top left, #fffbe8, #b88a3f); /* Soft metallic-gold look */
-    border-radius: 8px; /* Rounded corners to match the overall form softness */
-    position: relative; /* Establishes positioning context for the tick mark */
-    flex-shrink: 0; /* Prevents the box from shrinking on narrow screens */
-    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.6); /* Thin outer edge for definition */
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.23, 1); /* Smooth animated state changes */
-}
-
-.checkbox-container input:checked ~ .checkmark { /* Visual state when acknowledgment is checked */
-    box-shadow: 0 0 20px rgba(197, 160, 89, 0.7); /* Adds a bright glow to emphasize confirmation */
-    transform: translateY(-1px) scale(1.02); /* Slight lift and scale for tactile feedback */
-}
-
-.checkmark:after { /* The tick mark rendered inside the custom box */
-    content: ""; /* Empty content used purely for visuals */
-    position: absolute; /* Positioned relative to the checkmark box */
-    display: none; /* Hidden by default until checked */
-    left: 8px; /* Horizontal offset from the left edge */
-    top: 4px; /* Vertical offset from the top edge */
-    width: 7px; /* Width of the tick line segment */
-    height: 14px; /* Height of the tick line segment */
-    border: solid #111; /* Dark stroke color for contrast on gold */
-    border-width: 0 3px 3px 0; /* Draws only the right and bottom sides of the border to form the check */
-    transform: rotate(45deg); /* Rotates the border lines into a checkmark shape */
-}
-
-.checkbox-container input:checked ~ .checkmark:after { /* Shows the tick when checked */
-    display: block; /* Reveals the checkmark inside the box */
-}
-
-/* 12. Form Footer & Submit Button */
-.form-footer { /* Area that holds the main submission button */
-    margin-top: 64px; /* Creates breathing room above the footer */
-    padding-top: 32px; /* Adds internal top padding above the button */
-    border-top: 1px solid rgba(255, 255, 255, 0.05); /* Light divider before the final action */
-}
-
-.portal-btn { /* Primary submission button for the application */
-    width: 100%; /* Stretches to full card width for strong visual anchor */
-    background: linear-gradient(90deg, var(--primary-gold), #e2c47b); /* Rich gold gradient for a premium CTA */
-    color: var(--bg-black); /* High contrast black text over gold */
-    padding: 20px; /* Comfortable vertical size for click/tap */
-    font-weight: 900; /* Bold weight to signal primary action */
-    font-size: 1rem; /* Slightly larger than body text */
-    text-transform: uppercase; /* Reinforces the primary nature of the action */
-    letter-spacing: 0.12em; /* Widens letters for a button-like appearance */
-    border: none; /* Removes the default border */
-    border-radius: 999px; /* Pill-shaped button to match acknowledgment style */
-    cursor: pointer; /* Shows pointer on hover */
-    transition: transform 0.18s ease-out, box-shadow 0.22s ease-out, background 0.25s ease-out; /* Smooth hover/active transitions */
-}
-
-.portal-btn:hover { /* Hover state for the submit button */
-    background: linear-gradient(90deg, var(--hover-gold), #f0d58b); /* Slightly lighter gradient on hover */
-    box-shadow: 0 0 34px rgba(197, 160, 89, 0.7); /* Strong glow around the CTA */
-    transform: translateY(-1px); /* Tiny lift to make it feel clickable */
-}
-
-.portal-btn:active { /* Active/pressed state for the submit button */
-    transform: translateY(1px) scale(0.99); /* Subtle press-down effect */
-    box-shadow: 0 0 18px rgba(197, 160, 89, 0.45); /* Slightly reduced glow while pressed */
+.portal-btn:hover { 
+    box-shadow: 0 15px 45px rgba(197, 160, 89, 0.5); /* Outer gold glow on hover */
+    transform: translateY(-3px); /* Hover lift signal */
+    filter: brightness(1.1); /* Subtle shine effect */
 }
