@@ -106,23 +106,61 @@ document.querySelectorAll('.number, .impact-number').forEach(num => {
     observer.observe(num);
 });
 
-// Function to highlight the link
-function highlightCurrentPage() {
-    const currentPath = window.location.pathname;
-    // We look inside the placeholder specifically
-    const navLinks = document.querySelectorAll('#nav-placeholder a');
+/* ==========================================================================
+   NAVIGATION HIGHLIGHTER SCRIPT
+   ========================================================================== */
 
+/**
+ * Function to identify the current page and apply an 'active-page' class 
+ * to the corresponding navigation link.
+ */
+function highlightCurrentPage() {
+    // 1. Get the current URL path from the browser window
+    const currentPath = window.location.pathname;
+    
+    // 2. Extract just the filename (e.g., 'events.html') to avoid path issues
+    // If the path is empty (root), default to 'index.html'
+    const currentPage = currentPath.split("/").pop() || "index.html";
+
+    // 3. Select all anchor tags within the navigation containers
+    // We check both the mobile/standard links and the placeholder container
+    const navLinks = document.querySelectorAll('#nav-links a, #nav-placeholder a');
+
+    // 4. Iterate through every link found in the navigation
     navLinks.forEach(link => {
-        // This checks if the link href is part of the current URL
-        if (currentPath.includes(link.getAttribute('href')) && link.getAttribute('href') !== "/") {
+        // Clear any existing active classes to ensure a fresh state
+        link.classList.remove('active-page');
+
+        // Get the 'href' attribute value of the current link in the loop
+        const linkHref = link.getAttribute('href');
+        
+        // Safety check: if the link has no href, skip it
+        if (!linkHref) return;
+
+        // Extract the filename from the link's href for comparison
+        const linkPage = linkHref.split("/").pop();
+
+        // LOGIC A: Direct Match
+        // Checks if the current browser page matches the link's destination
+        if (currentPage === linkPage) {
             link.classList.add('active-page');
         } 
-        // Special case for Home
-        else if (currentPath === "/" && link.getAttribute('href') === "/index.html") {
+        
+        // LOGIC B: Special Case for Home
+        // Ensures 'Home' is highlighted if the path is the root directory
+        else if ((currentPage === "" || currentPage === "index.html") && linkPage === "index.html") {
             link.classList.add('active-page');
         }
     });
 }
+
+/**
+ * EXECUTION:
+ * We run the function on 'DOMContentLoaded' to ensure the HTML is ready.
+ * NOTE: If you use an external loader (like fetch) to inject your navbar,
+ * you must call highlightCurrentPage() inside that loader's callback.
+ */
+document.addEventListener("DOMContentLoaded", highlightCurrentPage);
 
 // Update your fetch to call the function AFTER the data is loaded
 fetch('components/nav.html')

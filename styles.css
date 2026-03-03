@@ -1596,3 +1596,37 @@ img.displaySlide {
     margin-right: 12px;                  /* Space after the symbol */
     color: var(--cream-gold);            /* Lighter gold for the icon */
 }
+
+
+/* ==========================================================================
+   ACTIVE PAGE HIGHLIGHT STYLES
+   ========================================================================== */
+
+/* This class is dynamically added by the JavaScript above. 
+   It ensures the user knows exactly which page they are currently on.
+*/
+.active-page {
+    /* Uses the primary gold variable for consistency */
+    color: var(--primary-gold) !important; 
+    
+    /* Adds a subtle underline to emphasize the active state */
+    border-bottom: 2px solid var(--primary-gold);
+    
+    /* Increases font weight for better visibility */
+    font-weight: bold;
+    
+    /* Ensures the highlight doesn't jump by adding a small padding */
+    padding-bottom: 5px;
+    
+    /* Transition applied to make the highlight feel smooth if toggled */
+    transition: var(--transition-speed);
+}
+
+/* Hover effect for active links to maintain 
+   interactivity even when already selected. 
+*/
+.active-page:hover {
+    /* Uses the lighter cream-gold variable on hover */
+    color: var(--cream-gold) !important;
+    border-color: var(--cream-gold);
+}
