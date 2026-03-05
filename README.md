@@ -1,33 +1,52 @@
-🌙 Open Source Masjid Template (WIP)
-This is a public repository providing the foundational code for a modern, responsive Masjid website. I am building this as a service to the community and as a personal learning project.
+I hear you—sometimes raw Markdown looks a bit dry when you're trying to showcase a high-quality project. Let's punch this up with better visual hierarchy, cleaner sections, and a more "professional-yet-humble" tone that highlights your growth.
 
-[!IMPORTANT]
-Work in Progress: I am learning as I go! The code might not be perfect yet, but it’s a functional starting point that I'm constantly refining. I'm sharing this so others can use it as a base for their own local Masjid sites.
+Here is a version designed to look sharp on a GitHub README:
 
-🚀 Live Demo
-Explore the Template Demo Here
+---
 
-🛠️ Built for Customization
-I’ve designed this to be "plug-and-play" for other developers or Masjid admins:
+# 🕌 Masjid Website Template (Open Source)
 
-🎨 Centralized Theming: I used :root variables in the CSS. You can change the entire color scheme (including the "Golden Glow" accents) in one place without hunting through lines of code.
+A modern, fast, and community-focused web application foundation. This project is a **public, reusable template** designed to help any Masjid establish a professional digital presence with ease.
 
-🧩 Modular Architecture: To keep things "DRY" (Don't Repeat Yourself), I built a custom JavaScript loader. It uses the Fetch API to inject nav.html and footer.html into every page automatically.
+> [!NOTE]
+> **A Learning Journey:** I am building this project to serve the community and to grow my skills as a developer. It is a work in progress—I’m learning every day, so the code evolves as I do!
 
-🕋 Mawaqit Integration: Pre-configured with the Mawaqit API for real-time prayer times, iqamah countdowns, and Hijri dates.
+## 🚀 Live Demo
 
-📱 Mobile-First: Clean layouts using Flexbox and Grid, optimized for community members checking prayer times on their phones.
+Check out the current build here:
 
-📈 Roadmap (The "Learning" List)
-I will be adding more advanced features as I continue to grow my skills:
+**[Explore the Live Site](https://uncle-ma.github.io/Custom-Mosque-Website/)**
 
-[ ] Backend Integration: Moving from static files to a dynamic system.
+---
 
-[ ] Enhanced JavaScript: Adding more interactive logic for event sign-ups.
+## 🛠️ Tech Stack & Architecture
 
-[ ] Expanded Templates: Finalizing detailed pages for Hifz programs and community services.
+I built this using a "Vanilla" approach to keep it lightweight and easy for anyone to understand without needing complex frameworks.
 
-🤝 Help Me Improve!
-Since I am building this to learn, I welcome your feedback. If you see a bug, a better way to structure the CSS, or a more efficient JS method, please feel free to open a Pull Request!
+* **Frontend:** HTML5 & CSS3 (Custom Flexbox/Grid layouts)
+* **Logic:** Vanilla JavaScript (ES6+)
+* **Dynamic Components:** Uses the **Fetch API** to inject `nav.html` and `footer.html`. This keeps the code "DRY" (Don't Repeat Yourself)—update your menu once, and it changes everywhere!
+* **API Integration:** Pre-configured with the **Mawaqit API** for real-time prayer schedules and iqamah countdowns.
 
-Built with 💡 and  by Abdirahman Mahamud
+## ✨ High-Value Features
+
+* **🎨 Simple Theming:** I’ve centralized the design in the CSS `:root`. You can change the primary colors, "Golden Glow" accents, and branding in one single place.
+* **📱 Mobile-First:** Designed specifically for congregants who need to check prayer times quickly on their phones.
+* **⚡ Foundational Code:** This isn't just a demo; it’s a skeleton you can fork and fill with your own community's content.
+
+## 📈 Roadmap (What's Coming Next)
+
+As I continue to learn, I'll be pushing updates to make this a **Complete Demo**:
+
+* [ ] **Backend Integration:** Moving from static data to dynamic management.
+* [ ] **Advanced JS:** Adding more interactive logic for events and registrations.
+* [ ] **Refined UI:** Polishing animations and accessibility features.
+
+---
+
+## 🤝 Contributing & Feedback
+
+Since this is a learning project, **your input is a gift.** If you see a way to make the code cleaner, the CSS more efficient, or the UI more intuitive, please open a Pull Request!
+
+*Built with 💡 by [Abdirahman Mahamud*](https://uncle-ma.netlify.app/)
+
